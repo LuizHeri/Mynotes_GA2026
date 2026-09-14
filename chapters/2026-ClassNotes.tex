@@ -801,13 +801,16 @@ Let $W\in\Gr_d(V)$, we see that
 $\psi(W)\in D(X_{(1,\dots,d)})$ if and only if $\det(a_{ij})_{i,j=1}^d\neq0$. In this case, by row reduction, we can assume 
 that $a_{ij}=\delta_{ij},\;(1\leq i,j\leq d)$, so $W$ has a basis 
 consisting of vectors of the form $w_i = v_i+\sum_{j>d}a_{ij}v_j,\;i=1,\dots,d$. Now define $J_{pq}$ as the tuple 
-$(j_1,\dots, j_d)$ such that $j_k=k\;(k<p),\;j_{k}=k+1,\;(p\leq k<d)$ and $j_d=q\in\{d+1,\dots,n\}$. With this notation, we 
-see that $a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d)$ and 
+$(j_1,\dots, j_d)$ such that $j_k=k\;(k < p),\;j_{k}=k+1,\;(p\leq k<d)$ and $j_d=q\in\{d+1,\dots,n\}$. With this notation, we 
+see that $a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d)$. So, for any 
+$J=(j_1,\dots,j_d)\in\mathcal{J}$, the expression $\det(a_{ij_k})_{i,k=1}^d$ is a polynomial 
+$f_J(X)\in k[X_{J_{pq}}: 1\leq p\leq d, d<q\leq n]\subset k[\bigwedge^d V]$ and we see that 
 \begin{equation}
     \begin{split}
         &\varphi_{(1,\dots,d)}(\text{Im}(\psi)\cap D(X_{(1,\dots,d)}))\\
-        &\quad =V(X_J-\det(X_{J_{pq}}):\forall (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\})
+        &\quad =V(X_J-f_J(X):\forall J=(j_1,\dots,j_d)\in\mathcal{J}\setminus\{(1,\dots,d)\})
     \end{split}
 \end{equation}
 which is closed, so $\text{Im}(\psi)\cap D(X_{(1,\dots,d)})$ is closed. With the same argument applied to the other 
-principal open subsets $D(X_J)$, we see that $\text{Im}(\psi)$ is closed.
+principal open subsets $D(X_J)$, we see that $\text{Im}(\psi)$ is closed. It's important to no note that 
+the row echelon form of $A=(a_{ij})$ gives an affine coordinate expression for $\psi(W)\in U_{(1,\dots,d)}$.

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1789353706.37687 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1789394674.25815 -1
   "bibliography.bib" 1788385131 511 1802c435450db4b77d6533ca336c2aa3 ""
-  "main.bcf" 1789353706 108771 b8b63aa6f5744870d29b2b8d6acdf0fa "pdflatex"
+  "main.bcf" 1789394673 108771 b8b63aa6f5744870d29b2b8d6acdf0fa "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1789353704.22609 "c:/Users/herin/OneDrive/Documents/Matematica/Algebraic Geometry 2026/Mynotes_GA2026/main.tex" "main.pdf" "main" 1789353706.37747 0
+["pdflatex"] 1789394671.73057 "c:/Users/herin/OneDrive/Documents/Matematica/Algebraic Geometry 2026/Mynotes_GA2026/main.tex" "main.pdf" "main" 1789394674.25892 0
   "C:/Users/herin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769977687 81919 f03c646d66c2441846ff09182cd09695 ""
   "C:/Users/herin/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1765139255 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/herin/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1765139256 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -276,21 +276,21 @@
   "C:/Users/herin/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/herin/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/herin/AppData/Local/Programs/MiKTeX/tex/latex/yfonts/yfonts.sty" 1554482334 4491 ce392d5b8dc51027fcbcd62c6c980bc3 ""
-  "bibliography.aux" 1789353706 4660 7435cc387617dd54e1ca871ec6244a8e "pdflatex"
+  "bibliography.aux" 1789394673 4660 7435cc387617dd54e1ca871ec6244a8e "pdflatex"
   "bibliography.tex" 0 -1 0 ""
   "c:/Users/herin/OneDrive/Documents/Matematica/Algebraic Geometry 2026/Mynotes_GA2026/main.tex" 1787782822 831 9cccc44456b112e4c47f17d618abd629 ""
-  "chapters/2026-ClassNotes.aux" 1789353705 6655 e506cad1a268d4240241d40807cb4546 "pdflatex"
-  "chapters/2026-ClassNotes.tex" 1789353703 42155 63dd456f8e102cc79979e281d6095e18 ""
-  "chapters/AlgebraicGroups.aux" 1789353706 5169 75c7b722e5e313f217e3347ded554287 "pdflatex"
+  "chapters/2026-ClassNotes.aux" 1789394673 6655 e506cad1a268d4240241d40807cb4546 "pdflatex"
+  "chapters/2026-ClassNotes.tex" 1789394671 42500 aa4f9a2acf513f1c32b349618eda4fd7 ""
+  "chapters/AlgebraicGroups.aux" 1789394673 5169 75c7b722e5e313f217e3347ded554287 "pdflatex"
   "chapters/AlgebraicGroups.tex" 1788385138 26053 e0d1c7febe3ecea43ce296810756f775 ""
-  "chapters/Lista.aux" 1789353706 4853 6967c609238ece625cf8cf688b3ddbdb "pdflatex"
+  "chapters/Lista.aux" 1789394673 4853 6967c609238ece625cf8cf688b3ddbdb "pdflatex"
   "chapters/Lista.tex" 1787947795 1306 5465cfc64ed427711205f1c2381e23ee ""
-  "main.aux" 1789353706 889 27e4bcf6f1c034a87d13a2214ba70768 "pdflatex"
+  "main.aux" 1789394673 889 27e4bcf6f1c034a87d13a2214ba70768 "pdflatex"
   "main.bbl" 1789343349 4062 4b9902721ae7b45fd5ad2adf026d9def "biber main"
-  "main.out" 1789353706 1665 502f38e3ba96964752c85140084efc22 "pdflatex"
-  "main.run.xml" 1789353706 2307 fa280d158a7733084a6a66e2106e4193 "pdflatex"
+  "main.out" 1789394673 1665 502f38e3ba96964752c85140084efc22 "pdflatex"
+  "main.run.xml" 1789394674 2307 fa280d158a7733084a6a66e2106e4193 "pdflatex"
   "main.tex" 1787782822 831 9cccc44456b112e4c47f17d618abd629 ""
-  "main.toc" 1789353706 930 97ddae5988f882f363f05d6cf72ae3da "pdflatex"
+  "main.toc" 1789394674 930 97ddae5988f882f363f05d6cf72ae3da "pdflatex"
   "packages/core.sty" 1764993314 2363 5fea29727f664a523a77519006377d4a ""
   "packages/dang.sty" 1786806220 626 9e3165967229bf4484d2d774b1a1b733 ""
   "packages/hcalculation.sty" 1764993314 557 326651bca1e629d9e947bdaa4764cacf ""
