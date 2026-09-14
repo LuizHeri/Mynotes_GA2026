@@ -798,7 +798,8 @@ $v_J = v_{j_1}\wedge\cdots\wedge v_{j_d}$. Then we have the basis $\{v_J\}_{J\in
 write $X_J$ for the corresponding coordinate functions.\par 
 
 Let $W\in\Gr_d(V)$, we see that 
-$\psi(W)\in D(X_{(1,\dots,d)})$ if and only if $\det(a_{ij})_{i,j=1}^d\neq0$. In this case, $W$ has a basis 
+$\psi(W)\in D(X_{(1,\dots,d)})$ if and only if $\det(a_{ij})_{i,j=1}^d\neq0$. In this case, by row reduction, we can assume 
+that $a_{ij}=\delta_{ij},\;(1\leq i,j\leq d)$, so $W$ has a basis 
 consisting of vectors of the form $w_i = v_i+\sum_{j>d}a_{ij}v_j,\;i=1,\dots,d$. Now define $J_{pq}$ as the tuple 
 $(j_1,\dots, j_d)$ such that $j_k=k\;(k<p),\;j_{k}=k+1,\;(p\leq k<d)$ and $j_d=q\in\{d+1,\dots,n\}$. With this notation, we 
 see that $a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d)$ and 
