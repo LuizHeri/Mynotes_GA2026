@@ -206,7 +206,7 @@ Now, by projecting this equation onto $k[X_1,\dots, X_{n+1}]/(1-g X_{n+1})$, we 
     g^\ell(X_1,\dots,X_n) = \sum_{j=1}^m h_j(X_1,\dots, X_{n+1})g^\ell  \times f_j(X_1,\dots,X_n)
 \end{equation}
 modulo $(1-g X_{n+1})$, where $H_j = h_j(X_1,\dots, X_{n+1})g^\ell\in k[X_1,\dots,X_n],\;\forall j$ if $\ell\gg0$. 
-Since $\{\overline{X}_1,\dots,\overline{X}_{n+1}\}$ is algebraically free in $k[X_1,\dots, X_{n+1}]/(1-g X_{n+1})$, we 
+Since $\{\overline{X}_1,\dots,\overline{X}_{n}\}$ is algebraically free in $k[X_1,\dots, X_{n+1}]/(1-g X_{n+1})$, we 
 conclude that, in fact, we have equality 
 \begin{equation}
      g^\ell(X_1,\dots,X_n) = \sum_{j=1}^m H_j(X_1,\dots,X_n)  \times f_j(X_1,\dots,X_n)
@@ -300,7 +300,7 @@ $\overline{D(f)}=k^n$.\qed
 
 \begin{dang}
     \begin{lemma}\label{lemma: regular functions on principal open sets}
-        Let $V\subset k^n$ be an affine algebraic set and $g\in k[X_1,\dots, X_n]$. Then the ser of regular functions 
+        Let $V\subset k^n$ be an affine algebraic set and $g\in k[X_1,\dots, X_n]$. Then the set of regular functions 
         $\varphi: D_V(g)\to k$ is of the form $f/g^m$ for some $f\in k[X_1,\dots, X_n]$ and $m>0$. So 
         \begin{equation}
             \mathcal{O}_V(D_V(g)) \cong \widetilde{\psi}(k[X_1,\dots,X_n]_g)
@@ -426,6 +426,15 @@ The second item is clear.\qed
     \end{definition}
 \end{dang}
 
+\begin{remark}
+    Being a morphism of function spaces is a local property. In fact, let $f:X\to Y$ be a morphism of function spaces and 
+    suppose that $Y=\bigcup_\lambda V_\lambda$ and for each $\lambda$:
+    \begin{equation}
+        f|_{f^{-1}(V_\lambda)}:f^{-1}(V_\lambda)\to V_\lambda
+    \end{equation}
+    is a morphism. Then $f$ is a morphism.
+\end{remark}
+
 \begin{dang}
     \begin{definition}
         An \underline{affine algebraic variety} is a function space $(X,\mathcal{O}_X)$ isomorphic to 
@@ -529,7 +538,7 @@ sheaf morphism would be an isomorphism by construction).\qed
 \begin{dang}
     \begin{remark}
         Let $(X,\mathcal{O}_X)$ be an affine algebraic variety and 
-        $\varphi:(V,\mathcal{O}_V)\to (X,\mathcal{O_X})$ an isomorphism, where $v\subset k^n$ is an algebraic set. 
+        $\varphi:(V,\mathcal{O}_V)\to (X,\mathcal{O}_X)$ an isomorphism, where $V\subset k^n$ is an algebraic set. 
         Then this isomorphism, induces another isomorphism
         \begin{equation}
             (D_V(F),\mathcal{O}_{D_V(F)}) \to (X_f,\mathcal{O}_{X_f})
@@ -548,4 +557,256 @@ are affine algebraic varieties.
 
 
 
-\section{Lecture 5}
+\section{Lecture 5 and 6}
+
+\begin{dang}
+    \begin{theorem}
+        Suppose that we have the data:
+\begin{itemize}
+    \item $(X_\lambda)_{\lambda\in\Lambda}$ function spaces over $k$
+    \item $\forall\lambda,\mu\in\Lambda$ let $U_{\lambda\mu}\subset X_\lambda$
+    \item $\forall\lambda,\mu\in\Lambda$ an isomorphism
+    \begin{equation}
+        \varphi_{\lambda\mu}:U_{\lambda\mu}\rightarrow U_{\mu\lambda}
+    \end{equation} 
+\end{itemize}
+Furthermore, assume that 
+\begin{itemize}
+    \item $U_{\lambda\lambda} = X_\lambda,\;\varphi_{\lambda\lambda} = \mathds{1}_{X_\lambda}$
+    \item $\forall\lambda,\mu,\nu\in\Lambda$, we have 
+    \begin{equation}
+        \begin{split}
+            &\varphi_{\lambda\mu}(U_{\lambda\mu}\cap U_{\lambda\nu})\subset U_{\mu\lambda}\cap U_{\mu\nu}\\
+            &\varphi_{\mu\nu}\varphi_{\lambda\mu}\big|_{U_{\lambda\mu}\cap U_{\lambda\nu}}=\varphi_{\lambda\nu}\big|_{U_{\lambda\mu}\cap U_{\lambda\nu}}
+        \end{split}
+    \end{equation}
+\end{itemize}
+Then, $X=\coprod_{\lambda\in\Lambda}X_{\lambda}/\sim$, where we put $(\lambda,x)\sim (\mu,x^\prime)$ if and only if 
+$\varphi_{\lambda\mu}(x)=x^\prime$. One can verify that this defines an equivalence relation. Furthermore, 
+$X$ has a topology defined as the small topology such that all the maps $i_\lambda:X_\lambda\to X:x\mapsto [(\lambda,x)]$ 
+are continuous. We define a sheaf 
+\begin{equation}
+    \mathcal{O}_X(U)=\{f:U\to k: fi_\lambda\in \mathcal{O}_{X_\lambda}(i_\lambda^{-1}(U)),\;\forall\lambda\in\Lambda\}.
+\end{equation}
+With this sheaf, $(X,\mathcal{O}_X)$ is a function space satisfying the following universal property: 
+for any function space $Y$ and morphisms $j_\lambda: X_\lambda\to Y$such that:
+\begin{equation}
+    j_\mu \varphi_{\lambda\mu} = j_\lambda|_{U_{\lambda\mu}},
+\end{equation}
+there exist an unique morphism $f: X\to Y$ such that 
+$fi_\lambda = j_\lambda$ (morphisms here, means morphisms of function spaces !). Furtherore, since 
+$i_\mu^{-1}i_\lambda(X_\lambda)=U_{\mu\lambda}\subset X_\mu,\;\forall\mu$, then $i_\lambda(U_\lambda)$ is open and 
+$i_\lambda$ are isomorphisms onto its images. So, if each $X_\lambda$ is an affine algebrai variety, then 
+$X$ is an abstract variety.
+    \end{theorem}
+\end{dang}
+Proof: Tedious.
+
+\begin{dang}
+    \begin{definition}
+        An abstract variety $X$ is separable if for any pair of affine open sets $U,V\subset X$, we have 
+        \begin{itemize}
+            \item[(1)] $U\cap V$ is affine
+            \item[(2)] The induced map 
+            \begin{equation}
+                \mathcal{O}(U)\otimes\mathcal{O}(V)\rightarrow \mathcal{O}(U\cap V): f\otimes g\mapsto f|_{U\cap V}\cdot 
+                g|_{U\cap V}
+            \end{equation}
+            is surjective.
+        \end{itemize}
+    \end{definition}
+\end{dang}
+
+
+\begin{example}
+    Let $X_0= X_1 = k^1$ and $U_{01}=U_{10}=k^1-\{0\}$. Define a map $\varphi_{01}:U_{01}\to U_{10}:x\mapsto 1/x$. 
+    We claim that $X = \mathbb{P}^1$ in the variety obtained by glueing $X_0$ and $X_1$ through $\varphi_{01}$. 
+    In fact, for $i=0,1$, let $g_i: X_i\to Y$ be two morphisms such that 
+    \begin{equation}
+        g_1\varphi_{01}=g_0\big|_{U_{01}}.
+    \end{equation}
+    That is, $g_1(1/x)=g_0(x)$. Then the following map is well defined:
+    \begin{equation}
+        \begin{split}
+             g:&X\to Y\\
+             &[1:y]\mapsto g_0(y)\\
+             &[x:1]\mapsto g_1(x)
+        \end{split}
+    \end{equation}
+    Moreover, by construction we have $g|_{U_i}=g_i\varphi_i$, where $\varphi_i: U_i\to k^1$ 
+    (here, $U_i=\{[x_0,x_1]:x_i\neq0\}$) are the standard charts of 
+    the projective plane $X$. So we se that $g$ is locally a morphism, i.e., it's a morphism.\par 
+
+    Is $X$ separable ? Consider the following diagram:
+    \begin{center}
+        \begin{tikzcd}
+            \callO_X(U_0)\otimes\callO_X(U_1)\arrow[rr]&&\callO_X(U_0\cap U_1)\arrow[dd]&&\\
+            &\varphi_0^{\#}(s)\otimes\varphi_1^{\#}(t)\arrow[rr, mapsto,red]&&\varphi_0^{\#}(s)\big|_{U_0\cap U_1}\varphi_1^{\#}(t)\big|_{U_0\cap U_1}\arrow[dd,mapsto,red]&\\
+            \callO_{k^1}(k^1)\otimes\callO_{k^1}(k^1)\arrow[uu]&&\callO_{k^1}(k^1-\{0\})&&\\
+            &s\otimes t\arrow[uu,mapsto, red]\arrow[rr,mapsto, red, dashed]&&(\varphi_0^{-1})^{\#}(\varphi_0^{\#}(s)\big|_{U_0\cap U_1}\varphi_1^{\#}(t)\big|_{U_0\cap U_1})&
+        \end{tikzcd}
+    \end{center}
+    So the composition $ \callO_{k^1}(k^1)\otimes\callO_{k^1}(k^1)\to \callO_{k^1}(k^1-\{0\})$ yields 
+\begin{equation}
+    s\otimes t \mapsto s\cdot t\circ \varphi_1\circ\varphi_0^{-1}\big|_{k^1-\{0\}}
+\end{equation}
+At the level of polynomial rings (see lemma~(\ref{lemma: regular functions on principal open sets})), this map is 
+\begin{equation}
+    k[x]\otimes k[y] \rightarrow k[u]_u\cong k[u,u^{-1}]: f\otimes g\mapsto f(u)g(u^{-1})
+\end{equation}
+which is clearly surjective. \TODO finish the argument.
+\end{example}
+
+\section{Lecture 6,7,8}
+\begin{remark}
+    Take the product topology on $k^1\times k^1$, where $k^1$ is equiped with Zariski topology. Let 
+    $U=k^1-S$ and $V=k^1-T$ ($S,\;T$ finite) be two open sets. Then 
+    $U\times V = k^1\times k^1 - (S\times k^1\cup k^1\times T)$ and in general, for a familiy of open sets 
+    $U_\lambda, V_\lambda$, we have the equality.
+    \begin{equation}
+    \begin{split}
+    &(\bigcup_\lambda U_\lambda\times V_\lambda)^c = \bigcap_\lambda S_\lambda\times k^1\cup k^1\times T_\lambda\\
+    &\quad=(\bigcap_\lambda S_\lambda\times k^1)\cup (k^1\times \bigcap_\lambda T_\lambda)    
+    \end{split}
+    \end{equation}
+    where $S_\lambda, T_\lambda$ are all finite. So any closed set $F\subset k^1\times k^1$ is of the form 
+    \begin{equation}
+        F = S\times k^1 \cup k^1\times T,\; \#S,\#T<\infty
+    \end{equation}
+    in the product topology. In particular, if $\# k =\infty$, then $V(X,Y)=\{0\}$ is not closed in the product topology.
+\end{remark}
+
+\TODO remains to study lect 8, Nullstelensatz for projective spaces and ``universal compactness'' theorem.
+\subsection{Segre embedding}
+\begin{remark}
+    Here, to ease notation, we will write $x=[x_0,\dots, x_m]$ sometimes.
+\end{remark}
+The Segre embedding is the map 
+\begin{equation}
+    \begin{split}
+          &s:\bbP^{m}\times\bbP^n\rightarrow \bbP^{(m+1)(n+1)-1}\\
+          &\quad([x_0,\dots,x_m],[y_0,\dots, y_n])\mapsto 
+          \left[\begin{matrix}
+            x_0y_0&x_0y_1&\dots&x_0y_n\\
+            x_1y_0&x_1y_1&\dots&x_1y_n\\
+            \vdots&\vdots&\vdots&\vdots\\
+            x_my_0&x_my_1&\dots&x_my_n
+          \end{matrix}\right]
+    \end{split}
+\end{equation}
+where we parametrize $\bbP^{(m+1)(n+1)-1}$ with projective coordinates $z_{ij},\;0\leq i\leq m,0\leq j\leq n$.
+We claim that $s(\bbP^m\times\bbP^n)$ is a closed subset. In fact, if we let 
+$z_{ij}=x_iy_j$, then we have $z_{ij}z_{pq}=z_{iq}z_{pj}$ and 
+\begin{equation}
+    s(\bbP^m\times\bbP^n)\subset V=V_p(z_{ij}z_{pq}-z_{pj}z_{iq},\;\forall p,q,i,j)\quad(*).
+\end{equation}
+Conversely, if we take $z\in V$, then $z_{ij}\neq0$ for some $i,j$. So we assume $z_{ij}=1$. Then we see that 
+$z_{pq} = z_{pj}z_{iq}$, so we can take $x_p  = z_{pj}$ and $y_q=z_{iq}$ to conclude that 
+$s(x,y)=z$. Then we conclude the equality of $(*)$. Furthermore, we claim that this map is injective. Let 
+$s(x,y)=s(x^\prime,y^\prime)$, then $x_py_q=\lambda x_p^\prime y_q^\prime$. Fix $q$ such that $y_q\neq0$, then 
+$x_p = (\frac{\lambda y_q^\prime}{y_q})x_p^\prime,\;\forall p$ and $x=x^\prime$. In a similar way we see that $y=y^\prime$.\par 
+
+As a corollary, we see that $s$ mapst $\bbP^m\times\bbP^n$ bijectively to a closed subset $V\subset\bbP^{(m+1)(n+1)-1}$. 
+We put a structure of abstract variety on $\bbP^m\times \bbP^n$ in such a way that $s$ is an isomorphism onto $V$. So we 
+see for example, that 
+\begin{equation}
+    \callO_{\bbP^m\times\bbP^n}(U)=(-\circ s)(\callO_V(s(U))).
+\end{equation}
+In a concrete way, a section $s\in \callO_{\bbP^m\times\bbP^n}$ is a quootient of bihomogeneous polynomials of bi degree $(d,d)$
+each one, for some $d\geq0$. In fact, if $F(z)\in k[\underline{z}]$ is homogeneous, then 
+\begin{equation}
+    F(z)=\sum a_\alpha\prod_{i,j}z_{ij}^{\alpha_{ij}},\; (i,j)\in\{0,\dots,m\}\times\{0,\dots,n\}.
+\end{equation}
+Therefore 
+\begin{equation}
+    \begin{split}
+        F\circ s (x,y) &= \sum a_\alpha\prod_{i,j}x_i^{\alpha_{ij}}y_j^{\alpha_{ij}}\\
+             &=\sum a_\alpha(\prod_i x_i^{\sum_j\alpha_{ij}})(\prod_j y_j^{\sum_i\alpha_{ij}})
+    \end{split}
+\end{equation}
+where $\sum_i \sum_j \alpha_{ij}=\sum_j\sum_i\alpha_{ij}=d$, the degree of $F$. It's easy to see that 
+a bihomogeneous polynomial of bidegree $(d,e)$ is also a section of $\callO_{\bbP^m\times\bbP^n}$.\par 
+
+\begin{dang}
+    \begin{lemma}
+        The variety $\bbP^m\times \bbP^n$ constructed via the Segre embedding is a product.
+    \end{lemma}
+\end{dang}
+Proof: Let $f:Z\to \bbP^m$ and $g:Z\to \bbP^n$ be morphisms. 
+We draw the following diagram
+\begin{center}
+    \begin{tikzcd}
+       &D(x_i)\times D(y_j)\arrow[r,"s"]\arrow[dd,"{(\varphi_i,\psi_j)}"]& D(z_{ij})\cap V&\\
+     U= f^{-1}(D(x_i))\cap g^{-1}(D(y_j))\arrow[ru,"{(f,g)|_U}"]\arrow[rd,swap,"{(\varphi_i f|_U,\psi_j g|_U)}"] &&&\\
+        &k^m \times k^n\arrow[ruu,swap,dashed,"{s\circ (\varphi_i^{-1},\psi_j^{-1})}"]&&
+    \end{tikzcd}
+\end{center} 
+We see that $\varphi_if\big|_U, \psi_jg\big|_U$ are morphisms, so $(\varphi_i f|_U,\psi_j g|_U)$ is a 
+morphism because it's a mapping into a product of affine varieties and we can apply the affine criteria. So, if we show that 
+$s\circ (\varphi_i^{-1},\psi_j^{-1})$ is a morphism, we are done. However, we see that 
+\begin{equation}
+    \xi_{ij}\circ s \circ(\varphi_i^{-1},\psi_j^{-1}):k^m\times k^n\rightarrow k^{(m+1)(n+1)}:
+    (x,y)\mapsto (\dots, x_i,\dots, y_j,\dots, x_iy_j,\dots)
+\end{equation}
+which is clearly a morphism.
+
+\begin{remark}
+    The product of the affine spaces $k^m$ and $k^n$ if $k^{m}\times k^n\cong k^{m+n}$. So, if 
+    $f:Z\to k^m,g:Z\to k^n$ are morphisms, then we draw the diagram.
+    \begin{center}
+        \begin{tikzcd}
+            &k^m\times k^n\arrow[dd,"p_1"]\arrow[ddr,"p_2"]&\\
+          Z\arrow[ru,dashed,"{(f,g)}"]\arrow[rd,swap,"f"]\arrow[rrd,"g"] &&\\
+            &k^m&k^n
+        \end{tikzcd}
+    \end{center}
+    However, $f$ being a morphism means that $x_i\circ f$ and $y_j\circ g$ are morphims for all 
+    $i,j\;(1\leq i\leq m,1\leq j\leq n)$, where $x_i$ and $y_j$ are the standard coordinate functions. However, the 
+    set of coordinate functions of the product $k^m\times k^n$ is $(x_1,\dots, x_m,y_1,\dots, y_n)$ because of the 
+    identification $k^m\times k^n\cong k^{m+n}$. So, again we see that 
+    \begin{equation}
+        (x_1\circ f,\dots, x_m\circ f,y_1\circ g,\dots, y_n\circ g)=(f,g)
+    \end{equation}
+    is a morphism. Here we used lemma~(\ref{lemma: coordinate criteria to a map be a morphism of function spaces})
+    several times.
+\end{remark}
+\subsection{Grassmanians and Flag varieties}
+Let $\Gr_d(V)$ be the set of $d-$dimensional subspaces of $V$. We have the following embedding
+\begin{equation}
+    \psi: \Gr_d(V)\hookrightarrow \bbP(\bigwedge^dV): W=\text{Span}(w_1,\dots, w_d)\mapsto [w_1\wedge\cdots\wedge w_d].
+\end{equation}
+The map is well defined, in fact, if $\{w_i\}_{i=1}^d$ and $\{w^\prime_i\}_{i=1}^d$ are two basis of $W$ and 
+$w_i^\prime = \sum_j b_{ij}w_i$, then 
+$w_1^\prime\wedge\cdots\wedge w_d^\prime = \det(b_{ij})_{i,j=1}^d w_1\wedge\cdots\wedge w_d$. Now, let 
+$v_1,\dots, v_n$ be a basis of $V$ and $u_1,\dots,u_d\in V$ be arbitrary vectors. Write 
+$u_i = \sum_ja_{ij}v_j$, then 
+\begin{equation}
+    \begin{split}
+        u_1\wedge\cdots\wedge u_d &= (\sum_{j_1=1}^na_{1j_1}v_{j_1})\wedge\cdots\wedge(\sum_{j_d=1}^na_{dj_d}v_{j_d})\\
+        &=\sum_{j_1=1}^n\cdots\sum_{j_d=1}^n a_{1j_1}\cdots a_{dj_d}v_{j_1}\wedge\cdots\wedge v_{j_d}\\
+        &=\sum_{j_1<\cdots<j_d}\det(a_{ij_k})_{i,k=1}^d v_{j_1}\wedge\cdots\wedge v_{j_d}
+    \end{split}
+\end{equation}
+So we see that $u_1\wedge\cdots\wedge u_d=0\iff \text{Rank}(a_{ij})<d\iff \{u_1,\dots, u_d\}$ is linearly dependent. So, if 
+\begin{equation}
+    w_1\wedge\dots\wedge w_d = \lambda w_1^\prime\wedge\dots\wedge w_d^\prime \neq0,
+\end{equation}
+then $u\wedge w_1\wedge\dots\wedge w_d=0\iff  u\wedge w_1^\prime\wedge\dots\wedge w_d^\prime=0$, i.e., 
+$u\in\text{Span}\{w_i\}_{i=1}^d\iff u\in\text{Span}\{w_i^\prime\}_{i=1}^d$. Now, let 
+$\mathcal{J}=\{(j_1,\dots, j_d):1\leq j_1<\cdots<j_d\leq n\}$ and write if $J=(j_1,\dots, j_d)\in\mathcal{J}$, write 
+$v_J = v_{j_1}\wedge\cdots\wedge v_{j_d}$. Then we have the basis $\{v_J\}_{J\in\mathcal{J}}$ of $\bigwedge^dV$ and we 
+write $X_J$ for the corresponding coordinate functions.\par 
+
+Let $W\in\Gr_d(V)$, we see that 
+$\psi(W)\in D(X_{(1,\dots,d)})$ if and only if $\det(a_{ij})_{i,j=1}^d\neq0$. In this case, $W$ has a basis 
+consisting of vectors of the form $w_i = v_i+\sum_{j>d}a_{ij}v_j,\;i=1,\dots,d$. Now define $J_{pq}$ as the tuple 
+$(j_1,\dots, j_d)$ such that $j_k=k\;(k<p),\;j_{k}=k+1,\;(p\leq k<d)$ and $j_d=q\in\{d+1,\dots,n\}$. With this notation, we 
+see that $a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d)$ and 
+\begin{equation}
+    \begin{split}
+        &\varphi_{(1,\dots,d)}(\text{Im}(\psi)\cap D(X_{(1,\dots,d)}))\\
+        &\quad =V(X_J-\det(X_{J_{pq}}):\forall (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\})
+    \end{split}
+\end{equation}
+which is closed, so $\text{Im}(\psi)\cap D(X_{(1,\dots,d)})$ is closed. With the same argument applied to the other 
+principal open subsets $D(X_J)$, we see that $\text{Im}(\psi)$ is closed.

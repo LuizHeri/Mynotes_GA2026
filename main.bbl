@@ -19,6 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{geck2013introduction}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=a80891b333318977f6a42f638cdb1a28}{%
+           family={Geck},
+           familyi={G\bibinitperiod},
+           given={Meinolf},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{fullhash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{fullhashraw}{a80891b333318977f6a42f638cdb1a28}
+      \strng{bibnamehash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{authorbibnamehash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{authornamehash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{authorfullhash}{a80891b333318977f6a42f638cdb1a28}
+      \strng{authorfullhashraw}{a80891b333318977f6a42f638cdb1a28}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An introduction to algebraic geometry and algebraic groups}
+      \field{year}{2013}
+    \endentry
     \entry{humphreys1975linear}{book}{}{}
       \name{author}{1}{}{%
         {{hash=fffcf3523abd2080d6ffc75ac22de7f8}{%
