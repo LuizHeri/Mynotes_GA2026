@@ -712,7 +712,7 @@ see for example, that
 \begin{equation}
     \callO_{\bbP^m\times\bbP^n}(U)=(-\circ s)(\callO_V(s(U))).
 \end{equation}
-In a concrete way, a section $s\in \callO_{\bbP^m\times\bbP^n}$ is a quootient of bihomogeneous polynomials of bi degree $(d,d)$
+In a concrete way, a section $s\in \callO_{\bbP^m\times\bbP^n}$ is a quotient of bihomogeneous polynomials of bi degree $(d,d)$
 each one, for some $d\geq0$. In fact, if $F(z)\in k[\underline{z}]$ is homogeneous, then 
 \begin{equation}
     F(z)=\sum a_\alpha\prod_{i,j}z_{ij}^{\alpha_{ij}},\; (i,j)\in\{0,\dots,m\}\times\{0,\dots,n\}.
@@ -724,8 +724,23 @@ Therefore
              &=\sum a_\alpha(\prod_i x_i^{\sum_j\alpha_{ij}})(\prod_j y_j^{\sum_i\alpha_{ij}})
     \end{split}
 \end{equation}
-where $\sum_i \sum_j \alpha_{ij}=\sum_j\sum_i\alpha_{ij}=d$, the degree of $F$. It's easy to see that 
-a bihomogeneous polynomial of bidegree $(d,e)$ is also a section of $\callO_{\bbP^m\times\bbP^n}$.\par 
+where $\sum_i \sum_j \alpha_{ij}=\sum_j\sum_i\alpha_{ij}=|\alpha|=d$, the degree of $F$. It's easy to see that a quotient of
+bihomogeneous polynomials of bidegree $(d,e)$ each one, 
+is also a section of $\callO_{\bbP^m\times\bbP^n}$. In fact, let $G/H$ be a quotient of two bihomogeneous polynomials
+of bidegree $(d,e)$ each one. Then, in $D(x_i)\times D(y_j)$ we have 
+\begin{equation}
+    \frac{G}{H} = \frac{G x_i^ey_j^d}{Hx_i^ey_j^d}.
+\end{equation}
+So we can assume both $G,H$ to be of the same bidegree $(d+e,d+e)$. Moreover, let $F$ be a bihomogeneous polynomial 
+of bidegree $(d,d)$, then 
+\begin{equation}
+    \begin{split}
+        F(x,y) &= \sum a_{\alpha\beta}x^\alpha y^\beta\\
+        &=\sum a_{\alpha\beta} x_{i_1} y_{j_1}\cdots x_{i_d}y_{j_d}\; (1\leq i_k\leq m, 1\leq j_k\leq n)\\
+        &=\sum a_{\alpha\beta} z_{i_1j_1}\cdots z_{i_dj_d}
+    \end{split}
+\end{equation}
+is homogeneous of degree $d$.
 
 \begin{dang}
     \begin{lemma}
@@ -748,7 +763,27 @@ $s\circ (\varphi_i^{-1},\psi_j^{-1})$ is a morphism, we are done. However, we se
     \xi_{ij}\circ s \circ(\varphi_i^{-1},\psi_j^{-1}):k^m\times k^n\rightarrow k^{(m+1)(n+1)}:
     (x,y)\mapsto (\dots, x_i,\dots, y_j,\dots, x_iy_j,\dots)
 \end{equation}
-which is clearly a morphism.
+which is clearly a morphism.\qed 
+
+\begin{remark}
+    The above proof also shows that $(\varphi_i,\psi_j):D(x_i)\times D(y_j)\to k^m\times k^n$ is a morphism. Furthermore, 
+    let $X\subset\bbP^m, Y\subset\bbP^n$ be two closed subsets. Then, is 
+    $X\cap D(x_i) \times Y\cap D(y_j)\subset D(x_i)\times D(y_j)$ closed ?. We have 
+    $\varphi_i(X\cap D(x_i))\subset k^m, \psi_j(Y\cap D(y_j))\subset k^n$ are closed. Therefore, the product
+    \begin{equation}
+        \varphi_i(X\cap D(x_i))\times \psi_j(Y\cap D(y_j)) = (\varphi_i,\psi_j)(X\cap D(x_i) \times Y\cap D(y_j))
+    \end{equation}
+    is closed in $k^m\times k^n$. Here we use the standard observation that $V(S)\times V(T) = V(S\cup T)$, where 
+    $S\subset k[\underline{X}], T\subset k[\underline{y}]$ with both rings sitting inside $k[\underline{x},\underline{y}]$. 
+    Since $(\varphi_i,\psi_j)$ is a homeomorphism, this proves that the answer is positive.
+\end{remark}
+
+\begin{dang}
+    \begin{corollary}\label{corollary: product of closed subsets in the product of projective varieties}
+        Let $X\subset \bbP^m, Y\subset \bbP^n$ be two closed subsets. Then 
+        $X\times Y\subset \bbP^m\times \bbP^n$ is closed.
+    \end{corollary}
+\end{dang}
 
 \begin{remark}
     The product of the affine spaces $k^m$ and $k^n$ if $k^{m}\times k^n\cong k^{m+n}$. So, if 
@@ -802,7 +837,11 @@ $\psi(W)\in D(X_{(1,\dots,d)})$ if and only if $\det(a_{ij})_{i,j=1}^d\neq0$. In
 that $a_{ij}=\delta_{ij},\;(1\leq i,j\leq d)$, so $W$ has a basis 
 consisting of vectors of the form $w_i = v_i+\sum_{j>d}a_{ij}v_j,\;i=1,\dots,d$. Now define $J_{pq}$ as the tuple 
 $(j_1,\dots, j_d)$ such that $j_k=k\;(k < p),\;j_{k}=k+1,\;(p\leq k<d)$ and $j_d=q\in\{d+1,\dots,n\}$. With this notation, we 
-see that $a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d)$. So, for any 
+see that 
+\begin{equation}\label{equation: a_pq coefficients}
+    a_{pq}=\pm\det(a_{ij_k})_{j,k=1}^d=\pm X_{J_{pq}}(w_1\wedge\cdots\wedge w_d).
+\end{equation}
+So, for any 
 $J=(j_1,\dots,j_d)\in\mathcal{J}$, the expression $\det(a_{ij_k})_{i,k=1}^d$ is a polynomial 
 $f_J(X)\in k[X_{J_{pq}}: 1\leq p\leq d, d<q\leq n]\subset k[\bigwedge^d V]$ and we see that 
 \begin{equation}
@@ -813,4 +852,54 @@ $f_J(X)\in k[X_{J_{pq}}: 1\leq p\leq d, d<q\leq n]\subset k[\bigwedge^d V]$ and 
 \end{equation}
 which is closed, so $\text{Im}(\psi)\cap D(X_{(1,\dots,d)})$ is closed. With the same argument applied to the other 
 principal open subsets $D(X_J)$, we see that $\text{Im}(\psi)$ is closed. It's important to no note that 
-the row echelon form of $A=(a_{ij})$ gives an affine coordinate expression for $\psi(W)\in U_{(1,\dots,d)}$.
+the row echelon form of $A=(a_{ij})$ gives an affine coordinate expression for $\psi(W)\in U_{(1,\dots,d)}$:
+\begin{equation}
+    \varphi_{(1,\dots,d)}\psi(W) = (f_J(a))_{J\in\mathcal{J}\setminus\{(1,\dots,d)\}}
+\end{equation}
+where $f_J(a)=\det(a_{ij_k})_{i,k=1}^d,\; J=(j_1,\dots,j_d)$.\par 
+
+Now we define the Flag variety $\mathcal{F}(V)$, it's defined as the $n$-tuple of subspaces  
+\begin{equation}
+    (F_1,\dots, F_n)\in \Gr_1(V)\times\cdots\times \Gr_n(V)
+\end{equation}
+such that $F_i\subset F_{i+1},\;1\leq i<n$. It's a closed subset, so it's a projective variety in the above product. 
+We prove this in two steps. The first one is to prove that 
+\begin{equation}
+    \{(F,F^\prime):F\subset F^\prime\}\subset \Gr_d(V)\times\Gr_{d+1}(V)
+\end{equation}
+is a closed subset. As before, we simplify the problem by showing that the intersection 
+\begin{equation}
+     \{(F,F^\prime):F\subset F^\prime\}\cap U_{(1,\dots,d)}\times U_{(1,\dots,d,d+1)}\quad(*)
+\end{equation}
+is closed. So let $F$ and $F^\prime$ be represented by matrices $(a_{ij})\in\text{Mat}_{d,n}(k)$ and 
+$(b_{pq})\in\text{Mat}_{d+1,n}(k)$ in row echelon form, i.e., 
+$a_{ij}=\delta_{ij},\;j\leq d$ and $b_{pq}=\delta_{pq},\;q\leq d+1$. In this condition 
+$F\subset F^\prime$ if and only if the matrix 
+\begin{equation}
+   M= \begin{pmatrix}
+        b_{11}&\cdots& b_{1n}\\
+        \vdots&\cdots&\vdots\\
+        b_{d+1,1}&\cdots&b_{d+1,n}\\
+        a_{11}&\cdots&a_{1n}\\
+        \vdots&\cdots&\vdots\\
+        a_{d1}&\cdots&a_{dn}
+    \end{pmatrix}
+\end{equation}
+has rank $d+1$. In particular, this means that any $d+2$ minor of $M$ must vanish, which is a polynomial condition 
+on the coefficients $a_{ij}, b_{pq}$. By equation~(\ref{equation: a_pq coefficients}), we see that this 
+defines a polynomial condition in the affine coordinate system of $\varphi_{(1,\dots,d)}\times\varphi_{(1,\dots,d+1)}$, hence 
+intersection $(*)$ is closed.\par 
+
+Now, for the second step, we use corollary~(\ref{corollary: product of closed subsets in the product of projective varieties}) 
+to conclude that 
+\begin{equation}
+    \begin{split}
+&S_{d,d+1} = \Gr_1(V)\times\cdots\times\Gr_{d-1}(V)\times\{(F,F^\prime)\in\Gr_d(V)\times \Gr_{d+1}(V):F\subset F^\prime\}\times\cdots\\
+&\quad\quad\quad\quad\cdots\times\Gr_{d+2}(V)\times\cdots\times \Gr_n(V) 
+    \end{split}
+\end{equation}
+is closed. Therefore 
+\begin{equation}
+    \mathcal{F}(V) = \bigcap_{d=1}^{n-1}S_{d,d+1}
+\end{equation}
+is closed, so it's a projective variety.
