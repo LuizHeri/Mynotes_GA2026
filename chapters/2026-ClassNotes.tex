@@ -828,7 +828,7 @@ So we see that $u_1\wedge\cdots\wedge u_d=0\iff \text{Rank}(a_{ij})<d\iff \{u_1,
 \end{equation}
 then $u\wedge w_1\wedge\dots\wedge w_d=0\iff  u\wedge w_1^\prime\wedge\dots\wedge w_d^\prime=0$, i.e., 
 $u\in\text{Span}\{w_i\}_{i=1}^d\iff u\in\text{Span}\{w_i^\prime\}_{i=1}^d$. Now, let 
-$\mathcal{J}=\{(j_1,\dots, j_d):1\leq j_1<\cdots<j_d\leq n\}$ and write if $J=(j_1,\dots, j_d)\in\mathcal{J}$, write 
+$\mathcal{J}=\{(j_1,\dots, j_d):1\leq j_1<\cdots<j_d\leq n\}$ and if $J=(j_1,\dots, j_d)\in\mathcal{J}$, write 
 $v_J = v_{j_1}\wedge\cdots\wedge v_{j_d}$. Then we have the basis $\{v_J\}_{J\in\mathcal{J}}$ of $\bigwedge^dV$ and we 
 write $X_J$ for the corresponding coordinate functions.\par 
 
@@ -843,11 +843,11 @@ see that
 \end{equation}
 So, for any 
 $J=(j_1,\dots,j_d)\in\mathcal{J}$, the expression $\det(a_{ij_k})_{i,k=1}^d$ is a polynomial 
-$f_J(X)\in k[X_{J_{pq}}: 1\leq p\leq d, d<q\leq n]\subset k[\bigwedge^d V]$ and we see that 
-\begin{equation}
+$f_J(X)\in k[X_{J_{pq}}: 1\leq p\leq d, d<q\leq n]\subset k[X_J:J\in\mathcal{J}\setminus\{(1,\dots,d)\}]$ and we see that 
+\begin{equation}\label{equation: local description of a Grassmanian}
     \begin{split}
         &\varphi_{(1,\dots,d)}(\text{Im}(\psi)\cap D(X_{(1,\dots,d)}))\\
-        &\quad =V(X_J-f_J(X):\forall J=(j_1,\dots,j_d)\in\mathcal{J}\setminus\{(1,\dots,d)\})
+        &\quad =V(X_J-f_J(X):\forall J=(j_1,\dots,j_d)\in\mathcal{J}\setminus\{(1,\dots,d), J_{pq}: p,q\})
     \end{split}
 \end{equation}
 which is closed, so $\text{Im}(\psi)\cap D(X_{(1,\dots,d)})$ is closed. With the same argument applied to the other 
@@ -894,12 +894,46 @@ Now, for the second step, we use corollary~(\ref{corollary: product of closed su
 to conclude that 
 \begin{equation}
     \begin{split}
-&S_{d,d+1} = \Gr_1(V)\times\cdots\times\Gr_{d-1}(V)\times\{(F,F^\prime)\in\Gr_d(V)\times \Gr_{d+1}(V):F\subset F^\prime\}\times\cdots\\
+&S_{d} = \Gr_1(V)\times\cdots\times\Gr_{d-1}(V)\times\{(F,F^\prime)\in\Gr_d(V)\times \Gr_{d+1}(V):F\subset F^\prime\}\times\cdots\\
 &\quad\quad\quad\quad\cdots\times\Gr_{d+2}(V)\times\cdots\times \Gr_n(V) 
     \end{split}
 \end{equation}
 is closed. Therefore 
 \begin{equation}
-    \mathcal{F}(V) = \bigcap_{d=1}^{n-1}S_{d,d+1}
+    \mathcal{F}(V) = \bigcap_{d=1}^{n-1}S_{d}
 \end{equation}
-is closed, so it's a projective variety.
+is closed, so it's a projective variety.\par 
+
+\begin{dang}
+    \begin{lemma}
+        We have $\dim (\Gr_d(V)) = d(n-d),\; n=\dim(V)$.
+    \end{lemma}
+\end{dang}
+Proof: From equation~(\ref{equation: local description of a Grassmanian}), we see that at $U_{(1,\dots,d)}\subset \bbP(\bigwedge^dV)$, 
+the Grassmanian $\Gr_d(V)$ is defined by $V(I)$, where
+\begin{equation}
+    I = (X_J-f_J(X):\forall J=(j_1,\dots,j_d)\in\mathcal{J}\setminus\{(1,\dots,d), J_{pq}: p,q\})
+\end{equation}
+Put any LEX order on $k[X_J:J\in\mathcal{J}\setminus\{(1,\dots,d)\}]$, with the property 
+$X_J> X_{J_{pq}}$ whenever 
+$J\notin \{J_{pq}: (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\}\}$. Then, we see that $\sqrt{I}=I$ and 
+\begin{equation}
+    \frac{k[X_J:J\neq (1,\dots,d)]}{I}\cong k[X_{J_{pq}}: (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\}]
+\end{equation} 
+which has transcendence degree $d(n-d)$.\qed
+
+\begin{remark}
+    There is a simple way to represent an element $F\in \mathcal{F}(V)$. Fix a basis $\{e_1,\dots,e_n\}$ of $V$
+    and observe that we can find a basis of $V$ such that $F_i=\langle v_1,\dots, v_i\rangle$. Now, assume 
+    that $F\in U_{(1)}\times \cdots \times U_{(1,\dots,d-1)}\times U_{(1,\dots,d)}$. Then if we write 
+    $v_i = \sum_ja_{ij}e_j$, we see that $A=(a_{ij})$ has nonsingular principal minors $M_{ii},\;i=1\,\dots,n$. 
+    We call $A$ a representative matrix of $F$.\par  
+    Since $a_{11}\neq0$, we can assume $v_1=e_1+\sum_{j>1}a_{1j}e_j$. Now, observe that if we only do elementary operations 
+    of the form $R_j\to R_j + kR_i,\;(i<j)$ and $R_j\to kR_j,\;(k\neq0)$ (where $R_i=(a_{i1},\dots,a_{in})$ is the $i$th row of $A$) on $A$, we 
+    still have $A$ as a representative of the flag $F$. Using the hypothesis that the principal minors are nonsingular, we see that 
+    we can assume $a_{ii}=1,\forall i$, while $a_{ij}=0,\;(i>j)$. That is $v_i=e_i+\sum_{j>i}a_{ij}e_j$.
+\end{remark}
+
+
+
+\section{Lecture 9}
