@@ -290,7 +290,7 @@ $\bbF$.
     At the algebraic level, the map $\varphi^*$ is just the the isomorphism $\bbF[Y]\cong\bbF[X]$.
   \end{example}
   \item(Tangent spaces). Let $V$ be an algebraic set and 
-  $V_p = \bbF$ be the $A[V]-$module with action $[f]\alpha\equiv f(p)\alpha$. Let 
+  $k_p = \bbF$ be the $A[V]-$module with action $[f]\alpha\equiv f(p)\alpha$. Let 
   $I(V) = (f_1,\dots, f_m)$. We define 
   \begin{equation}
     \begin{split}
@@ -306,12 +306,10 @@ $\bbF$.
   \end{remark}
   Here $df_p\equiv \sum_{i=1}^nD_i(f)(p)X_i\in\bbF[X_1,\dots,X_n]$. We have an isomorphism
   \begin{equation}
-    T_p(V)\rightarrow \text{Der}_{\bbF}(A[V],V_p):v\mapsto D_v;\;D_v([f])=\sum_{i=1}^n[D_i(f)]\cdot v_i\in\bbF.
+    T_p(V)\rightarrow \text{Der}_{\bbF}(A[V],k_p):v\mapsto D_v;\;D_v([f])=\sum_{i=1}^n[D_i(f)]\cdot v_i\in\bbF.
   \end{equation}
   with inverse $D\mapsto (D([X_i]))_{i=1}^n$. Of course $D_v([f])=df_p(v)$.
-  \begin{center}
-    \textcolor{red}{Maybe it will be better to change notation of $V_p$ to $\upleft{p}\bbF$ or something.}
-  \end{center}
+ 
   \begin{example}
     Let $C=(f_1,f_2),\;f_1=X_1-X_3^2, f_2=X_2-X_3^3$ and $p=(x^3,x^2,x)\in C$. We have 
     \begin{equation}
@@ -457,13 +455,13 @@ $\bbF$.
   \begin{definition}
     Let $\varphi:V\to W$ be a regular map between algebraic varieties. Also, let $p\in V, q = \varphi(p)\in W$. We define:
     \begin{equation}
-        d\varphi_p: \text{Der}_{\bbF}(A[V],V_p)\to\text{Der}_{\bbF}(A[W],W_q):D_v\mapsto D_v\circ\varphi^*
+        d\varphi_p: \text{Der}_{\bbF}(A[V],k_p)\to\text{Der}_{\bbF}(A[W],W_q):D_v\mapsto D_v\circ\varphi^*
     \end{equation}
   \end{definition}
   At the level of tangent spaces, we have:
   \begin{center}
     \begin{tikzcd}
-        \text{Der}_{\bbF}(A[V],V_p)\arrow[rr,"d\varphi_p"]&&\text{Der}_{\bbF}(A[W],W_q)\arrow[dd]&\\
+        \text{Der}_{\bbF}(A[V],k_p)\arrow[rr,"d\varphi_p"]&&\text{Der}_{\bbF}(A[W],W_q)\arrow[dd]&\\
         &D_v\arrow[rr,mapsto,red]&&D_v\circ\varphi^*\arrow[dd, mapsto,red]\\
         T_p(V)\arrow[uu]\arrow[rr, dashed]&&T_q(W)&\\
         &v\arrow[uu,mapsto,red]\arrow[rr,mapsto,red]&&(D_v\circ\varphi^*([Y_i]))_{i=1}^m
