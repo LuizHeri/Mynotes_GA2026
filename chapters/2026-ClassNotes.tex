@@ -300,14 +300,16 @@ $\overline{D(f)}=k^n$.\qed
 
 \begin{dang}
     \begin{lemma}\label{lemma: regular functions on principal open sets}
-        Let $V\subset k^n$ be an affine algebraic set and $g\in k[X_1,\dots, X_n]$. Then the set of regular functions 
-        $\varphi: D_V(g)\to k$ is of the form $f/g^m$ for some $f\in k[X_1,\dots, X_n]$ and $m>0$. So 
+        Let $V\subset k^n$ be an affine algebraic set and take $g\in k[X_1,\dots, X_n]\setminus I(Y)$, 
+        so $D_V(g)\neq\varnothing$. Then the set of regular functions 
+        $\varphi: D_V(g)\to k$ is of the form $f/g^m|_{D_V(g)}$ for some $f\in k[X_1,\dots, X_n]$ and $m>0$. Then we have  
+        a surjection
         \begin{equation}
-            \mathcal{O}_V(D_V(g)) \cong \widetilde{\psi}(k[X_1,\dots,X_n]_g)
+            \widetilde{\psi}:k[V]_{\overline{g}}\rightarrow \mathcal{O}_V(D_V(g))
         \end{equation}
-        where $\psi: k[X_1,\dots, X_n]\rightarrow \mathcal{O}_V(D_V(g))$ is the map that takes a polynomial 
+        where $\psi: k[V]\rightarrow \mathcal{O}_V(D_V(g))$ is the map that takes a polynomial 
         and restricts it to $D_V(g)$ and $\widetilde{\psi}$ is the corresponding map induced by the universal
-        property of localization. 
+        property of localization. Furthermore, if $V$ is irreducible, this map is an isomorphism. 
     \end{lemma}
 \end{dang}
 Proof: First we have $D_V(g)=\bigcup_{i=1}^\ell D_V(g_i)$ and since $\varphi$ is regular, there exists 
@@ -338,7 +340,7 @@ Now we do a trick: since $g_jf_i - f_jg_i = 0$ on $D_V(g_i)\cap D_V(g_j)=D_V(g_i
     g_ig_j(g_jf_i-f_jg_i) = 0\;\text{ on }V.
 \end{equation}
 Furthermore, we still have $\varphi\big|_{D_V(g_i)}=g_if_i / g_i^2$.
-So we \textcolor{red}{change notation} again: $g_i^2\to g_i$ and $g_if_i\to f_i$, so we have 
+So we \textcolor{red}{change notation} again: $g_i^2\to g_i$ and $g_if_i\to f_i$, so we have (on $V$)
 \begin{equation}
     g_if_j - g_jf_i = 0,\;\forall i,j=1,\dots,\ell\quad (***).
 \end{equation}
@@ -350,19 +352,21 @@ and we get on $V$:
 \begin{equation}
     g^m = \sum_k B_kg_k.
 \end{equation}
-Now, by using equation $(***)$, we have 
+Now, by using equation $(***)$, we have (on $V$)
 \begin{equation}
     f_ig^m = \sum_kB_kf_ig_k = \sum_kB_kf_kg_i = (\sum_kB_kf_k)g_i.
 \end{equation}
-So if $q\in D_V(g_i)$, we have $\varphi(q) = \tfrac{f_i}{g_i}(q)=\tfrac{f}{g^m}(q)$, where we set $f=\sum_kB_kf_k$.\qed
+So if $q\in D_V(g_i)$, we have $\varphi(q) = \tfrac{f_i}{g_i}(q)=\tfrac{f}{g^m}(q)$, where we set $f=\sum_kB_kf_k$.\par 
+This proves that $\widehat{\psi}$ is surjective. To prove injectivity, we observe that 
+$f/g^m|_{D_V(g)}=0\iff f|_{D_V(g)}=0\iff fg |_V=0$. So if $V$ is irreducible, then $fg\in I(Y)\Rightarrow f\in I(Y)$
+because $I(Y)$ is prime, so $\overline{f}=0$. \qed
 
 \begin{dang}
     \begin{corollary}
         Since $V=D_V(1)$, we have 
         \begin{equation}
-            \mathcal{O}_V(V)=\psi(k[X_1,\dots,X_n])\cong k[\underline{X}]/I(V) = k[V].
+            \mathcal{O}_V(V)\cong k[V]_{(1)}\cong k[V].
         \end{equation}
-        where $\psi: k[\underline{X}]\to O_V(V)$ is as in the previous theorem.
     \end{corollary}
 \end{dang}
 
@@ -987,9 +991,9 @@ is closed. Therefore
 is closed, so it's a projective variety.\par 
 
 \begin{dang}
-    \begin{lemma}
+    \begin{proposition}
         We have $\dim (\Gr_d(V)) = d(n-d),\; n=\dim(V)$.
-    \end{lemma}
+    \end{proposition}
 \end{dang}
 Proof: From equation~(\ref{equation: local description of a Grassmanian}), we see that at $U_{(1,\dots,d)}\subset \bbP(\bigwedge^dV)$, 
 the Grassmanian $\Gr_d(V)$ is defined by $V(I)$, where
@@ -1004,20 +1008,120 @@ $J\notin \{J_{pq}: (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\}\}$. Then, we see t
 \end{equation} 
 which has transcendence degree $d(n-d)$.\qed
 
-\begin{remark}
-    There is a simple way to represent an element $F\in \mathcal{F}(V)$. Fix a basis $\{e_1,\dots,e_n\}$ of $V$
-    and observe that we can find a basis of $V$ such that $F_i=\langle v_1,\dots, v_i\rangle$. Now, assume 
-    that $F\in U_{(1)}\times \cdots \times U_{(1,\dots,d-1)}\times U_{(1,\dots,d)}$. Then if we write 
-    $v_i = \sum_ja_{ij}e_j$, we see that $A=(a_{ij})$ has nonsingular principal minors $M_{ii},\;i=1\,\dots,n$. 
-    We call $A$ a representative matrix of $F$.\par  
-    Since $a_{11}\neq0$, we can assume $v_1=e_1+\sum_{j>1}a_{1j}e_j$. Now, observe that if we only do elementary operations 
-    of the form $R_j\to R_j + kR_i,\;(i<j)$ and $R_j\to kR_j,\;(k\neq0)$ (where $R_i=(a_{i1},\dots,a_{in})$ is the $i$th row of $A$) on $A$, we 
-    still have $A$ as a representative of the flag $F$. Using the hypothesis that the principal minors are nonsingular, we see that 
-    we can assume $a_{ii}=1,\forall i$, while $a_{ij}=0,\;(i>j)$. That is $v_i=e_i+\sum_{j>i}a_{ij}e_j$.
-\end{remark}
+There is a simple way to represent an element $F\in \mathcal{F}(V)$. Fix a basis $\{e_1,\dots,e_n\}$ of $V$
+and observe that we can find a basis of $V$ such that $F_i=\langle v_1,\dots, v_i\rangle$. Now, assume 
+that $F\in U=U_{(1)}\times \cdots \times U_{(1,\dots,d-1)}\times U_{(1,\dots,d)}$. Then if we write 
+$v_i = \sum_ja_{ij}e_j$, we see that $A=(a_{ij})$ has nonsingular principal minors $M_{ii},\;i=1\,\dots,n$. 
+We call $A$ a representative matrix of $F$.\par  
+Since $a_{11}\neq0$, we can assume $v_1=e_1+\sum_{j>1}a_{1j}e_j$. Now, observe that if we only do elementary operations 
+of the form $R_j\to R_j + kR_i,\;(i<j)$ and $R_j\to kR_j,\;(k\neq0)$ (where $R_i=(a_{i1},\dots,a_{in})$ is the $i$th row of $A$) on $A$, we 
+still have $A$ as a representative of the flag $F$. Using the hypothesis that the principal minors are nonsingular, we see that 
+we can assume $a_{ii}=1,\forall i$, while $a_{ij}=0,\;(i>j)$. That is $v_i=e_i+\sum_{j>i}a_{ij}e_j$.
 
+\begin{dang}
+    \begin{proposition}
+        We have $\dim\mathcal{F}(V)=\frac12 n(n-1)$.
+    \end{proposition}
+\end{dang}
+Proof: The above discussion shows that $\mathcal{F}(V)\cap U$ is defined by the graph of a morphism  
+$c: k^{\frac12 n(n-1)}\to k^N$ for some $N$. This proves the proposition.\qed
 
+\begin{example}
+Suppose that $F\in\mathcal{F}(k^3)$ has matrix representation 
+\begin{equation}
+    A = \begin{pmatrix}
+        1&a&b\\ 0&1&c \\ 0&0&1
+    \end{pmatrix}.
+\end{equation}
+Then, on the chart $U=U_{(1)}\times U_{(1,2)}\times U_{(1,2,3)}$ we have coordinates: 
+\begin{equation}
+    (\{(2)\mapsto a, (3)\mapsto b\}, \{(1,3)\mapsto c, (2,3)\mapsto ac - b\}, \{*\})
+\end{equation} 
+Then we see that $U\cap\mathcal{F}(k^3)$ is the graph of the morphism $k^3\to k: (a,b,c)\mapsto ac -b$.
+\end{example}
 
 \section{Lecture 9}
+\subsection{Induced function spaces}
+\subsection{General definition of product}
 
 \section{Lecture 10}
+In this section we let $X$ to be an abstract variety and $Y\subset X$ to be an irreducible subset 
+(a point is a case of interest). Define 
+\begin{equation}
+    \mathcal{O}_{X,Y} = \varinjlim_{Y\cap U\neq\varnothing}\mathcal{O}_X(U)
+\end{equation}
+where the directed system is defined by $(\{\mathcal{O}_X(U)\}_{U\in \mathcal{U}}, \{\rho_{UV}\}_{U,V\in\mathcal{U}})$
+where $\mathcal{U}$ is some system of generators for the topology of $X$. To avoid set theoretical issues we can 
+take $\mathcal{U}$ to be the countable set of basic open sets of $X$. 
+
+\begin{notation}
+    We will denote the elements of $\mathcal{O}_{X,Y}$ by $\langle U,f\rangle$. So 
+    $\langle U,f\rangle=\langle V,g\rangle$ if and only if there exists $W\subset U\cap V$ such that $f|_W=g|_W$. 
+    In particular, since $Y$ is taken to be irreducible, we have that $W\cap Y \subset U\cap V\cap Y$ is dense, so 
+    $f|_{U\cap V\cap Y}=g|_{U\cap V\cap Y}$ by continuity of $f$ and $g$.
+\end{notation}
+
+\begin{dang}
+    \begin{proposition}
+        The ring $\mathcal{O}_{X,Y}$ is a $k$-algebra and is a local ring.
+    \end{proposition}
+\end{dang}
+Proof: The inclusion 
+\begin{equation}
+    k \hookrightarrow\mathcal{O}_{X,Y}:c\mapsto \langle X,c\rangle
+\end{equation}
+shows that $\callO_{X,Y}$ is a $k-$algebra. Now, define the set 
+\begin{equation}
+    \fr{m}_{X,Y} =\{\langle U,f\rangle: f|_{U\cap Y}=0\}.
+\end{equation}
+The condition $f|_{U\cap Y}=0$ is we defined on the class $\langle U,f\rangle$. In fact, if 
+$V\subset U$ is open, then $f|_{V\cap Y}=0\Rightarrow f|_{U\cap Y}=0$, because $V\cap Y\subset U\cap Y$ is dense. Furthermore 
+$\callO_{X,Y}$ is clearly seen to be an ideal. Finally, we observe that 
+\begin{equation}
+    \callO_{X,Y}-\fr{m}_{X,Y}\subset\callO_{X,Y}^*.
+\end{equation}
+In fact, if $\langle U,f\rangle$ is such that $f(U\cap Y)\neq\{0\}$, then the set 
+$V=\{q\in U: f(q)\neq0\}$ is a nonempty open set of $U$. Therefore 
+\begin{equation}
+    \langle U,f\rangle = \langle V,f|_V\rangle = \langle V,\frac{1}{f}\bigg|_V\rangle ^{-1}\in\callO_{X,Y}^*.
+\end{equation}
+\qed 
+
+\begin{dang}
+    \begin{proposition}
+        Let $X\subset k^m$ be an affine algebraic set and $Y\subset X$ be an irreducible subset. 
+        Denote by $P=I(Y)/ I(X)\subset A = k[X]$, then $P$ is a prime ideal and we have an isomorphism
+        \begin{equation}
+          \psi:  A_P \rightarrow \callO_{X,Y}: F/G\mapsto \langle D_X(G), F/G\rangle.
+        \end{equation}
+    \end{proposition}
+\end{dang}
+Proof: First observe that $G\in I(Y)\iff G|_Y = 0\iff D_Y(G)=\varnothing$. Therefore 
+$\overline{G}\notin P\iff Y\cap D(G)\neq\varnothing$.
+Furthermore, we have $\overline{F}_1/\overline{G}_1 = \overline{F}_2/\overline{G}_2$ in $A_P$ 
+if and only if there exists $G\notin P$ such that 
+\begin{equation}
+    \begin{split}
+        &\overline{G}(\overline{F}_1\overline{G}_2 - \overline{F}_2\overline{G}_1) = 0 \in k[X]\iff\\
+        &G(F_1G_2 - F_2G_1) |_X = 0 \in \callO_X(X)\iff\\
+        &(F_1G_2 - F_2G_1)|_{D_X(G)} = 0\in\callO_X(D_X(G))\iff\\
+        &\langle D_X(G), F_1/G_1\rangle = \langle D_X(G), F_2/G_2\rangle.
+    \end{split}
+\end{equation}
+Then we see that $\psi$ is well defined and injective.
+It remains to prove that it's surjective. To see this, let 
+$\langle U, f\rangle \in\callO_{X,Y}$, and let $q\in U\cap Y$. Since $f:U\to k$ is regular, there exists 
+$U^\prime\ni q, U^\prime\subset U$ and polynomials $F,G\in k[\underline{X}], G(q^\prime)\neq0\;\forall q^\prime\in U^\prime$ 
+such that $f|_{U^\prime}=F/G |_{U^\prime}$. In particular, $q\in D_X(G)\cap Y$ and 
+$\langle U,f\rangle = \langle D_X(G), F/G\rangle$.
+To see that $P$ is prime, we observe that it's the image of the prime ideal $I(Y)$ under the surjective morphism 
+$f:k[X_1,\dots,X_m]\to k[X]$ and $P\subset\ker(f)$.\qed
+
+\begin{example}
+    Let $X=k^1$ and $Y=\{0\}$, we have $A=k[t]$ and $P=I(Y)=(t)$. So we see that $A_P=k[t]_P =\{F/G: G\notin (t)\}$. 
+    For the other side, we have 
+    \begin{equation}
+        \callO_{X,Y}=\{\langle D(G), F/G \rangle: G(0)\neq0\}
+    \end{equation}
+    because $D(G)\cap Y\neq\varnothing\iff G(0)\neq0$.
+\end{example}

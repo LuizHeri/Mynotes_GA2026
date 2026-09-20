@@ -8,9 +8,11 @@
 \contentsline {subsection}{\numberline {1.5.2}Projective Nullstelensatz}{16}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Segre embedding}{17}{subsection.1.5.3}%
 \contentsline {subsection}{\numberline {1.5.4}Grassmanians and Flag varieties}{19}{subsection.1.5.4}%
-\contentsline {section}{\numberline {1.6}Lecture 9}{21}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Lecture 10}{21}{section.1.7}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{22}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Basic definitions}{22}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Tangent Spaces}{27}{section.2.2}%
-\contentsline {chapter}{\numberline {3}List of exercises}{33}{chapter.3}%
+\contentsline {section}{\numberline {1.6}Lecture 9}{22}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Induced function spaces}{22}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}General definition of product}{22}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Lecture 10}{22}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{24}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basic definitions}{24}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Tangent Spaces}{29}{section.2.2}%
+\contentsline {chapter}{\numberline {3}List of exercises}{35}{chapter.3}%
