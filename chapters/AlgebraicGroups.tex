@@ -381,10 +381,19 @@ $\bbF$.
   $A,B\in K[X_n]$ such that $Af + Bg = 1$ (by Gauss lemma $f$ still irreducible as an element of 
   $K[X_n]$). Then there exist $h\in \bbF[X_1,\dots,X_{n-1}]$ such that 
   $hA, hB\in \bbF[X_1,\dots,X_{n-1}]$. So by writing $G=hA, F =hB$ we are done.\qed
+\begin{notation}
+    Let $M$ be a $A-$module (where $A$ is a $k$-algebra), then we define
+    \begin{equation}
+        \text{Der}_k(A,M)=\{D\in\Hom_k(A,M)\;\big|\;D(xy)=x\cdot D(y) + y\cdot D(x),\;\forall x,y\in A\}.
+    \end{equation} 
+    Observe that since $M$ is a $A-$module, it's also a $k-$vector space with action given by 
+    $\alpha\cdot m\equiv (\alpha 1_A)\cdot m,\alpha\in k$.
+\end{notation}
+
   \begin{notation}
     Let $A=\bbF[X_1,\dots,X_n]/I$, where $M$ is a $A-$module. We write 
     \begin{equation}
-        \mathcal{T}_{A,M}=\{(v_1,\dots,v_n)\in M^n:\sum_i[D_i(f)]\cdot v_i,\;\forall f\in I\}.
+        \mathcal{T}_{A,M}=\{(v_1,\dots,v_n)\in M^n:\sum_i[D_i(f)]\cdot v_i=0,\;\forall f\in I\}.
     \end{equation}
     We have the isomorphism $\mathcal{T}_{A,M}\to \text{Der}_{\bbF}(A,M): v\mapsto D_v$ with inverse 
     \begin{equation}
@@ -455,7 +464,7 @@ $\bbF$.
   \begin{definition}
     Let $\varphi:V\to W$ be a regular map between algebraic varieties. Also, let $p\in V, q = \varphi(p)\in W$. We define:
     \begin{equation}
-        d\varphi_p: \text{Der}_{\bbF}(A[V],k_p)\to\text{Der}_{\bbF}(A[W],W_q):D_v\mapsto D_v\circ\varphi^*
+        d\varphi_p: \text{Der}_{\bbF}(A[V],k_p)\to\text{Der}_{\bbF}(A[W],k_q):D_v\mapsto D_v\circ\varphi^*
     \end{equation}
   \end{definition}
   At the level of tangent spaces, we have:
