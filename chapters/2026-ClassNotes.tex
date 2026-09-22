@@ -370,6 +370,7 @@ because $I(Y)$ is prime, so $\overline{f}=0$. \qed
     \end{corollary}
 \end{dang}
 
+
 \begin{dang}
     \begin{definition}
         A morphism between two affine algebraic sets $V_1\subset k^n$ and $V_2\subset k^m$ is a function 
@@ -639,26 +640,7 @@ Proof: Tedious.\qed
     \end{equation}
     Moreover, by construction we have $g|_{U_i}=g_i\varphi_i$, where $\varphi_i: U_i\to k^1$ 
     (here, $U_i=\{[x_0,x_1]:x_i\neq0\}$) are the standard charts of 
-    the projective plane $X$. So we se that $g$ is locally a morphism, i.e., it's a morphism.\par 
-
-    Is $X$ separable ? Consider the following diagram:
-    \begin{center}
-        \begin{tikzcd}
-            \callO_X(U_0)\otimes\callO_X(U_1)\arrow[rr]&&\callO_X(U_0\cap U_1)\arrow[dd]&&\\
-            &\varphi_0^{\#}(s)\otimes\varphi_1^{\#}(t)\arrow[rr, mapsto,red]&&\varphi_0^{\#}(s)\big|_{U_0\cap U_1}\varphi_1^{\#}(t)\big|_{U_0\cap U_1}\arrow[dd,mapsto,red]&\\
-            \callO_{k^1}(k^1)\otimes\callO_{k^1}(k^1)\arrow[uu]&&\callO_{k^1}(k^1-\{0\})&&\\
-            &s\otimes t\arrow[uu,mapsto, red]\arrow[rr,mapsto, red, dashed]&&(\varphi_0^{-1})^{\#}(\varphi_0^{\#}(s)\big|_{U_0\cap U_1}\varphi_1^{\#}(t)\big|_{U_0\cap U_1})&
-        \end{tikzcd}
-    \end{center}
-    So the composition $ \callO_{k^1}(k^1)\otimes\callO_{k^1}(k^1)\to \callO_{k^1}(k^1-\{0\})$ yields 
-\begin{equation}
-    s\otimes t \mapsto s\cdot t\circ \varphi_1\circ\varphi_0^{-1}\big|_{k^1-\{0\}}
-\end{equation}
-At the level of polynomial rings (see lemma~(\ref{lemma: regular functions on principal open sets})), this map is 
-\begin{equation}
-    k[x]\otimes k[y] \rightarrow k[u]_u\cong k[u,u^{-1}]: f\otimes g\mapsto f(u)g(u^{-1})
-\end{equation}
-which is clearly surjective. \TODO finish the argument.
+    the projective plane $X$. So we se that $g$ is locally a morphism, i.e., it's a morphism.
 \end{example}
 
 \section{Lecture 6,7,8}

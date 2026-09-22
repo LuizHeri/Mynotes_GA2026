@@ -24,4 +24,55 @@ Now assume $U=V(S),\;S\subset k[X,Y]$, then $f\in S\Rightarrow f|_U=0$ and $f=0$
 $S=\{0\}$ and $U=k^2$, which is a contradiction.\qed
 
 
+\begin{dang}
+   \textbf{Exercise 2.} Let \(V = V(XW - YZ) \subset \mathbb{A}^4_k\), such that \(k[V] = k[X, Y, Z, W]/(XW - YZ)\).
+Let \(\overline{X}, \overline{Y}, \overline{Z}, \overline{W}\) be the residue classes of \(X, Y, Z, W\) in \(k[V]\). 
+Then \(\overline{X}/\overline{Y} = \overline{Z}/\overline{W} = f \in k(V)\)
+is defined at \(P = (x, y, z, w) \in V\) if \(y \neq 0\) or \(w \neq 0\). Show that it is impossible to write
+\(f = F/G\), with \(F, G \in k[V]\) and \(G(p) \neq 0\) for every point \(p\) where \(G\) is defined. Show that the
+set of poles of \(f\) is exactly \(\{(x, y, z, w) \mid y = 0 \text{ and } w = 0\}\).
+\end{dang}
+Proof: First we observe that $XW - YZ$ is a irreducible polynomial, because it's a degree one polynomial in 
+$k[X,Y,Z][W]\subset \text{Frac}(k[X,Y,Z])[W]$ and the Gauss lemma. In particular 
+$I(V)=(XW-YZ)$ is a prime ideal.
+Remember the isomorphism 
+\begin{equation}
+    k[V]_{(0)}\cong\text{Frac}(k[V]) \rightarrow \callO_{V,V}=k(V): 
+    \frac{\overline{F}}{\overline{G}}\mapsto \langle D_V(G), \frac{F}{G} \rangle\quad (*).
+\end{equation}
+Here, we write $\langle U, F/G\rangle$ for the equivalence class of $(U, F/G)$ in $\callO_{X,X}$.
+so, by definition, we have $f=\langle D_V(Y), X/Y\rangle = \langle D_V(W), Z/W\rangle$. Now, write 
+$f=\{(U_i, f_i):i\in I\}$, then by definition the domain of $f$ is the set $U=\bigcup_{i\in I}U_i$ and the set of poles 
+of $f$ is $P=V\setminus U$. First we show that $P=\{(x,0,z,0)\in V :x,z\in k\}$. Suppose that 
+$f=\langle D_V(G), F/G\rangle$ (By isomorphisms $(*)$, any representative has this expression), then we have
+\begin{equation}
+    YF - XG \in I(V)=(XW - YZ)\;(**).
+\end{equation}
+Equation $(**)$ implies that $XG \in (Y,W)$, which is a prime ideal ($k[X,Y,Z,W]/(Y,W)$ is isomorphic to 
+$k[X,Z]$, which is a domain). Then we 
+see that $G\in (Y,W)$, because $X\notin (Y,W)$. In particular $D_V(G)\subset D_V(Y)\cup D_V(W)$ and 
+this proves that $U=D_V(Y)\cup D_V(W)$, so 
+$P=\{(x,0,z,0)\in k^4\}$ as we claimed. Furthermore, if there exists some representative $(D_V(G), F/G)$
+of $f$ such that $U=D_V(G)$, then $G|_{D_V(Y)}\in \callO_V(D_V(Y))^*$, because $D_V(Y)\subset D_V(G)$.\par 
+Now we claim that $\callO_V(D_V(Y))^*=k^*\langle Y^m,1/Y^m:m\geq0\rangle$. In fact we have an isomorphism
+\begin{equation}
+    k[V]_{\overline{Y}}\overset{\cong}{\rightarrow} \callO_V(D_V(Y)): \overline{F}/\overline{Y}^m\mapsto 
+    F/Y^m\big|_{D_V(Y)}.
+\end{equation}
+Furthermore, we have another isomorphism
+\begin{equation}
+    k[X,Y,W]_Y\rightarrow k[V]_{\overline{Y}}: F/W^m\mapsto \overline{F}/\overline{Y}^m.
+\end{equation}
+It's injective because $I(V)\cap k[X,Y,W]=(0)$ and it's surjective because we can use the relation 
+$\overline{ZY}=\overline{XW}$ to write any element in $k[V]_{\overline{Y}}$ as a quotient 
+$\overline{F}/\overline{Y}^m,\;F\in k[X,Y,W]$. However, $k[X,Y,W]_Y^*=k^*\langle Y^m:m\in\bbZ\rangle$ and we have proved the claim. 
+Now, we see that there exist $m\geq1, a\in k^*$ such that $G=aY^m$ on $D_V(Y)$, which means that 
+$Y(G-aY^m)|_V=0\iff Y(G-aY^m)\iff I(V)\iff G-aY^m\in I(V)$ because $Y\notin I(V)$. Therefore $G=aY^m$ on $V$ and 
+$D_V(G)=D_V(Y)$ which is a contradiction, because $(0,0,0,1)\in D_V(W)\setminus D_V(Y)$.\qed
+
+
+ 
+
+
+
 
