@@ -32,7 +32,7 @@ is defined at \(P = (x, y, z, w) \in V\) if \(y \neq 0\) or \(w \neq 0\). Show t
 \(f = F/G\), with \(F, G \in k[V]\) and \(G(p) \neq 0\) for every point \(p\) where \(G\) is defined. Show that the
 set of poles of \(f\) is exactly \(\{(x, y, z, w) \mid y = 0 \text{ and } w = 0\}\).
 \end{dang}
-Proof: First we observe that $XW - YZ$ is a irreducible polynomial, because it's a degree one polynomial in 
+\textbf{Solution}: First we observe that $XW - YZ$ is a irreducible polynomial, because it's a degree one polynomial in 
 $k[X,Y,Z][W]\subset \text{Frac}(k[X,Y,Z])[W]$ and the Gauss lemma. In particular 
 $I(V)=(XW-YZ)$ is a prime ideal.
 Remember the isomorphism 
@@ -61,13 +61,13 @@ Now we claim that $\callO_V(D_V(Y))^*=k^*\langle Y^m,1/Y^m:m\geq0\rangle$. In fa
 \end{equation}
 Furthermore, we have another isomorphism
 \begin{equation}
-    k[X,Y,W]_Y\rightarrow k[V]_{\overline{Y}}: F/W^m\mapsto \overline{F}/\overline{Y}^m.
+    k[X,Y,W]_Y\rightarrow k[V]_{\overline{Y}}: F/Y^m\mapsto \overline{F}/\overline{Y}^m.
 \end{equation}
 It's injective because $I(V)\cap k[X,Y,W]=(0)$ and it's surjective because we can use the relation 
 $\overline{ZY}=\overline{XW}$ to write any element in $k[V]_{\overline{Y}}$ as a quotient 
 $\overline{F}/\overline{Y}^m,\;F\in k[X,Y,W]$. However, $k[X,Y,W]_Y^*=k^*\langle Y^m:m\in\bbZ\rangle$ and we have proved the claim. 
 Now, we see that there exist $m\geq1, a\in k^*$ such that $G=aY^m$ on $D_V(Y)$, which means that 
-$Y(G-aY^m)|_V=0\iff Y(G-aY^m)\iff I(V)\iff G-aY^m\in I(V)$ because $Y\notin I(V)$. Therefore $G=aY^m$ on $V$ and 
+$Y(G-aY^m)|_V=0\iff Y(G-aY^m)\in I(V)\iff G-aY^m\in I(V)$ because $Y\notin I(V)$. Therefore $G=aY^m$ on $V$ and 
 $D_V(G)=D_V(Y)$ which is a contradiction, because $(0,0,0,1)\in D_V(W)\setminus D_V(Y)$.\qed
 
 
