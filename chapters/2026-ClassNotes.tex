@@ -1119,3 +1119,132 @@ $f:k[X_1,\dots,X_m]\to k[X]$ and $P\subset\ker(f)$.\qed
     \end{equation}
     because $D(G)\cap Y\neq\varnothing\iff G(0)\neq0$.
 \end{example}
+
+\section{Lecture 11}
+\subsection{Birational geometry}
+
+\section{Lecture 12}
+\subsection{Blowup of affine varieties}
+Consider the following data. 
+\begin{itemize}
+    \item $X\subset k^n$ an affine variety, $A=\callO_X(X)$ its coordinate ring;
+    \item $I\subset A$ an ideal such that if $Y=V(I)$, then $U = X-Y\subset X$ is dense.
+\end{itemize}
+Denote $I=(f_1,\dots, f_m),f_i = F_i|_X$ and 
+\begin{equation}
+    h:k[X_1,\dots,X_n,Y_1,\dots,Y_m]\rightarrow A[T]:X_i\mapsto x_i = X_i|_X, Y_i\mapsto f_iT.
+\end{equation}
+Let $J=\text{Ker}(h)$, then $h$ is homogeneous in $\underline{Y}$. In fact, suppose that 
+$F = F_0+F_2+\cdots\in J$, where $F_i$ the $i$th degree homogeneous component of $F$ viewed as a polynomial in 
+$k[\underline{X}][\underline{Y}]$. Then 
+\begin{equation}
+    h(F_d) = F_d(x_1,\dots, x_n, f_1T,\dots, f_mT)=F_d(x_1,\dots,x_n,f_1,\dots,f_m)T^d\in A[T].
+\end{equation}
+So $h(F)=0\Rightarrow h(F_d)=0$ and $F_d\in J,\;\forall d\geq0$. 
+\begin{remark}
+    An important observation is that $F_iY_j - F_jY_i\in J,\forall i,j$ by construction.
+\end{remark}
+Now we can define 
+\begin{equation}
+    \widetilde{X} = V_{a|p}(J)\subset X\times\bbP^{m-1}\subset k^n\times\bbP^{m-1}.
+\end{equation}
+Observe that the first insclusion is a consequence of $p_1(\widetilde{X})\subset X$, where $p_1$ is the projection 
+in $\underline{X}$. In fact, we have a injective map 
+$p_1^\#:k[\underline{X}]\hookrightarrow k[\underline{X},\underline{Y}]:g\mapsto g\circ p_1$. Therefore 
+$g\circ p_1\in J\iff g(x_1,\dots,x_n)=0\iff g|_X=0$, so $p_1^\# (I(X)) = J$ and $(a,b)\in\widetilde{X}$ implies that 
+$g(a)=0,\;\forall g\in I(X)$, i.e., $a\in VI(X)=X$. 
+
+\begin{remark}
+By the discussion above, we see that 
+$p_1^\#$ descends to a map $k[X]\to k[\underline{X},\underline{Y}]/J$.
+\end{remark}
+
+\begin{remark}\label{remark: U_i is affine}
+    Denote by $U_i = \widetilde{X}\cap D(Y_i)$. Observe that $D(Y_i) = k^n\times D_+(Y_i)\subset k^n\times\bbP^m$ it's 
+a open affine subset. So $U_i\subset D(Y_i)$ is closed, because it's the intersection of $D(Y_i)$ with a closed 
+subset $\widetilde{X}\subset k^n\times\bbP^m$. As a closed subset of a affine subset, $U_i$ is an affine subset. 
+In $U_i$ we have the relation $F_j = (\tfrac{Y_j}{Y_i})F_i$. Therefore 
+\begin{equation}
+    p_1^\#(I)\callO_{\widetilde{X}}(U_i) = (f_i\circ p_1|_{U_i}).
+\end{equation}
+\end{remark}
+
+
+Now we define $E=p_1^{-1}(Y)=V_{a|p}(f_1\circ p_1,\dots, f_m\circ p_1)$ so we have the diagram.
+\begin{center}
+    \begin{tikzcd}
+        E \arrow[r,hook]\arrow[d]&  \widetilde{X}\arrow[d,swap,"p_1"]\arrow[ddr,"p_2"] &\\ 
+         Y\arrow[r,hook]&X\arrow[dr,dashed] & \\
+         &&\bbP^m
+    \end{tikzcd}
+\end{center}
+The dadhed arrow is the map $p\mapsto (f_1(p):\cdots:f_m(p))$, it's not defined only on $Y$ and since 
+$X-Y$ is dense in $X$ by hypothesis, it's a rational map.
+\begin{definition}
+    The Rees algebra of $I\subset A$ is defined as the image the map $h$ defined below. That is, we let 
+    \begin{equation}
+        \text{Rees}_I(A) = A\oplus IT\oplus I^2T^2\oplus\cdots\oplus I^dT^d\oplus\cdots \subset A[T].
+    \end{equation}
+\end{definition}
+\begin{remark}
+    Remember that $I =\bigcap_{P\supset I,\text{ prime}}P$. We say that $A$ is reduced if $\sqrt{(0)}=(0)$, i.e, 
+    $x^n=0\Rightarrow x=0$. In particular, this means that $(0)=\bigcap_{P\text{ prime}}P$. Now, assume that 
+    $A$ is a reduced ring (it's the case of $A=\callO_X(X)$), we claim that $A[T]$ is reduced. In fact, 
+    $f^n=0\in A[T]$ implies that $f^n=0\in (\tfrac{A}{P})[T]$ for all $P$ prime. Since $A/P$ is a domain, we see that 
+    $f=0\in (\tfrac{A}{P})[T]$ for any prime $P$. So if $f=a_0+a_1T+\cdots$, we get that $a_i\in P$ for all prime $P$ for all
+    $i\geq0$. Therefore $a_i=0,;\forall i$ because $A$ is reduced.
+\end{remark}
+
+By the previous remark, we see that $\text{Rees}_I(A)$ is reduced and since $k[\underline{X},\underline{Y}]/J\cong\text{Rees}_I(A)$, 
+we get that $J$ is radical ($J=\sqrt{J}$). 
+\begin{dang}
+    \begin{lemma}
+        If $Z\subset k^m$ is affine and $f\in \callO_Z(Z)$ is such that $f$ is not a divisor of zero in 
+        $\callO_Z(Z)$, then $Z-V(f)\subset Z$ is dense.
+    \end{lemma}
+\end{dang}
+Proof: If it's not dense, we get that $D_Z(g)\subset V(f)$ for some $g$. So $fg|_Z=0$ and $f|_Z$ is a divisor of zero.\qed 
+\begin{dang}
+\begin{proposition}
+    $f_i\circ p_1|_{U_i}$ is not a divisor of zero.
+\end{proposition}
+\end{dang}
+Proof: Let $b\in\callO_{\widetilde{X}}(U_i)\setminus\{0\}$ such that $b\cdot f_i\circ p_1|_{U_i}=0$ (by contradiction). 
+Since $U_i$ is affine (see remark~(\ref{remark: U_i is affine})), we have $b=B/Y_i|_{U_i}$ with $B\in k[\underline{X},\underline{Y}]$ homogeneous of degree 
+$d$ in $Y$. Since $b\neq0$, we have $B\notin J$. Now 
+\begin{equation}
+    \frac{B}{Y_i^d}\cdot F_i\bigg|_{\widetilde{X}\cap D(Y_i)}=0\Rightarrow BF_iY_i\big|_{\widetilde{X}}=0
+\end{equation}
+which implies that $BF_iY_i \in \sqrt{J}=J$. Therefore
+\begin{equation}
+    \begin{split}
+        &B(x_1,\dots,x_n, f_1T,\dots, f_mT)f_i^2 T = 0\\
+        &\Rightarrow B(x_1,\dots,x_n,f_1,\dots,f_m)f_i^2T = 0\\
+        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{D_X(f_i)} = 0\\
+        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{X-Y}=0\;(\text{Why ??})\\
+        &\Rightarrow B(x_1,\dots,x_n,f_1,\dots, f_m) = 0\\
+        &\Rightarrow B(X_1,\dots, X_n, Y_1,\dots, Y_m)\in J
+    \end{split}
+\end{equation}
+which is a contradiction.\qed
+\begin{dang}
+    \begin{proposition}
+        $\widetilde{X}-E\subset \widetilde{X}$ is dense.
+    \end{proposition}
+\end{dang}
+Proof: By the last proposition, we see that $U_i - E\cap U_i = U_i - V(f_i\circ p_1)$ is dense in $U_i$ and since 
+$E\subset \widetilde{X}=\bigcup_i U_i$, we get that $\widetilde{X}-E$ is dense in $\widetilde{X}$.\qed
+
+\underline{Summary}: We constructed the following data. 
+\begin{center}
+    \begin{tikzcd}
+        E =b^{-1}(Y)\arrow[r,hook]\arrow[d] & \widetilde{X}\arrow[d,"b"] & \widetilde{X} -E\arrow[l,hook,swap,"\text{dense}"]\arrow[d,"s"]\\         
+        Y\arrow[r,hook]&   X  & X- Y\arrow[l,hook,"\text{dense}"]
+    \end{tikzcd}
+\end{center}
+Furthermore, there exists a covering $\widetilde{X}=\bigcup_i U_i$ of open affines, sections 
+$b_i\in\callO_X(U_i),\;b_i\nmid 0$ such that $I\callO_X(U_i)=(b_i)$.
+\subsection{universal property}
+
+\subsection{Examples}
+\subsection{Generalization}

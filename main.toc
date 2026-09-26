@@ -12,7 +12,14 @@
 \contentsline {subsection}{\numberline {1.6.1}Induced function spaces}{22}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}General definition of product}{22}{subsection.1.6.2}%
 \contentsline {section}{\numberline {1.7}Lecture 10}{22}{section.1.7}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{24}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Basic definitions}{24}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Tangent Spaces}{29}{section.2.2}%
-\contentsline {chapter}{\numberline {3}List of exercises}{35}{chapter.3}%
+\contentsline {section}{\numberline {1.8}Lecture 11}{23}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Birational geometry}{23}{subsection.1.8.1}%
+\contentsline {section}{\numberline {1.9}Lecture 12}{23}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Blowup of affine varieties}{23}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}universal property}{26}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}Examples}{26}{subsection.1.9.3}%
+\contentsline {subsection}{\numberline {1.9.4}Generalization}{26}{subsection.1.9.4}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{27}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basic definitions}{27}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Tangent Spaces}{32}{section.2.2}%
+\contentsline {chapter}{\numberline {3}List of exercises}{38}{chapter.3}%
