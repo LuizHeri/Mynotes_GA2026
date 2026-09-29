@@ -309,16 +309,16 @@ $\overline{D(f)}=k^n$.\qed
 
 \begin{dang}
     \begin{lemma}\label{lemma: regular functions on principal open sets}
-        Let $V\subset k^n$ be an affine algebraic set and take $g\in k[X_1,\dots, X_n]\setminus I(Y)$, 
+        Let $V\subset k^n$ be an affine algebraic set and take $g\in k[X_1,\dots, X_n]\setminus I(V)$, 
         so $D_V(g)\neq\varnothing$. Then the set of regular functions 
         $\varphi: D_V(g)\to k$ is of the form $f/g^m|_{D_V(g)}$ for some $f\in k[X_1,\dots, X_n]$ and $m>0$. Then we have  
-        a surjection
+        an isomorphism
         \begin{equation}
             \widetilde{\psi}:k[V]_{\overline{g}}\rightarrow \mathcal{O}_V(D_V(g))
         \end{equation}
         where $\psi: k[V]\rightarrow \mathcal{O}_V(D_V(g))$ is the map that takes a polynomial 
         and restricts it to $D_V(g)$ and $\widetilde{\psi}$ is the corresponding map induced by the universal
-        property of localization. Furthermore, if $V$ is irreducible, this map is an isomorphism. 
+        property of localization. 
     \end{lemma}
 \end{dang}
 Proof: First we have $D_V(g)=\bigcup_{i=1}^\ell D_V(g_i)$ and since $\varphi$ is regular, there exists 
@@ -365,10 +365,12 @@ Now, by using equation $(***)$, we have (on $V$)
 \begin{equation}
     f_ig^m = \sum_kB_kf_ig_k = \sum_kB_kf_kg_i = (\sum_kB_kf_k)g_i.
 \end{equation}
-So if $q\in D_V(g_i)$, we have $\varphi(q) = \tfrac{f_i}{g_i}(q)=\tfrac{f}{g^m}(q)$, where we set $f=\sum_kB_kf_k$.\par 
-This proves that $\widehat{\psi}$ is surjective. To prove injectivity, we observe that 
-$f/g^m|_{D_V(g)}=0\iff f|_{D_V(g)}=0\iff fg |_V=0$. So if $V$ is irreducible, then $fg\in I(Y)\Rightarrow f\in I(Y)$
-because $I(Y)$ is prime, so $\overline{f}=0$. \qed
+So if $q\in D_V(g_i)$, we have $\varphi(q) = \tfrac{f_i}{g_i}(q)=\tfrac{f}{g^m}(q)$, where we set $f=\sum_kB_kf_k$. 
+This proves that $\widetilde{\psi}$ is surjective.\par 
+
+To prove injectivity, we observe that 
+$f/g^m|_{D_V(g)}=0\iff f|_{D_V(g)}=0\iff fg |_V=0$, which is equivalent to $fg\in I(V)$. 
+Therefore $\overline{g}\cdot\overline{f}=0$, which implies $\overline{f}/\overline{g}^m=0\in A_{\overline{g}}$ by definition.\qed
 
 \begin{dang}
     \begin{corollary}
@@ -379,15 +381,16 @@ because $I(Y)$ is prime, so $\overline{f}=0$. \qed
     \end{corollary}
 \end{dang}
 
+
 \begin{dang}
-    \begin{example}
+    \begin{remark}
     Normally, it's not obvious how to describe the set of units $\callO_V(D_V(G))^*$ even if $V$ is a 
     irreducible affine algebraic set. For example, if $V=k^1$, then $k[V]=k[X]$. So, for $G=X(X-1)$ we have 
     $\callO_V(D_V(G))^*\cong k^*\langle X^m, (X-1)^m: m\in\bbZ\rangle$, by the identification
     \begin{equation}
         \callO_V(D_V(G))\cong k[X]_{X(X-1)}\cong k[X,X^{-1},(X-1)^{-1}].
     \end{equation}
-\end{example}
+\end{remark}
 \end{dang}
 
 
@@ -1242,7 +1245,7 @@ which implies that $BF_iY_i \in \sqrt{J}=J$. Therefore
         &B(x_1,\dots,x_n, f_1T,\dots, f_mT)f_i^2 T = 0\\
         &\Rightarrow B(x_1,\dots,x_n,f_1,\dots,f_m)f_i^2T = 0\\
         &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{D_X(f_i)} = 0\\
-        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{X-Y}=0\;(\text{Why ??})\\
+        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{X-Y}=0\;(\textcolor{red}{why?})\\
         &\Rightarrow B(x_1,\dots,x_n,f_1,\dots, f_m) = 0\\
         &\Rightarrow B(X_1,\dots, X_n, Y_1,\dots, Y_m)\in J
     \end{split}
