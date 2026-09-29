@@ -4,7 +4,7 @@
 \textbf{Exercise 1}. Let $U=k^2-\{0\}$, show that the set of regular functions $U\to k$ are polynomials, then 
 conclude that $U$ is not an affine variety.    
 \end{dang}
-\textbf{Solution}. Let $\varphi\in\mathcal{O}_U(U)$ be a regular function, then 
+\textbf{Solution:} Let $\varphi\in\mathcal{O}_U(U)$ be a regular function, then 
 $\varphi|_{D_{k^2}(X)}=f/X^m$ and $\varphi|_{D_{k^2}(Y)}=g/Y^n$ and on the intersection $D_{k^2}(X)\cap D_{k^2}(Y)=D_{k^2}(XY)$, we have 
 \begin{equation}
     Y^nf - X^mg = 0\quad(*).
@@ -32,7 +32,7 @@ is defined at \(P = (x, y, z, w) \in V\) if \(y \neq 0\) or \(w \neq 0\). Show t
 \(f = F/G\), with \(F, G \in k[V]\) and \(G(p) \neq 0\) for every point \(p\) where \(G\) is defined. Show that the
 set of poles of \(f\) is exactly \(\{(x, y, z, w) \mid y = 0 \text{ and } w = 0\}\).
 \end{dang}
-\textbf{Solution}: First we observe that $XW - YZ$ is a irreducible polynomial, because it's a degree one polynomial in 
+\textbf{Solution:} First we observe that $XW - YZ$ is a irreducible polynomial, because it's a degree one polynomial in 
 $k[X,Y,Z][W]\subset \text{Frac}(k[X,Y,Z])[W]$ and the Gauss lemma. In particular 
 $I(V)=(XW-YZ)$ is a prime ideal.
 Remember the isomorphism 
@@ -70,8 +70,66 @@ Now, we see that there exist $m\geq1, a\in k^*$ such that $G=aY^m$ on $D_V(Y)$, 
 $Y(G-aY^m)|_V=0\iff Y(G-aY^m)\in I(V)\iff G-aY^m\in I(V)$ because $Y\notin I(V)$. Therefore $G=aY^m$ on $V$ and 
 $D_V(G)=D_V(Y)$ which is a contradiction, because $(0,0,0,1)\in D_V(W)\setminus D_V(Y)$.\qed
 
-
- 
+\begin{dang}
+\textbf{Exercise 3.} 
+Let $X$ and $Y$ be varieties, $P\in X$, and $Q\in Y$. Suppose that the local rings
+$\mathcal{O}_{X,P}$ and $\mathcal{O}_{Y,Q}$ are isomorphic (as $k$-algebras).
+Show that there exist open neighborhoods $U$ of $P$ in $X$ and $V$ of $Q$ in $Y$
+such that $U$ is isomorphic to $V$. Thus, the local ring of a variety at a point
+determines the variety, up to isomorphism, in a neighborhood of that point.
+\end{dang}
+\textbf{Solution:} We can assume without lost of generality that $X\subset k^m$ and $Y\subset k^n$ are affine and irreducible.
+Write the isomorphism $\varphi:\callO_{X,P}\to \callO_{Y,Q}$ and write 
+$\varphi(\langle X, x_i\rangle)=\langle V_i, g_i\rangle$, where $x_i=X_i|_X$ is the restriction of 
+the $i$th coordinate function of $k^m$ to $X$. Since $\varphi$ is an isomorphism, we have 
+$\varphi(\fr{m}_{X,P})=\fr{m}_{Y,Q}$, so $\varphi$ descends to an isomorphism
+$\overline{\varphi}:\callO_{X,P}/\fr{m}_{X,P}\to \callO_{Y,Q}/\fr{m}_{Y,Q}$. 
+So we have the diagram 
+\begin{center}
+    \begin{tikzcd}
+      \callO_{X,P}/\fr{m}_{X,P}\arrow[r,"\overline{\varphi}"]\arrow[d,swap,"\text{ev}_P"]  &\callO_{Y,Q}/\fr{m}_{Y,Q}\arrow[d,"\text{ev}_Q"]\\
+      k\arrow[r,dashed] &   k
+    \end{tikzcd}
+\end{center} 
+where the dashed line is a $k$-algebra isomorphism of fields, which must be the identity map. Then we see that 
+$\text{ev}_Q \circ\overline{\varphi} = \text{ev}_P$. Now define the morphism 
+\begin{equation}
+    g: V = \bigcap_i V_i \to k^m: y\mapsto (g_1(y),\dots, g_n(y)).
+\end{equation}
+We claim that $g(V_0)\subset X$ for some neighborhood $V_0$ of $Q$. In fact, if $F\in I(X)$ we have 
+\begin{equation}
+    \langle V,F(g_1,\dots,g_m)\rangle = \varphi(\langle X, F(x_1,\dots,x_m))\rangle.
+\end{equation}
+But $F(x_1,\dots,x_m)=F(X_1,\dots,X_m)|_X=0$, so 
+$F(g_1,\dots, g_m)=0$ on some neighborhood $V_0\ni Q, V_0\subset V$. Therefore 
+$F(g_1(y),\dots, g_m(y))=0$ and $g(y)\in VI(X)=X$ for $y\in V_0$. Furthermore, we have 
+$g_i(Q) = \text{ev}_Q(g_i) = \text{ev}_Q\circ\overline{\varphi}(x_i)=\text{ev}_P(x_i)=x_i(P)$, so 
+$g(Q)=P$. For simplicity of notation we will keep writing $V_0=V$. 
+Then we see that we constructed a morphism $g:V\to X$ which maps $Q\mapsto P$. In a similar way 
+we construct a morphism $f: U\to Y$ which maps $P\mapsto Q$. Now we compose 
+\begin{equation}
+    V\cap g^{-1}(U) \overset{g}{\rightarrow} U \overset{f}{\rightarrow} X\;(*).
+\end{equation}
+We claim that this composition is the inclusion. We have 
+\begin{equation}
+    \varphi(\langle X,x_i\rangle) = \langle V, g_i\rangle,\; 
+    \varphi^{-1}(\langle Y, y_i\rangle) = \langle U, f_i\rangle.
+\end{equation}
+Let $f_i = a_i/b_i$, where $a_i=A_i|_X,b_i = B_i|_X$ for $A_i,B_i\in k[\underline{X}]$. Then we get 
+\begin{equation}
+    \begin{split}
+         \varphi\varphi^{-1}(\langle Y, y_i\rangle) &= \varphi(\langle U, f_i\rangle)\\
+         &=\varphi(\langle U,\frac{ A_i(x_1,\dots, x_m)}{B_i(x_1,\dots, x_m)})\rangle)\\
+         &=\varphi(\frac{ A_i(\langle U,x_1\rangle,\dots, \langle U,x_m\rangle)}
+         {B_i(\langle U,x_1\rangle,\dots,\langle U, x_m\rangle)} )\\
+         &=\frac{ A_i(\langle V,g_1\rangle,\dots, \langle V,g_m\rangle)}
+         {B_i(\langle V,g_1\rangle,\dots,\langle V, g_m\rangle)} \\
+         &=\langle V,\frac{ A_i(g_1,\dots, g_m)}{B_i(g_1,\dots, g_m)}\rangle.
+    \end{split}
+\end{equation}
+So $\frac{ A_i(g_1,\dots, g_m)}{B_i(g_1,\dots, g_m)} = y_i$ on some neighborhood of $V^\prime\ni Q$ in $V$. This proves that 
+the composition $(*)$ is the inclusion $V^\prime\hookrightarrow X$. This prove that there exists open sets 
+$V\subset Y,U\subset X$ such that $f\circ g = \mathds{1}_V, g\circ f=\mathds{1}_U$, so $g:V\to U$ is an isomorphism.\qed
 
 
 

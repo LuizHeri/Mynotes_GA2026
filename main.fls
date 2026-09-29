@@ -380,6 +380,9 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr10.
 INPUT .\main.aux
 INPUT .\main.aux
 INPUT main.aux
+INPUT .\chapters\test_chapter.aux
+INPUT .\chapters\test_chapter.aux
+INPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT chapters\2026-ClassNotes.aux
@@ -476,6 +479,7 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\herin\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 OUTPUT main.toc
+OUTPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.tex
 INPUT .\chapters\2026-ClassNotes.tex
 OUTPUT chapters\2026-ClassNotes.aux
@@ -503,6 +507,7 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
+INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\tex\latex\doublestroke\udsrom.fd
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\tex\latex\doublestroke\udsrom.fd
@@ -510,7 +515,6 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\tex\latex\doublestroke\udsrom
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\doublestroke\dsrom10.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\doublestroke\dsrom8.tfm
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\doublestroke\dsrom8.tfm
-INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT .\chapters\AlgebraicGroups.tex
 INPUT .\chapters\AlgebraicGroups.tex
 OUTPUT chapters\AlgebraicGroups.aux
@@ -525,6 +529,9 @@ INPUT .\chapters\Lista.tex
 INPUT chapters\Lista.tex
 OUTPUT bibliography.aux
 INPUT main.aux
+INPUT .\chapters\test_chapter.aux
+INPUT .\chapters\test_chapter.aux
+INPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT chapters\2026-ClassNotes.aux

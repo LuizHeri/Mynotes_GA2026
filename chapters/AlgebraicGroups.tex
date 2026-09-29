@@ -72,18 +72,15 @@ Some important observations:
     is a finite subset $G\subset\fr{a}$ such that $(\LT(g):g\in G) = \LT(\fr{a})$.\par 
     
     \begin{example}
-        Let $R=\bbF[X_1,\dots, X_n, Y_1,\dots, Y_n]$ with LEX: $X_1>\cdots>X_n>Y_1>\cdots>Y_n$ and define an ideal 
-    $\fr{a} = (X_1 - g_1,\dots, X_n - g_n)$ for $g_i\in\bbF[Y_1,\dots, Y_n]$. Since 
+        Let $R=\bbF[X_1,\dots, X_n, Y_1,\dots, Y_m]$ with LEX: $X_1>\cdots>X_n>Y_1>\cdots>Y_m$ and define an ideal 
+    $\fr{a} = (X_1 - g_1,\dots, X_n - g_n)$ for $g_i\in\bbF[Y_1,\dots, Y_m]$. Since 
     $\LT(X_i - g_i)=X_i$, it's clear that $(X_1,\dots, X_n)\subset \LT(I)$. Now, if $f\in R$ and 
-    $X_j\nmid \LT(f),\;\forall j$, then $f\in \bbF[Y_1,\dots, Y_n]$ because its smallest term has 
-    power $\alpha \in \{0\}\times\bbZ^n$. So, we need to show that $I\cap \bbF[Y_1,\dots, Y_n] = (0)$. This can be seen 
-    by proving that the kernel of $\varphi: R\to \bbF[Y]:X_i\mapsto g_i, Y_i\mapsto Y_i$ is $I$. The only nontrivial inclusion 
-    is $\Ker(\varphi)\subset I$. To see this use a division algorithm to write 
-    \begin{equation}
-        f = h_1(X_1-g_1)+\cdots + h_n(X_n-g_n) + r
-    \end{equation}
-     where $r\neq0$ implies that no term of $r$ is divisible by $\LT(X_i - g_i) = X_i,\;\forall i$. By applying 
-     $\varphi$ on both sides of this equation we have the desired inclusion. From this we see that 
+    $X_j\nmid \LT(f),\;\forall j$, then $f\in \bbF[Y_1,\dots, Y_m]$ because its smallest term has 
+    power $\alpha \in \{0\}\times\bbZ^n$. So, we need to show that $I\cap \bbF[Y_1,\dots, Y_m] = (0)$. This can be seen 
+    by proving that the kernel of $\varphi: R\to \bbF[Y]:X_i\mapsto g_i, Y_i\mapsto Y_i$ is $I$. It's clear that 
+    $I\subset\text{Ker}(\varphi)$, so we have an induced morphism $\overline{\varphi}:R/I\to \bbF[\underline{Y}]$. However, 
+    it has an inverse given by $q:\bbF[\underline{Y}]\to R/I: Y\mapsto [Y]$. Therefore, if $\varphi(f)=0$, then 
+    $0=q\overline{\varphi}[f] =[f]$ and $f\in I$. So $\text{Ker}(\varphi) = I$ as well. From this we see that 
      $G = (X_1-g_1,\dots, X_n-g_n)$ is a groebner basis for $I$.
     \end{example}
     \item(Hilbert Polynomial). 
@@ -357,6 +354,10 @@ $\bbF$.
     Therefore $T_ISL_n(\bbF) = \fr{sl}_n\bbF$, the Lie algebra of traceless matrices.
   \end{example}
   \item(Gauss lemma).
+  \begin{remark}
+    \textcolor{red}{Remember that irreducible elements in a UFD are prime. This and the Gauss lemma below, gives a good 
+    way to test if a polynomial generates a prime ideal.}
+  \end{remark}
   We state the Gauss lemma.
   \begin{lemma}
     Let $R$ be a UFD ring (think in $\bbF[X]$), then $R[X]$ is a UFD.
