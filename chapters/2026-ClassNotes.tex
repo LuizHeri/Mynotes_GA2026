@@ -136,7 +136,7 @@ Proof: By Noether normalization lemma~(\ref{lemma : Noether normalization}), the
 $a_1,\dots, a_n\in L$ algebraically independent such that $L$ is integral over $k[a_1,\dots,a_n]$. By lemma~(\ref{lemma : R is a field, S is a field}), 
 we conclude that $k[a_1,\dots,a_n]$ is a field. Suppose that $n>0$, so $a_1$ has an inverse. This means that 
 $a_1g(a_1,\dots, a_n) = 1$ for some $g\in k[X_1,\dots, X_n]$, which constradicts the fact that $a_1,\dots, a_n$ are 
-alegrbaically independent. Then we conclude that $L$ is an integral (and then algebraic) over $k$. However, since 
+algebraically independent. Then we conclude that $L$ is an integral (and then algebraic) over $k$. However, since 
 $L$ is a finitely generated extension ($L=k(\overline{X}_1,\dots,\overline{X}_m)$) over $k$ we conclude that $L$ is in fact 
 a finite field extension over $k$.\qed
 
@@ -726,6 +726,19 @@ $P,Q\in D_+(H)$. Now, let $U,V\subset\bbP^m$ be two open sets, points $P\in U,Q\
 $H$ be such that $P,Q\in D_+(H)$. Then $U\cap D_+(H), V\cap D_+(H)$ are both nonempty open sets in the irreducible 
 affine space $D_+(H)\cong k^m$, so they must intersetc.\qed
 
+\begin{remark}
+    We know that $\bbP^1-\{(0:1)\}$ is affine. We will show that $U=\bbP^2-\{(0:0:1)\}$ is not affine. 
+    Let $f\in\callO_U(U)$, then by definition of regular function we have 
+    \begin{equation}
+        f|_{U_0}(1:x_1:x_2)=F_0(x_1,x_2),\; f|_{U_1}(x_0,1,x_2)=F_1(x_0,x_2).
+    \end{equation}
+    On the intersection $U_0\cap U_1$, we have 
+    \begin{equation}
+        F_0(x_1,x_2)=f(1:x_1:x_2)=f(x_1^{-1}:1:x_1x_2)=F_1(x_1^{-1},x_1^{-1}x_2)\in k[X_1,X_2].
+    \end{equation}
+    So $f$ must be a constant and $\callO_{U}(U)\cong k$.
+\end{remark}
+
 \subsection{Projective Nullstelensatz}
 \begin{dang}
     \begin{proposition}
@@ -1223,13 +1236,19 @@ we get that $J$ is radical ($J=\sqrt{J}$).
 \begin{dang}
     \begin{lemma}
         If $Z\subset k^m$ is affine and $f\in \callO_Z(Z)$ is such that $f$ is not a divisor of zero in 
-        $\callO_Z(Z)$, then $Z-V(f)\subset Z$ is dense.
+        $\callO_Z(Z)$ if and only if $Z-V(f)\subset Z$ is dense.
     \end{lemma}
 \end{dang}
-Proof: If it's not dense, we get that $D_Z(g)\subset V(f)$ for some $g$. So $fg|_Z=0$ and $f|_Z$ is a divisor of zero.\qed 
+Proof: It's not dense if and only if  
+$D_Z(g)\subset V(f)$ for some $g$, if and only if $fg|_Z=0\Rightarrow f|_Z$ is a divisor of zero.\qed 
+
+Furthermore, we have that $X-Y=X-V(f_1,\dots,f_m)\subset X$ is dense. So, if $gf_i|_X=0,\;\forall i$, then 
+$D_X(g)\subset V(f_1,\dots,f_m)$, so $X-Y$ is not dense, which is a contradiciton. Then we see that there exists 
+$i,\;f_i\nmid0$.
+
 \begin{dang}
 \begin{proposition}
-    $f_i\circ p_1|_{U_i}$ is not a divisor of zero.
+    $\forall i,\;f_i\circ p_1|_{U_i}$ is not a divisor of zero.
 \end{proposition}
 \end{dang}
 Proof: Let $b\in\callO_{\widetilde{X}}(U_i)\setminus\{0\}$ such that $b\cdot f_i\circ p_1|_{U_i}=0$ (by contradiction). 
@@ -1244,8 +1263,7 @@ which implies that $BF_iY_i \in \sqrt{J}=J$. Therefore
     \begin{split}
         &B(x_1,\dots,x_n, f_1T,\dots, f_mT)f_i^2 T = 0\\
         &\Rightarrow B(x_1,\dots,x_n,f_1,\dots,f_m)f_i^2T = 0\\
-        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{D_X(f_i)} = 0\\
-        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{X-Y}=0\;(\textcolor{red}{why?})\\
+        &\Rightarrow B(x_1,\dots, x_n, f_1,\dots, f_m)|_{X-Y}=0\quad(\textcolor{red}{why?})\\
         &\Rightarrow B(x_1,\dots,x_n,f_1,\dots, f_m) = 0\\
         &\Rightarrow B(X_1,\dots, X_n, Y_1,\dots, Y_m)\in J
     \end{split}
@@ -1272,3 +1290,216 @@ $b_i\in\callO_X(U_i),\;b_i\nmid 0$ such that $I\callO_X(U_i)=(b_i)$.
 
 \subsection{Examples}
 \subsection{Generalization}
+
+\section{Lecture 13}
+\subsection{Dimension}
+\begin{dang}
+\begin{definition}\label{definition: transcendence degree}
+    (Transcendence degree). Let $L|K$ be a field extension, we define its transcendence degree by 
+    \begin{equation}
+        \begin{split}
+    \text{Tr.deg}(L|K)&=\min\{d:\exists\; y_1,\dots,y_d\in L\text{ such that } L|K(y_1,\dots,y_d)\text{ is algebraic}\}\\
+    &=\max\{d:\exists\; y_1,\dots,y_d\in L\text{ such that } y_1,\dots,y_d\text{ are A.I over }K\}
+        \end{split}
+    \end{equation}
+\end{definition}
+\end{dang}
+To prove the equality in the above definition, let $d$ be the maximum positive integer such that 
+$y_1,\dots, y_d$ is algebraically independent (A.I) over $K$. Then, for any $z\in L$, the set 
+$\{y_1,\dots,y_d,z\}$ is algebraically dependent over $K$, so there exists $G\in K[T_1,\dots, T_{d+1}]\setminus0$ such that 
+$G(y_1,\dots, y_d,z)=0$. This is equivalent to say that $z$ is algebraic over $K(y_1,\dots,y_d)$, so 
+$L|K(y_1,\dots, y_d)$ is algebraic. Then we get
+\begin{equation}
+    d_{\min}\leq d_{\max}.
+\end{equation}
+Another way to see this inequality is as follows. Let $d$ be the minimum positive integer such that 
+$L|K(y_1,\dots, y_d)$ is algebraic and suppose that there exists $G\in K[T_1,\dots, T_d]\setminus0$ 
+such that $G(y_1,\dots,y_d)=0$. Without lost of generality, we assume that $\deg_{T_d}(G)>0$. But this means that 
+\begin{center}
+    \begin{tikzcd}
+     L\arrow[d, dash,swap,"\text{algebraic}"]\arrow[dd, dash, bend left = 80, "\Rightarrow\text{ algebraic}"] \\ 
+     K(y_1,\dots, y_d)\arrow[d, dash,swap,"\text{algebraic}"] \\  
+     K(y_1,\dots, y_{d-1}) 
+    \end{tikzcd}
+\end{center}
+which is a contradiction, by minimality of $d$.\TODO prove the other inequality
+
+\begin{dang}
+\begin{definition}
+    Let $X$ be an irreducible affine variety. We define its dimension by 
+    \begin{equation}
+        \dim(X)=\text{Tr.deg}(K(X)|k)
+    \end{equation}
+\end{definition}
+\end{dang}
+
+\begin{remark}
+    We see that open affine subsets behave as we expect: 
+    \begin{equation}
+        \dim(U)=\trdeg(K(U))=\trdeg(X)=\dim(X)
+    \end{equation}
+    because $K(X)\cong K(U)$, whenever $X$ is irreducible.
+\end{remark}
+
+\begin{dang}
+\begin{remark}
+    Let $R$ be a $k$-algebra and a integral domain. By the Noether normalization lemma, there exists $x_1,\dots,x_d$ algebraically 
+    independent (A.I) such that 
+    $R$ is integral over $k[x_1,\dots, x_d]$, which implies that 
+    $\text{Frac}(R)|k(x_1,\dots,x_d)$ is algebraic. Then we see that 
+    \begin{equation}
+        \trdeg(R|k) \leq d \leq \trdeg(R|k)\quad(\text{see definition~(\ref{definition: transcendence degree})})
+    \end{equation}
+    so $\trdeg(\text{Frac}(R)|k)=d$.
+\end{remark}
+\end{dang}
+
+\begin{dang}
+\begin{proposition}
+    Let $X=V(F)\subset k^n$ be an irreducible affine variety. Then $\dim X = n-1$.
+\end{proposition}
+\end{dang}
+Proof: Since $X$ is irreducible, then $F$ is irreducible. Otherwise $F=GH\Rightarrow V(F)=V(G)\cup V(H)$, which is 
+not irreducible. Without lost of generality, suppose that 
+\begin{equation}
+    \deg_{X_n}F(X_1,\dots, X_n)>0.
+\end{equation}
+Write $x_i = X_i + (F)\in \callO_X(X)=k[\underline{X}]/(F)$, $x_n$ is algebraic over 
+$k[x_1,\dots, x_{n-1}]$. Now, suppose that $G\in k[T_1,\dots, T_{n-1}]$ is such that 
+$G(x_1,\dots,x_{n-1})=0$, then
+\begin{equation}
+    G(X_1,\dots,X_{n-1})|_X=0\iff G(X_1,\dots,X_{n-1})\in (F)
+\end{equation}
+and $G=0$. So $\{x_1,\dots,x_{n-1}\}$ are algebraically independent and $\dim(X)\geq n-1$. However, the extension 
+$K(X)|k(x_1,\dots,x_{n-1})$ is algebraic because 
+\begin{equation}
+    K(X) = k(x_1,\dots,x_{n-1})(x_n).
+\end{equation}
+So $\dim(X)\leq n-1$ and we see that we have the equality.\qed 
+
+\begin{dang}
+\begin{proposition}
+    Let $X$ be an irreducible variety and $Y\subset X$ a proper closed irreducible subset. Then 
+    $\dim(Y)<\dim(X)$.
+\end{proposition}
+\end{dang}
+Proof: Let $U\subset X$ be an open affine such that $U\cap Y\neq\varnothing$. Then 
+\begin{equation}
+    \dim U = \dim X,\; \dim U\cap Y = \dim Y.
+\end{equation} 
+So we can assume $X$ affine irreducible. Write $R=\callO_X(X)$ and let $I=I(Y)\subset R$. 
+If $I=(0)$, then $Y = VI = V(0)=X$ which is a contradiction. So, there exists $f\in I\setminus0$. By 
+Noether normalization lemma, there exists $x_1,\dots, x_d\in R$ (A.I) such that $R\supset k[x_1,\dots,x_d]$
+is integral. Now $x_1,\dots,x_d,f$ must be algebraically dependent, so $G(x_1,\dots,x_d,f)=0$ for some 
+$G\in k[T_1,\dots,T_{d+1}]\setminus0,\; T_{d+1}\nmid G$. Now, on $\callO_Y(Y)=R/I$, we have 
+\begin{equation}
+    \begin{split}
+        G(x_1,\dots,x_d,0) + I &=G(x_1+I,\dots,x_d+I,I)\\
+        &=G(x_1+I,\dots, x_d+I, f + I)\\
+        &=G(x_1,\dots,x_d,f) +I\\
+        &=I.
+    \end{split}
+\end{equation}
+Therefore $x_1+I,\dots,x_d+I$ are algebraically dependent over $k$. However 
+$\callO_Y(Y)$ is integral over $k[x_1+I,\dots,x_d+I]$, so $K(Y)|k(x_1+I,\dots,x_d+I)$ is algebraic and 
+$\dim(Y)\leq d$. The equality can not happen, because $\{x_i+I\}$ is A.D, so $\dim(Y)<d$.\qed 
+
+\begin{dang}
+\begin{theorem}
+    Let $X$ be an irreducible affine variety, $f:X\to k$ regular ($f\neq0$). Let 
+    $Z\subset V(f)$ be a irreducible component. Then 
+    \begin{equation}
+        \dim Z = \dim X -1.
+    \end{equation}
+\end{theorem}
+\end{dang}
+Proof: Write $R=\callO_X(X)$. Let 
+\begin{equation}
+    V(f)=Z_1\cup\cdots\cup Z_m,\; Z=Z_1.
+\end{equation}
+Let $x\in Z$, then there exists an open affine $D_X(g)\subset X-Z_2\cup\cdots\cup Z_m,\;x\in D_X(g)$. This means that 
+there exists an open affine $U=D_X(g)$ such that $U\cap Z\neq\varnothing$ and 
+$U\cap (Z_2\cup\cdots\cup Z_m)=\varnothing$. In this condition 
+\begin{equation}
+   V(f_U)= V(f)\cap U = Z\cap U\text{ is irreducible}.
+\end{equation}
+Therefore 
+\begin{equation}
+    \dim X = \dim U,\; \dim V(f)\cap U=\dim Z\cap U\overset{Z\text{ irred.}}{=}\dim Z.
+\end{equation}
+Therefore, we want to prove that 
+\begin{equation}
+    \dim U = \dim V(f)\cap U+1 = \dim V(f|_U) +1.
+\end{equation}
+Then we assume $Z=V(f)$ to be an irreducible affine variety, so $I(Z)=\sqrt{(f)}$ is prime.\par 
+
+By Noether normalization lemma, there exists $x_1,\dots, x_d\in R$ such that 
+$R$ is integral over $S=k[x_1,\dots, x_d]$. Therefore we have the diagram 
+\begin{center}
+    \begin{tikzcd}
+        R\arrow[r,hook]& K=K(X) \\ S\arrow[u,hook]\arrow[r,hook]& L\arrow[u,hook,swap,"\text{finite}"]
+    \end{tikzcd}
+\end{center}
+where $L=\text{Frac}(S)$. We note that $K|L$ is algebraic and finitely generated. In fact, if 
+$X\subset k^n$, then  $K(X)=k(\overline{x}_1,\dots,\overline{x}_n)=L(\overline{x}_1,\dots,\overline{x}_n)$. 
+Therefore $K|L$ is a finite extension. Now, let $P(T)\in L(T)$ be the minimum polynomial of $f$ over $L$ and write 
+\begin{equation}
+    P(T) = T^m + a_1T^{m-1}+\cdots+a_m.
+\end{equation}
+Since $f$ is integral over $S$ (which is a UFD), its minimum polynomial has coefficients in $S$, i.e., 
+$a_i\in S,\;\forall i$. Now define $f_0 = N_{K|L}(f)$. We have 
+\begin{equation}
+    \begin{split}
+        f_0 &= N_{K|L}(f)\\
+        &=N_{L(f)|L}N_{K|L(f)}(f)\\
+        &=N_{L(f)|L}(\prod_{\sigma\in\Hom_{L(f)}(K,\overline{k})}\sigma(f))\\
+        &=N_{L(f)|L}(f^{\#\Hom_{L(f)}(K,\overline{k})})\\
+        &=N_{L(f)|L}(f^{\#[K:L(f)]})\\
+        &=N_{L(f)|L}(f)^{\#[K:L(f)]}.
+    \end{split}
+\end{equation}
+Write $p=\#[K:L(f)]$, so $f_0=\pm a_m^p\in S$.\par 
+
+Write $P=\sqrt{(f)}\subset R$. We draw the diagram
+\begin{center}
+    \begin{tikzcd}
+       P\arrow[r,hook] &R\arrow[r,hook]&K\\ 
+       P\cap S\arrow[r,hook]\arrow[u,hook]&S\arrow[r,hook]\arrow[u,hook]&L\arrow[u,hook,swap,"\text{finite}"]
+    \end{tikzcd}
+\end{center}
+We claim that $P\cap S= (f_0)$. In fact, we have 
+\begin{equation}
+    (f^m+a_1 f^{m-1}+\cdots +a_{m-1}f)^p = \pm a_m^p=\pm f_0.
+\end{equation}
+Therefore $f_0\in f R \subset P\cap S$. Now, if $g\in P\cap S$, then $g^n\in (f)$ and 
+$g^n=fh$ for some $h\in R$. Taking the norm we get 
+\begin{equation}
+   g^{n[K:L]}= N_{K|L}(g^n) = N_{K|L}(f)N_{K|L}(h) = f_0 N_{K|L}(h)\in (f_0).
+\end{equation}
+Therefore $g\in\sqrt{f_0}$ and $P\cap S\subset (f_0)$. Now we obtain 
+\begin{center}
+    \begin{tikzcd}
+        R/P=\callO_Z(Z)\\ S/(P\cap S)= S/\sqrt{(f_0)}\arrow[u,dash,swap,"\text{integral}"]
+    \end{tikzcd}
+\end{center}
+Finally $\trdeg(S/\sqrt{(f_0)})=d-1$ \textcolor{red}{(why?)}, so there exists 
+$y_1,\dots, y_{d-1}$ (A.I) such that 
+\begin{center}
+    \begin{tikzcd}
+        R/P=\callO_Z(Z)\\ S/(P\cap S)\arrow[u,dash,swap,"\text{integral}"] \\
+        k[y_1,\dots, y_{d-1}]\arrow[u,dash,swap,"\text{integral}"] 
+    \end{tikzcd}
+\end{center}
+This means that $K(Z)|k(y_1,\dots,y_{d-1})$ is algebraic with $\{y_i\}_{i=1}^{d-1}$ A.I. Therefore 
+$\dim Z = d-1$.\qed
+
+\subsection{Topological interpretation of dimension}
+
+
+
+
+
+
+
+
+
