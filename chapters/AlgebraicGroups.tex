@@ -1,5 +1,23 @@
 \chapter{Algebraic Groups}
 This is some notes that i did based on the first chapter of the book~\cite{geck2013introduction}.
+\section{Polynomial rings}
+We define $k[X_1,\dots,X_n]$ as the monoid algebra defined by $kM$, where $M$ is the monoid $(\bbZ^n_{\geq0},+)$.
+For $\alpha\in M$ we write $X^\alpha$ to the associated element in $kM$ through the injection 
+$M\hookrightarrow M$. In particular $X^\alpha \cdot X^\beta = X^{\alpha + \beta}$ by definition. 
+Let $e_i=(\delta_{ji})_{j=1}^n\in M$, then we write $X_i = X^{e_i}$. So we have the formula 
+\begin{equation}
+    X^\alpha = X_1^{\alpha_1}\cdots X_n^{\alpha_n}.
+\end{equation}
+By definition, the collection $\{X^\alpha\}_{\alpha\in M}$ is linearly independent. So, for any $k-$algebra $A$ and elements 
+$a_i\in A,\;i=1,\dots,n$ we have an unique linear map $k[X_1,\dots,X_n]\to A: X^\alpha \mapsto \prod_i a_i^{\alpha_i}$. This linear 
+map is obviously a morphism of $k-$algebras. \par
+
+In an analogous way, we can define $k[X_1^\pm,\dots, X_n^\pm]$ as the group algebra $k\bbZ^n$. In particular, 
+we can obtain this algebra by doing localizations. For example we have 
+\begin{equation}
+    k[X]_X \cong k[X,X^{-1}].
+\end{equation}
+
 \section{Basic definitions}
 Some important observations:
 \begin{itemize}

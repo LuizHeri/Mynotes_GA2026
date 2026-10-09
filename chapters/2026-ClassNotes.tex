@@ -1325,6 +1325,16 @@ such that $G(y_1,\dots,y_d)=0$. Without lost of generality, we assume that $\deg
 which is a contradiction, by minimality of $d$.\TODO prove the other inequality
 
 \begin{dang}
+    \begin{remark}
+        If $R$ is a $k$-algebra and a integral domain. We define its transcendence degree over $k$ by 
+        \begin{equation}
+            \trdeg(R)=\trdeg(\text{Frac}(R)|k).
+        \end{equation}
+    \end{remark}
+\end{dang}
+
+
+\begin{dang}
 \begin{definition}
     Let $X$ be an irreducible affine variety. We define its dimension by 
     \begin{equation}
@@ -1354,9 +1364,13 @@ which is a contradiction, by minimality of $d$.\TODO prove the other inequality
 \end{remark}
 \end{dang}
 
+
 \begin{dang}
 \begin{proposition}
-    Let $X=V(F)\subset k^n$ be an irreducible affine variety. Then $\dim X = n-1$.
+    Let $X=V(F)\subset k^n$ be an irreducible affine variety, then $\dim X = n-1$. Algebraically this means that 
+    \begin{equation}
+        \trdeg (\frac{k[X_1,\dots,X_n]}{(F)}) = n-1.
+    \end{equation}
 \end{proposition}
 \end{dang}
 Proof: Since $X$ is irreducible, then $F$ is irreducible. Otherwise $F=GH\Rightarrow V(F)=V(G)\cup V(H)$, which is 
@@ -1378,7 +1392,7 @@ $K(X)|k(x_1,\dots,x_{n-1})$ is algebraic because
 So $\dim(X)\leq n-1$ and we see that we have the equality.\qed 
 
 \begin{dang}
-\begin{proposition}
+\begin{proposition}\label{proposition: dimension of proper closed}
     Let $X$ be an irreducible variety and $Y\subset X$ a proper closed irreducible subset. Then 
     $\dim(Y)<\dim(X)$.
 \end{proposition}
@@ -1405,7 +1419,7 @@ $\callO_Y(Y)$ is integral over $k[x_1+I,\dots,x_d+I]$, so $K(Y)|k(x_1+I,\dots,x_
 $\dim(Y)\leq d$. The equality can not happen, because $\{x_i+I\}$ is A.D, so $\dim(Y)<d$.\qed 
 
 \begin{dang}
-\begin{theorem}
+\begin{theorem}\label{theorem: dim of irreducible component of V(f)}
     Let $X$ be an irreducible affine variety, $f:X\to k$ regular ($f\neq0$). Let 
     $Z\subset V(f)$ be a irreducible component. Then 
     \begin{equation}
@@ -1482,7 +1496,7 @@ Therefore $g\in\sqrt{f_0}$ and $P\cap S\subset (f_0)$. Now we obtain
         R/P=\callO_Z(Z)\\ S/(P\cap S)= S/\sqrt{(f_0)}\arrow[u,dash,swap,"\text{integral}"]
     \end{tikzcd}
 \end{center}
-Finally $\trdeg(S/\sqrt{(f_0)})=d-1$ \textcolor{red}{(why?)}, so there exists 
+Finally $\trdeg(S/\sqrt{(f_0)})=d-1$ \textcolor{red}{(see remark below)}, so there exists 
 $y_1,\dots, y_{d-1}$ (A.I) such that 
 \begin{center}
     \begin{tikzcd}
@@ -1493,13 +1507,78 @@ $y_1,\dots, y_{d-1}$ (A.I) such that
 This means that $K(Z)|k(y_1,\dots,y_{d-1})$ is algebraic with $\{y_i\}_{i=1}^{d-1}$ A.I. Therefore 
 $\dim Z = d-1$.\qed
 
+\begin{dang}
+\begin{remark}
+    In the previous proof we had the equality $\trdeg(S/\sqrt{(f_0)})=d-1$. First, remember that 
+    $S=k[x_1,\dots,x_d]$, where $\{x_i\}_{i=1}^d$ are algebraically independent, so it's a polynomial ring. 
+    Now, let $V=V(f_0)$, then $I(V)=\sqrt{(f_0)}$ by Hilbert Nullstelensatz. Therefore 
+    $S/\sqrt{(f_0)} = \callO_V(V)$ is the coordinate ring of a hypersurface of $k^d$ and it has transcendence degree 
+    $d-1$.
+\end{remark}
+\end{dang}
+
 \subsection{Topological interpretation of dimension}
+\begin{dang}
+\begin{lemma}
+    Let $Y\subset X$ be a maximal irreducible proper closed subset, where $X$ is a irreducible variety. Then 
+    $\dim(X)=\dim(Y)+1$.
+\end{lemma}
+\end{dang}
+Proof: Let $U\subset X$ be an open affine subset such that $U\cap Y\neq\varnothing$. Then 
+\begin{equation}
+    \dim X=\dim U,\;\dim Y = \dim Y\cap U.
+\end{equation}
+Furthermore, $Y\cap U\neq U$, otherwise we would have
+\begin{equation}
+    Y=Y\cap \overline{U}\supset \overline{Y\cap U}=\overline{U}=X 
+\end{equation} 
+and $X=Y$. Also if $Y\cap U \subset Z$, where $Z\subset U$ is a closed irreducible subset, then we have 
+\begin{equation}
+    Y \cap \overline{U} \subset Z\Rightarrow Y\subset Z
+\end{equation}
+and since $Y$ is maximal, we have $Z=Y$ or $Z=X\cap U = U$. Then we see that $Y\cap U$ is a maximal proper 
+irreducible subset of $U$. Then we can assume $X$ affine and $Y$ an irreducible component of $X$. In particular 
+if $f\in I(Y)\setminus 0$, then $Y\subset V(f)$ is maximal irreducible, so it's an irreducible component. Then we apply 
+theorem~(\ref{theorem: dim of irreducible component of V(f)}).\qed 
+
+\begin{dang}
+\begin{proposition}
+    Let $X$ be an irreducible variety. Then for any chain of irreducible closed subsets  
+    \begin{equation}
+        \varnothing\neq Z_0\subset Z_1\subset\cdots\subset Z_r\subset X,\; Z_{i-1}\neq Z_i\;(i=1,\dots, r)
+    \end{equation}
+    we have $r\leq \dim X$ with equality if and only if the chain is maximal.
+\end{proposition}
+\end{dang}
+Proof: By proposition~(\ref{proposition: dimension of proper closed}), we have 
+$\dim(Z_{i-1})<\dim(Z_i),\;i=1,\dots,r$. This implies that 
+\begin{equation}
+    r \leq \sum_{i=1}^r (\dim(Z_i) - \dim(Z_{i-1})) = \dim(Z_r)-\dim(Z_0)\leq\dim(X).
+\end{equation}
+Now, if the chain is maximal then for each $i,\;i=1,\dots r$ we have $Z_{i-1}\subset Z_i$ a maximal proper 
+irreducible subset. In this case we must have $\dim(Z_{i-1})=\dim(Z_i)-1$, because of the previous lemma. 
+Furthermore, in this case $Z_r=X$ and $Z_0$ is a point. Therefore 
+\begin{equation}
+    r = \sum_{i=1}^r(\dim(Z_i) - \dim(Z_{i-1}))=\dim(X).
+\end{equation}
+\qed 
 
 
-
-
-
-
+These results gives motivatio to the following definition. 
+\begin{dang}
+\begin{definition}
+    Let $X$ be a topological space. Then we define 
+    \begin{equation}
+        \dim X = \sup\{r: \exists\;Y_0\subset\cdots\subset Y_r\subset X,\;Y_{i-1}\neq Y_i\text{ irreducible}\}
+    \end{equation}
+\end{definition}
+\end{dang}
+\begin{dang}
+\begin{proposition}
+    Let $X$ be a variety, we have $\dim X = \max_i\dim X_i$ 
+    where $X_i$ are the irreducible components of $X$.
+\end{proposition}
+\end{dang}
 
 
 
