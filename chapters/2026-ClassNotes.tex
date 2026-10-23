@@ -248,7 +248,7 @@ in $k[X_1,\dots,X_n]$.\qed
 
 \begin{dang}
     \begin{lemma}
-        Any open subset $U\subset V$ of an affine algebraic set is quasicompact.
+        Any open subset $U\subset V$ of an affine algebraic set is quasicompact. 
     \end{lemma}
 \end{dang}
 Proof: Consider a covering $U=\bigcup_{\lambda\in\Lambda}U_\lambda$.
@@ -273,7 +273,12 @@ In the last equation we used Hilbert basis theorem: The sequence
 \end{equation}
 must terminate at some point, because $k[\underline{X}]$ is Noetherian. Then we conclude that 
 $D_V(g)=\bigcup_{\lambda\in I}D_V(g_\lambda)$.\qed
-
+\begin{dang}
+    \begin{corollary}
+         \textcolor{red}{From the proof of the previous lemma we see that every affine algebraic variety has a basis for its topology 
+        consisting of open affine subsets.}
+    \end{corollary}
+\end{dang}
 
 \begin{dang}
     \begin{lemma}
@@ -1366,7 +1371,7 @@ which is a contradiction, by minimality of $d$.\TODO prove the other inequality
 
 
 \begin{dang}
-\begin{proposition}
+\begin{proposition}\label{proposition: dimension of an irreducible affine variety in the affine space}
     Let $X=V(F)\subset k^n$ be an irreducible affine variety, then $\dim X = n-1$. Algebraically this means that 
     \begin{equation}
         \trdeg (\frac{k[X_1,\dots,X_n]}{(F)}) = n-1.
@@ -1513,7 +1518,7 @@ $\dim Z = d-1$.\qed
     $S=k[x_1,\dots,x_d]$, where $\{x_i\}_{i=1}^d$ are algebraically independent, so it's a polynomial ring. 
     Now, let $V=V(f_0)$, then $I(V)=\sqrt{(f_0)}$ by Hilbert Nullstelensatz. Therefore 
     $S/\sqrt{(f_0)} = \callO_V(V)$ is the coordinate ring of a hypersurface of $k^d$ and it has transcendence degree 
-    $d-1$.
+    $d-1$ (see proposition~(\ref{proposition: dimension of an irreducible affine variety in the affine space})).
 \end{remark}
 \end{dang}
 
@@ -1580,5 +1585,269 @@ These results gives motivatio to the following definition.
 \end{proposition}
 \end{dang}
 
+\section{Lecture 14 and 15}
+\subsection{Fibers of a morphism}
+\begin{dang}
+    \begin{definition}
+        A morphism $f:X\to Y$ is said to be dominant if $\overline{f(X)}=Y$.
+    \end{definition}
+\end{dang}
+\begin{dang}
+    \begin{proposition}
+        Let $f:X\to Y$ be a morphism of algebraic varieties and $Z=\overline{f(X)}\subset Y$. If 
+        $X$ is irreducible, then $Z$ is irreducible and $f^\#$ induces a injective morphism 
+        $K(Z)\hookrightarrow K(X)$, so $\dim(Z)\leq \dim(X)$.
+    \end{proposition}
+\end{dang}
+Proof: Suppose that $X$ is irreducible and let $Z=Z_1\cup Z_2$ with $Z_i,\;i=1,2$ closed. Then 
+$X=f^{-1}(Z_1)\cup f^{-1}(Z_2)$, so $X=f^{-1}(Z_1)$ say. So we get 
+$f(X)\subset Z_1$ and $Z=\overline{f(X)}\subset Z_1$ and $Z=Z_1$. This proves that $Z$ is irreducible. Now we have 
+an induced morphism $f:X\to Z$ which is dominant. Let $s\in\callO_Z(Z)$, then 
+$f^\#(s)=0\Rightarrow s=0$ on a dense subset of $Z$, so it must be zero. This proves that 
+$f^\#$ induces an embedding $K(Z)\hookrightarrow K(X)$.\qed 
+
+\begin{remark}
+    It's useful to remember that whenever we have a chain of proper closed subsets $X\subset Y\subset Z$, then 
+    $I(Y)\subset I(X)$ is a proper subset. If not, we have $X=VI(X)=VI(Y)=Y$. 
+    Here we write $I(X)=\{f\in\callO(Z): f|_X=0\}$.
+\end{remark}
 
 
+\begin{dang}
+    \begin{lemma}\label{lemma: teor. do ideal principal generalizado}
+        Let $Y$ be an irreducible affine algebraic variety and 
+        $W\subset Y$ a proper, closed and irreducible subset. Let $s=\dim(Y)-\dim(W)$, then there exists 
+        $f_1,\dots, f_s\in\callO(Y)$ such that $W$ is an irreducible component of 
+        $V(f_1,\dots, f_s)$ and every irreducible component of $V(f_1,\dots, f_s)$
+        has codimension equal to $s$.
+    \end{lemma}
+\end{dang}
+Proof: First we claim that there exists a chain if closed irreducible subsets 
+\begin{equation}
+    W = Z_s\subset Z_{s-1}\subset\cdots\subset Z_1\subset Z_0 = Y 
+\end{equation}
+such that $\codim(Z_i, Y)=i$. To see this, let $f\in I(W)\setminus0$, then 
+$W\subset V(f)\subset Y$. Since $W$ is irreducible, it's contained in some irreducible component $Z_1$ 
+of $V(f)$, which has codimension 1 in $Y$. Now, repeat this step with $Y=Z_1$. It remains to prove that 
+in the $s$th step, we have $W=Z_s$. If this doesnt happen, then $\dim W < \dim Z_s$ and $\codim(W,Y)>s$, which is 
+a contradiction.\par 
+
+Now, we claim that there exists a collection of regular functions $f_i\in\callO(Z),\;i=1,\dots,s$ such that 
+for every $i=1,\dots,s$, the set
+$Z_{i}$ is an irreducible component of $V(f_1,\dots, f_{i})$ and every irreducible component of 
+$V(f_1,\dots, f_i)$ has codimenion $i$ in $Z$. For $i=1$, it's sufficient to take 
+$f_1\in I(Z_1)\setminus0$, so $Z_1\subset V(f_1)$ is an irreducible component, because it has 
+codimenion one in $Y$, and every other irreducible component has codimenion one because of 
+theorem~(\ref{theorem: dim of irreducible component of V(f)}).\par  
+Now, we want to find 
+$f_2$ such that $Z_2\subset V(f_1,f_2)$ is an irreducible component of codimension 2, while every other irreducible 
+component has codimension 2 in $Y$. To do this, let 
+$Z_1 = X_1,\dots, X_m$ be the irreducible components of $V(f_1)$. Then 
+$Z_2\subset Z_1$ and $I(Z_2)\neq I(X_j)$ for every $j$, because 
+$\codim(Z_2,Y)>\codim(X_j,Y)$. Therefore, by prime avoidance theorem, we know that 
+$I(Z_2)\neq \bigcup_j I(X_j)$ and there exists 
+\begin{equation}
+    f_2 \in I(Z_2)-\bigcup_j I(X_j) 
+\end{equation}
+not zero. This is our candidate. In fact, we have $Z_2\in V(f_1,f_2)$, which we show to be an irreducible component. 
+We have $V(f_1,f_2)=\bigcup_j X_j\cap V(f_2)=\bigcup_j V(f_2|_{X_2})$ and since 
+$Z_2$ is irreducible, it must be contained in some irreducible component of $V(f_2|_{X_j})$. However, any 
+irreducible component of $V(f_2|_{X_j})\subset X_j$ has irreducible component of codimension 1 in $X_j$ 
+(see~(\ref{theorem: dim of irreducible component of V(f)})), thus 
+it has codimension 2 in $Y$. Therefore $Z_2$ is an irreducible component of $V(f_2|_{X_j})$ by dimensional reasons. 
+Since the collection of irreducible components of $V(f_1,f_2)$ is the union of the irreducible components 
+of $V(f_2|_{X_j})$ for each $j$, we conclude that each irreducible component of $V(f_1,f_2)$ has codimension 2 in $Y$. 
+The induction step follows this pattern.\qed
+
+
+\begin{dang}
+    \begin{theorem}
+        Let $f:X\to Y$ be a dominant morphism of irreducible affine varieties. Let 
+        $W\subset Y$ be an irreducible closed subset and $Z\subset f^{-1}(W)$ be an irreducible 
+        component such that $\overline{f(Z)}=W$ (this is an additional hypothesis). Then 
+        \begin{equation}
+            \codim(Z,X)\leq \codim(W,Y).
+        \end{equation}
+        A picture to remember:
+        \begin{center}
+            \begin{tikzcd}
+                X\arrow[r,"f"]&Y \\ Z\subset f^{-1}(W)\arrow[u,hook]\arrow[r,swap,"f"]&W\arrow[u,hook]
+            \end{tikzcd}
+        \end{center}
+    \end{theorem}
+\end{dang}
+Proof: Let $U\subset Y$ be an open affine such that $U\cap W\neq\varnothing$. Then 
+$f(Z)\cap U\neq\varnothing$. Then we get the diagram
+\begin{center}
+    \begin{tikzcd}
+   Z\cap f^{-1}(W\cap U)\arrow[d,hook]\arrow[r,hook,"\text{irr. comp.}"] & f^{-1}(W\cap U)\arrow[d,hook] \\
+   Z \arrow[r,hook,swap,"\text{irr. comp.}"] & f^{-1}(W)
+    \end{tikzcd}
+\end{center}
+Furthermore, we have 
+\begin{equation}
+   \dim U = \dim Y, \dim W\cap U = \dim W, \dim(Z\cap f^{-1}(W\cap U))=\dim Z
+\end{equation}
+and $\dim f^{-1}(U)=\dim X$. Then it's sucfficient to prove the result for 
+$f|_{f^{-1}(U)}:f^{-1}(U)\to U$ and $W\cap U\subset U$ irreducible closed. So we assume that $Y$ is an 
+affine irreducible algebraic variety. Let $s=\dim Y - \dim W$, then by the previous lemma, there exists 
+$f_1,\dots, f_s\in\callO(Y)$ such that $W$ is irreducible component of $V(f_1,\dots, f_s)$. Let 
+$g_i = f_i\circ f\in\callO(X)$. Then $Z\subset f^{-1}(W)=V(g_1,\dots, g_s)$ is an irreducible component. 
+In fact, if $Z\subset Z^\prime$, where $Z^\prime\subset V(g_1,\dots, g_s)$ is an irreducible component, then 
+$W=\overline{f(Z)}\subset \overline{f(Z^\prime)}\subset V(f_1,\dots, f_s)$ and 
+$W=\overline{f(Z^\prime)}$, because $\overline{f(Z^\prime)}$ is irreducible. This implies that 
+$f(Z^\prime)\subset W\Rightarrow Z^\prime \subset f^{-1}(W)$ and since $Z$ is a irreducible component, we have 
+$Z=Z^\prime$. Finally, since $Z\subset V(g_1,\dots, g_s)$ is an irreducible component, we must 
+have $\codim(Z,X)\leq s$.\textcolor{red}{ (Fill this gap)}\qed
+
+\begin{dang}
+    \begin{corollary}
+        If $W=\{y\}$ and $Z\subset f^{-1}(W)$ is an irreducible component, then 
+        $\dim Z\geq \dim X - \dim Y$.
+    \end{corollary}
+\end{dang}
+
+\begin{dang}
+    \begin{lemma}
+        Let $Z$ be a topological space such that $Z=\bigcup_i U_i$ is a covering of open irreducible subsets. 
+        If $U_i\cap U_j\neq\varnothing,\;\forall i,j$, then $Z$ is irreducible.
+    \end{lemma}
+\end{dang}
+Proof: Let $U,V$ be two nonempty open subsets. Then $U\cap U_i\neq\varnothing, V\cap U_j\neq\varnothing$ for some 
+$i,j$. But since $U\cap U_i, U_i\cap U_j\subset U_i$ are two open subsets, we see that 
+$U\cap U_i\cap U_j\neq\varnothing$ because $U_i$ is irreducible. In a similar way, we have 
+$V\cap U_i\cap U_j\neq\varnothing$. Furthermore $U_i\cap U_j\subset U_i$ is an open subset of an irreducible one, thus 
+it is irreducible. Therefore $U\cap V\cap U_i\cap U_j=(U\cap U_i\cap U_j)\cap (V\cap U_i\cap U_j)\neq\varnothing$ 
+and $U\cap V\neq\varnothing$.\qed 
+
+\begin{dang}
+    \begin{proposition}
+        Let $X,Y$ be two irreducible algebraic varieties, then $X\times Y$ is irreducible.
+    \end{proposition}
+\end{dang}
+Proof: Let $U\subset X, V\subset Y$ be two open affine subsets. Then if we show that 
+$U\times V$ is irreducible, we conclude that $X\times Y$ is irreducible by the lemma above. So we assume 
+$X,Y$ affine irreducible varieties. Suppose that 
+$X\times Y = Z_1\cup Z_2$, then for each $y\in Y$ we have 
+\begin{equation}
+    X\times\{y\}\subset Z_1 \text{ or } X\times\{y\}\subset Z_2
+\end{equation}
+because $X\times \{y\}$ is irreducible. Therefore $Y= Y_1\cup Y_2$, where 
+\begin{equation}
+    Y_i = \{y\in Y: X\times\{y\}\subset Z_i\}.
+\end{equation}
+However, if $y\in Y-Y_1$, then there exists $x\in X$ such that $(x,y)\notin Z_1$. However
+there exists $U\cap Y$ such that $\{x\}\times U = \{x\}\times Y - (\{x\}\times Y)\cap Z_1\neq\varnothing$, so 
+$y\in U\subset Y-Y_1$. This proves that $Y_1,Y_2$ are closed, so $Y=Y_1$ say. Then 
+$X\times Y\subset Z_1\Rightarrow X\times Y= Z_1$.\qed 
+
+\begin{remark}
+    The projection $\pi|_{\{x\}\times Y}:\{x\}\times Y\overset{\cong}{\rightarrow}Y$ is a continuous bijection. 
+    But we have more, it's a open map, thus a homeomorphism. In fact, we have 
+    \begin{equation}
+        \{x\}\times D_Y(g) = (\{x\}\times Y)\cap D_{X\times Y}(gp_2),g\in\callO(Y).
+    \end{equation}
+\end{remark}
+
+\begin{dang}
+    \begin{lemma}
+        Let $Y$ be a affine irreducible variety, then $Y\times k^r$ is irreducible and 
+        \begin{equation}
+            \dim Y\times k^r = r+\dim Y\text{ and }\callO(Y\times k^r)\cong\callO(Y)[T_1,\dots,T_r].
+        \end{equation}
+    \end{lemma}
+\end{dang}
+Proof: Let $Y\subset k^s$, then  
+\begin{equation}
+    \sum_{\alpha\in\bbZ_{\geq0}^r}f_\alpha p_2 T^\alpha\in I(Y\times k^r)\iff 
+   \sum_{\alpha\in\bbZ_{\geq0}^r}f_\alpha p_2(y) T^\alpha = 0,\;\forall y\in Y.
+\end{equation}
+So $f_\alpha\in I(Y),\;\forall\alpha$, therefore $I(Y\times k^r) = p_2^\#(I(Y))[T_1,\dots, T_r]$.
+Therefore 
+\begin{equation}
+    \callO(Y\times k^r)=\frac{k[U_1,\dots, U_s][T_1,\dots, T_r]}{p_2^\#(I(Y))[T_1,\dots,T_r]}
+    \cong \callO(Y)[T_1,\dots,T_r].
+\end{equation}
+However, by Noether normalization lemma, there exits $y_1,\dots, y_d\in\callO(Y)$ such that 
+$\callO(Y)$ is integral over $k[y_1,\dots, y_d]$ where $d=\dim Y$. Therefore 
+$\callO(Y\times k^r)$ is integral over $k[y_1,\dots, y_d][T_1,\dots, T_r]$. Since 
+$y_1,\dots, y_d, T_1,\dots, T_r$ are algebraically independent we conclude that 
+$\dim (Y\times k^r)= d + r$.\qed
+
+\begin{remark}
+    Let $S\subset R$ be a subring, we say that $R$ is finite over $S$ if there exists $x_1,\dots, x_m\in R$ such that 
+    $R=Sx_1+\cdots+S_m$, i.e., $R$ is a finitely generated $S-$module.
+\end{remark}
+\begin{remark}
+   If $X$ is affine, then any maximal ideal of $\callO(X)$ is of the form $I_x=I(\{x\})=\{f\in\callO(X):f(x)=0\}$.
+\end{remark}
+
+\begin{dang}
+\begin{lemma}
+    Let $f:X\to Y$ be a dominant morphism of affine varieties. Suppose that 
+    $\callO(X)$ is finite over $\callO(Y)$, then $f$ is surjective.
+\end{lemma}
+\end{dang}
+Proof: Let $Y^\prime\subset Y$ be an irreducible component and 
+$f^{-1}(Y^\prime)=X_1\cup\cdots\cup X_m$ be irreducible components. Suppose that 
+for all $j$, there exists $U_j\subset Y^\prime$ such that $U_j\subset Y^\prime - f(X_j)$. Then 
+\begin{equation}
+    U=\bigcap_{j=1}^mU_j\subset \bigcap_{j=1}^m(Y^\prime - f(X_j))=Y^\prime - \bigcup_{j=1}^m f(X_j).
+\end{equation}
+However, since $f$ is dominant, there exists $f(x)\in f(X)\cap U\Rightarrow x\in f^{-1}(U)\subset f^{-1}(Y^\prime)$, so 
+$x\in X_j$ ofr some $j$. This contradicts the inclusion $U\subset Y^\prime - \bigcup_{j=1}^mf(X_j)$. this proves that 
+there exists a irreducible components $X^\prime\subset f^{-1}(Y^\prime)$ such that 
+$f|_{X^\prime}:X^\prime\to Y^\prime$ is dominant. If we prove that $X^\prime \to Y^\prime$ is surjective, then we are done 
+because we can repeat the same argument for any irreducible component $Y^\prime$ of $Y$. Furthermore, the hypothesis 
+of the problem transfer to $X^\prime\to Y^\prime$, in fact:
+\begin{center}
+    \begin{tikzcd}
+    \callO(X)\arrow[r,two heads]&\callO(X^\prime) \\ 
+    \callO(Y)\arrow[r, two heads]\arrow[u,hook]&\callO(Y^\prime)\arrow[u,hook]
+    \end{tikzcd}
+\end{center}
+Remember that since $X^\prime\hookrightarrow X$ is closed, we have $\callO(X^\prime)=\callO(X)/I(X^\prime)$ and 
+$\callO(X)\to \callO(X^\prime)$ is the projection, thus it's surjective. Then, we use the above diagram 
+to conclude that $\callO(X^\prime)$ is finite over $\callO(Y^\prime)$. Now we can assume both $X$ and $Y$ irreducible. 
+Let $y\in Y$, then we have the diagram 
+\begin{center}
+    \begin{tikzcd}
+    \callO(X)\arrow[r,hook]&\callO(X)\callO_{Y,y}\arrow[r,hook]&K(X)\\
+    \callO(Y)\arrow[u,hook,"\text{finite}"]\arrow[r,hook]&\callO_{Y,y}
+    \arrow[u,hook,"\text{finite}"]\arrow[r,hook]&K(Y)\arrow[u,hook]
+    \end{tikzcd}
+\end{center}
+where 
+\begin{equation}
+    \callO_{Y,y}\callO(X)=\{g/h\circ f:g\in\callO(X), h\in\callO(Y),h(y)\neq0\}.
+\end{equation}
+Now we claim that there exists a maximal ideal $M\subset \callO(X)\callO_{Y,y}$ such that 
+$M\cap\callO_{Y,y}=\fr{m}_{Y,y}$. If this is true, then 
+\begin{equation}
+    (M\cap \callO(X))\cap\callO(Y)=M\callO(Y)=(M\cap\callO_{Y,y})\cap\callO(Y)=\fr{m}_{Y,y}\callO(Y)=I_y.
+\end{equation}
+Therefore, for any maximal ideal $I_x\supset M\cap\callO(X)$, we have $I_x\supset f^\#(I_y)=I_{f(y)}$, which implies that 
+$x=f(y)$.\par 
+Write $R= \callO(X)\callO_{Y,y}$ and $S =\callO_{Y,y}$ and let $M\subset R$ be a maximal ideal. We claim that 
+$M\cap S=\fr{m}_{Y,y}$. To show this, it's sufficient to prove that $M\cap S\subset S$ is maximal (because $S$ is local), 
+so we need to prove that $S/(M\cap S)$ is a field. However $S/(M\cap S)\hookrightarrow R/M$ 
+while $R$ is integral over $S$. So we need to show that if a ring $A$ embedds in a field $k$, which is integral over 
+$A$, then $A$ is a field. This is an easy exercise.\qed
+
+\begin{dang}
+\begin{theorem}
+    Let $f:X\to Y$ be a dominant morphism of irreducible varieties, $X$ quasicompact. Then there exists 
+    $U\subset Y$ open dense such that 
+    \begin{itemize}
+        \item[(1)] $U\subset f(X)$;
+        \item[(2)] $\forall W\subset Y$ irreducible closed such that $W\cap U\neq\varnothing$ and 
+        any irreducible component $Z\subset f^{-1}(W)$ such that $Z\cap f^{-1}(U)\neq\varnothing$, we have 
+        \begin{equation}
+            \codim(Z,X)=\codim(W,Y).
+        \end{equation} 
+    \end{itemize}
+\end{theorem}
+\end{dang}
+Proof:\TODO
+
+\subsection{Constructible subsets}
