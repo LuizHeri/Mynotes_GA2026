@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.7)  23 OCT 2026 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.7)  23 OCT 2026 18:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1246,7 +1246,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.33 ...line {2.3}Tangent Spaces}{45}{section.2.3}
+l.33 ...line {2.3}Tangent Spaces}{46}{section.2.3}
                                                   % [1
 
 ])
@@ -1279,32 +1279,32 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 568.
  (C:\Users\herin\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]) [38]
+) [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]) [39]
 \openout2 = `chapters/AlgebraicGroups.aux'.
 
  (chapters/AlgebraicGroups.tex
 Chapter 2.
-[39
+[40
 
 
 
 
-] [40] [41] [42] [43] [44] [45] [46] [47] [48]) [49]
+] [41] [42] [43] [44] [45] [46] [47] [48] [49]) [50]
 \openout2 = `chapters/Lista.aux'.
 
  (chapters/Lista.tex
 Chapter 3.
-[50
+[51
 
 
 
 
-] [51]) [52]
+] [52]) [53]
 \openout2 = `bibliography.aux'.
 
 
 No file bibliography.tex.
-[53
+[54
 
 
 
@@ -1323,17 +1323,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42056 strings out of 467871
- 866416 string characters out of 5418376
+ 42071 strings out of 467871
+ 866633 string characters out of 5418376
  1693116 words of memory out of 5000000
- 69796 multiletter control sequences out of 15000+600000
+ 69800 multiletter control sequences out of 15000+600000
  690346 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  132i,23n,135p,779b,1386s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/herin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (54 pages, 624257 bytes).
+Output written on main.pdf (55 pages, 632516 bytes).
 PDF statistics:
- 1009 PDF objects out of 1200 (max. 8388607)
- 428 named destinations out of 1000 (max. 500000)
+ 1030 PDF objects out of 1200 (max. 8388607)
+ 439 named destinations out of 1000 (max. 500000)
  429 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1025,6 +1025,12 @@ is closed. Therefore
 is closed, so it's a projective variety.\par 
 
 \begin{dang}
+    \begin{corollary}
+        Since $\Gr_d(V)$ is covered by copies of intersecting affine planes, it's a irreducible variety.
+    \end{corollary}
+\end{dang}
+
+\begin{dang}
     \begin{proposition}
         We have $\dim (\Gr_d(V)) = d(n-d),\; n=\dim(V)$.
     \end{proposition}
@@ -1042,7 +1048,13 @@ $J\notin \{J_{pq}: (p,q)\in\{1,\dots,d\}\times\{d+1,\dots,n\}\}$. Then, we see t
 \end{equation} 
 which has transcendence degree $d(n-d)$.\qed
 
-There is a simple way to represent an element $F\in \mathcal{F}(V)$. Fix a basis $\{e_1,\dots,e_n\}$ of $V$
+
+\begin{dang}
+    \begin{proposition}
+        We have $\dim\mathcal{F}(V)=\frac12 n(n-1)$.
+    \end{proposition}
+\end{dang}
+Proof: There is a simple way to represent an element $F\in \mathcal{F}(V)$. Fix a basis $\{e_1,\dots,e_n\}$ of $V$
 and observe that we can find a basis of $V$ such that $F_i=\langle v_1,\dots, v_i\rangle$. Now, assume 
 that $F\in U=U_{(1)}\times \cdots \times U_{(1,\dots,d-1)}\times U_{(1,\dots,d)}$. Then if we write 
 $v_i = \sum_ja_{ij}e_j$, we see that $A=(a_{ij})$ has nonsingular principal minors $M_{ii},\;i=1\,\dots,n$. 
@@ -1050,15 +1062,13 @@ We call $A$ a representative matrix of $F$.\par
 Since $a_{11}\neq0$, we can assume $v_1=e_1+\sum_{j>1}a_{1j}e_j$. Now, observe that if we only do elementary operations 
 of the form $R_j\to R_j + kR_i,\;(i<j)$ and $R_j\to kR_j,\;(k\neq0)$ (where $R_i=(a_{i1},\dots,a_{in})$ is the $i$th row of $A$) on $A$, we 
 still have $A$ as a representative of the flag $F$. Using the hypothesis that the principal minors are nonsingular, we see that 
-we can assume $a_{ii}=1,\forall i$, while $a_{ij}=0,\;(i>j)$. That is $v_i=e_i+\sum_{j>i}a_{ij}e_j$.
+we can assume $a_{ii}=1,\forall i$, while $a_{ij}=0,\;(i>j)$. That is $v_i=e_i+\sum_{j>i}a_{ij}e_j$.\par 
 
-\begin{dang}
-    \begin{proposition}
-        We have $\dim\mathcal{F}(V)=\frac12 n(n-1)$.
-    \end{proposition}
-\end{dang}
-Proof: The above discussion shows that $\mathcal{F}(V)\cap U$ is defined by the graph of a morphism  
-$c: k^{\frac12 n(n-1)}\to k^N$ for some $N$. This proves the proposition.\qed
+The above discussion shows that $\mathcal{F}(V)\cap U$ is defined by the graph of a morphism  
+$c: k^{\frac12 n(n-1)}\to k^N$ for some $N$, so it's locally isomorphic to a plane 
+$k^{\frac12 n(n-1)}$, which is an irreducible variety. Moreover, these affine planes cover 
+$\mathcal{F}(V)$. This proves that $\mathcal{F}(V)$ is irreducible and 
+that the dimension is $\frac12 n(n-1)$.\qed
 
 \begin{example}
 Suppose that $F\in\mathcal{F}(k^3)$ has matrix representation 
@@ -1698,7 +1708,26 @@ $W=\overline{f(Z)}\subset \overline{f(Z^\prime)}\subset V(f_1,\dots, f_s)$ and
 $W=\overline{f(Z^\prime)}$, because $\overline{f(Z^\prime)}$ is irreducible. This implies that 
 $f(Z^\prime)\subset W\Rightarrow Z^\prime \subset f^{-1}(W)$ and since $Z$ is a irreducible component, we have 
 $Z=Z^\prime$. Finally, since $Z\subset V(g_1,\dots, g_s)$ is an irreducible component, we must 
-have $\codim(Z,X)\leq s$.\textcolor{red}{ (Fill this gap)}\qed
+have $\codim(Z,X)\leq s$.\qed
+
+\begin{remark}
+    Let $X$ be an irreducible affine algebraic variety and $f_1,\dots, f_s\in\callO(X)$. Then if $Z\subset V(f_1,\dots, f_s)$
+    is an irreducible component, we claim that $\codim(Z,X)\leq s$. We apply induction on $s$, the base case being 
+    just theorem~(\ref{theorem: dim of irreducible component of V(f)}). Let 
+    $Z^\prime\subset V(f_1,\dots, f_{s-1})$ be an irreducible component containing $Z$, then by induction, we have 
+    $\codim(Z^\prime,X)\leq s-1$. Now we have 
+    \begin{equation}
+        Z \subset V(f_s|_{Z^\prime})\subset V(f_1,\dots, f_s).
+    \end{equation}
+    It's important to note that if $Z^{\prime\prime}\subset V(f_s|_{Z^\prime})$ is an irreducible component, then 
+    $Z\subset Z^{\prime\prime}\subset V(f_1,\dots, f_s)$ and $Z=Z^{\prime\prime}$ because 
+    $Z$ is an irreducible component of $V(f_1,\dots, f_s)$, so it's maximal irreducible. Then 
+    $Z$ is an irreducible component of $V(f_s|_{Z^\prime})$.  
+    If $f_s|_{Z^\prime}=0$, then $Z\subset Z^\prime$ is an irreducible component and $Z=Z^\prime$. So 
+    $\codim(Z,X)=\codim(Z^\prime,X)\leq s-1\leq s$. If $f_s|_{Z^\prime}\neq0$, then 
+    $\dim Z = \dim Z^\prime -1$ by theorem~(\ref{theorem: dim of irreducible component of V(f)}). Therefore 
+    $\codim(Z,X)=\codim(Z^\prime,X)+1\leq s$.
+\end{remark}
 
 \begin{dang}
     \begin{corollary}
@@ -1840,7 +1869,7 @@ $A$, then $A$ is a field. This is an easy exercise.\qed
     $U\subset Y$ open dense such that 
     \begin{itemize}
         \item[(1)] $U\subset f(X)$;
-        \item[(2)] $\forall W\subset Y$ irreducible closed such that $W\cap U\neq\varnothing$ and 
+        \item[(2)] $\forall\; W\subset Y$ irreducible closed such that $W\cap U\neq\varnothing$ and 
         any irreducible component $Z\subset f^{-1}(W)$ such that $Z\cap f^{-1}(U)\neq\varnothing$, we have 
         \begin{equation}
             \codim(Z,X)=\codim(W,Y).
@@ -1850,4 +1879,58 @@ $A$, then $A$ is a field. This is an easy exercise.\qed
 \end{dang}
 Proof:\TODO
 
+\begin{dang}
+\begin{corollary}
+    Let $f:X\to Y$ be a dominant morphism of irreducible varieties, $X$ quasicompact. Then, there exists $U\subset f(X)$
+    dense, such that $\forall\;y\in U$, $f^{-1}(y)$ is nonempty of pure dimension equal to $r=\dim(X)-\dim(Y)$. 
+\end{corollary}
+\end{dang}
 \subsection{Constructible subsets}
+\begin{dang}
+\begin{definition}
+    Let $X$ be a topological space. Then we define:
+    \begin{itemize}
+        \item[(1)] A subset of the form $U\cap F\subset X$, where $U\subset X$ is open and $F\subset X$ is closed 
+        is said to be locally closed.
+        \item[(2)] A constructible subset $E\subset X$ is a finite union of locally closed subsets in $X$.
+    \end{itemize}
+\end{definition}
+\end{dang}
+\begin{remark}
+    From definion above, open and closed sets are constructible.
+\end{remark}
+
+\begin{dang}
+    \begin{proposition}
+        Let $f:X\to Y$ be a morphism of quasicompact algebraic varieties. Then $f$ 
+        sends constructible subsets to constructible subsets.
+    \end{proposition}
+\end{dang}
+Proof: By definition it's sufficient to prove that the image of a locally closed subset is constructible. However 
+if $E\subset X$ is locally closed, it has a structure of an algebraic variety such that the inclusion $E\hookrightarrow X$
+is a morphism. In particular $f|_E:E\to Y$ is a morphism, so we can take $E=X$. Now we are reduced to show that 
+$f(X)$ is constructible in $Y$. Furthermore, if $X=\bigcup_{i=1}^m X_i$ are the irreducible components of $X$, then 
+$f(X)=\bigcup_{i=1}^m f(X_i)$, so we are reduced to prove that $f(X_i)$ is constructible for each $i$. Then we 
+assume $X$ irreducible. A final reduction, let $f(X)\subset Z\subset Y$, where $Z$ is closed in $Y$. Then 
+$f(X)$ constructible in $Z$ means that 
+\begin{equation}
+    f(X)=\bigcup_i (U_i\cap Z)\cap (F_i\cap Z) = \bigcup_i U_i\cap (F_i\cap Z) 
+\end{equation}  
+where $U_i\subset Y$ is open and $F_i\subset Y$ is closed for each $i$. But $U_i\cap (F_i\cap Z)$ is locally 
+closed in $Y$, so $f(X)$ is constructible in $Y$. Then we can assume $Y=\overline{f(X)}$, so $f$ is a dominant 
+morphism of quasicompact, irreducible algebraic varieties. Now we are in position to 
+apply the previous theorem to conclude that there exists an open dense $U\subset f(X)$. Now, let 
+$Y- U = \bigcup_{i=1}^m Z_i$ be a decomposition into irreducible components and let 
+$f^{-1}(Z_i)= W_{i1}\cup\cdots\cup W_{i t_i},\;i=1,\dots, m$ be a decomposition into irreducible components. 
+Then $g_{ij}=f|_{W_{ij}}:W_{ij}\to Z_i$ is a morphism for each $i=1,\dots,m$ and $j,\;1\leq j\leq t_i$. Furthermore 
+$\dim Z_i < \dim Y$, so we can apply induction on dimenion of $Y$ to conclude that each $f(W_{ij})\subset Z_i$ 
+is constructible, thus constructible in $Y$. However 
+\begin{equation}
+    f(X) = U \cup \bigcup_{i,j}f(W_{i,j}) 
+\end{equation}
+is constructible.\qed
+
+\begin{remark}
+    The base case in the previous definition is $\dim Y=0$, i.e., $Y$ is a point. In this case the result is 
+    clearly true.
+\end{remark}
