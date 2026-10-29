@@ -1100,10 +1100,18 @@ take $\mathcal{U}$ to be the countable set of basic open sets of $X$.
 
 \begin{notation}
     We will denote the elements of $\mathcal{O}_{X,Y}$ by $\langle U,f\rangle$. So 
-    $\langle U,f\rangle=\langle V,g\rangle$ if and only if there exists $W\subset U\cap V$ such that $f|_W=g|_W$. 
+    $\langle U,f\rangle=\langle V,g\rangle$ if and only if there exists $W\subset U\cap V,\; W\cap Y\neq\varnothing$ 
+    such that $f|_W=g|_W$. 
     In particular, since $Y$ is taken to be irreducible, we have that $W\cap Y \subset U\cap V\cap Y$ is dense, so 
     $f|_{U\cap V\cap Y}=g|_{U\cap V\cap Y}$ by continuity of $f$ and $g$.
 \end{notation}
+
+\begin{remark}
+    If $X$ is irreducible,
+    we have an injection $\callO_X(X)\hookrightarrow \callO_{X,Y}:f\mapsto \langle X,f\rangle$. In fact, if 
+    $\langle X,f\rangle = 0$, then there exists $U\subset X,U\cap Y\neq\varnothing$ such that $f|_U=0$. 
+    But since $X$ is irreducible, $U\subset X$ is dense and thus $f=0$. 
+\end{remark}
 
 \begin{dang}
     \begin{proposition}
@@ -1118,7 +1126,7 @@ shows that $\callO_{X,Y}$ is a $k-$algebra. Now, define the set
 \begin{equation}
     \fr{m}_{X,Y} =\{\langle U,f\rangle: f|_{U\cap Y}=0\}.
 \end{equation}
-The condition $f|_{U\cap Y}=0$ is we defined on the class $\langle U,f\rangle$. In fact, if 
+The condition $f|_{U\cap Y}=0$ is well defined on the class $\langle U,f\rangle$. In fact, if 
 $V\subset U$ is open, then $f|_{V\cap Y}=0\Rightarrow f|_{U\cap Y}=0$, because $V\cap Y\subset U\cap Y$ is dense. Furthermore 
 $\callO_{X,Y}$ is clearly seen to be an ideal. Finally, we observe that 
 \begin{equation}
@@ -1148,11 +1156,14 @@ if and only if there exists $G\notin P$ such that
     \begin{split}
         &\overline{G}(\overline{F}_1\overline{G}_2 - \overline{F}_2\overline{G}_1) = 0 \in k[X]\iff\\
         &G(F_1G_2 - F_2G_1) |_X = 0 \in \callO_X(X)\iff\\
-        &(F_1G_2 - F_2G_1)|_{D_X(G)} = 0\in\callO_X(D_X(G))\iff\\
+        &(F_1G_2 - F_2G_1)|_{D_X(G)} = 0\in\callO_X(D_X(G))\Rightarrow\\
         &\langle D_X(G), F_1/G_1\rangle = \langle D_X(G), F_2/G_2\rangle.
     \end{split}
 \end{equation}
-Then we see that $\psi$ is well defined and injective.
+Then we see that $\psi$ is well defined. To see injectivity, if $\langle D_X(G), F/G\rangle=0$, then 
+$F|_{U}=0$ for some open set $U$ such that $U\cap Y\neq \varnothing$. But since $U\subset X$ is open dense, we have 
+$F|_X=0\iff \overline{F}=0$.\par
+
 It remains to prove that it's surjective. To see this, let 
 $\langle U, f\rangle \in\callO_{X,Y}$, and let $q\in U\cap Y$. Since $f:U\to k$ is regular, there exists 
 $U^\prime\ni q, U^\prime\subset U$ and polynomials $F,G\in k[\underline{X}], G(q^\prime)\neq0\;\forall q^\prime\in U^\prime$ 
@@ -1446,8 +1457,8 @@ Proof: Write $R=\callO_X(X)$. Let
 \begin{equation}
     V(f)=Z_1\cup\cdots\cup Z_m,\; Z=Z_1.
 \end{equation}
-Let $x\in Z$, then there exists an open affine $D_X(g)\subset X-Z_2\cup\cdots\cup Z_m,\;x\in D_X(g)$. This means that 
-there exists an open affine $U=D_X(g)$ such that $U\cap Z\neq\varnothing$ and 
+Take $x\in Z\setminus \bigcup_{j>1}Z_j$, then there exists an open affine $U\subset X-Z_2\cup\cdots\cup Z_m, x\in U$, i.e., 
+there exists an open affine $U$ such that $U\cap Z\neq\varnothing$ and 
 $U\cap (Z_2\cup\cdots\cup Z_m)=\varnothing$. In this condition 
 \begin{equation}
    V(f_U)= V(f)\cap U = Z\cap U\text{ is irreducible}.
@@ -1719,7 +1730,7 @@ have $\codim(Z,X)\leq s$.\qed
     \begin{equation}
         Z \subset V(f_s|_{Z^\prime})\subset V(f_1,\dots, f_s).
     \end{equation}
-    It's important to note that if $Z^{\prime\prime}\subset V(f_s|_{Z^\prime})$ is an irreducible component, then 
+    It's important to note that if $Z^{\prime\prime}\subset V(f_s|_{Z^\prime})$ is an irreducible component containing $Z$, then 
     $Z\subset Z^{\prime\prime}\subset V(f_1,\dots, f_s)$ and $Z=Z^{\prime\prime}$ because 
     $Z$ is an irreducible component of $V(f_1,\dots, f_s)$, so it's maximal irreducible. Then 
     $Z$ is an irreducible component of $V(f_s|_{Z^\prime})$.  
@@ -1805,7 +1816,7 @@ $\dim (Y\times k^r)= d + r$.\qed
 
 \begin{remark}
     Let $S\subset R$ be a subring, we say that $R$ is finite over $S$ if there exists $x_1,\dots, x_m\in R$ such that 
-    $R=Sx_1+\cdots+S_m$, i.e., $R$ is a finitely generated $S-$module.
+    $R=Sx_1+\cdots+Sx_m$, i.e., $R$ is a finitely generated $S-$module.
 \end{remark}
 \begin{remark}
    If $X$ is affine, then any maximal ideal of $\callO(X)$ is of the form $I_x=I(\{x\})=\{f\in\callO(X):f(x)=0\}$.
@@ -1824,7 +1835,7 @@ for all $j$, there exists $U_j\subset Y^\prime$ such that $U_j\subset Y^\prime -
     U=\bigcap_{j=1}^mU_j\subset \bigcap_{j=1}^m(Y^\prime - f(X_j))=Y^\prime - \bigcup_{j=1}^m f(X_j).
 \end{equation}
 However, since $f$ is dominant, there exists $f(x)\in f(X)\cap U\Rightarrow x\in f^{-1}(U)\subset f^{-1}(Y^\prime)$, so 
-$x\in X_j$ ofr some $j$. This contradicts the inclusion $U\subset Y^\prime - \bigcup_{j=1}^mf(X_j)$. this proves that 
+$x\in X_j$ for some $j$. This contradicts the inclusion $U\subset Y^\prime - \bigcup_{j=1}^mf(X_j)$. this proves that 
 there exists a irreducible components $X^\prime\subset f^{-1}(Y^\prime)$ such that 
 $f|_{X^\prime}:X^\prime\to Y^\prime$ is dominant. If we prove that $X^\prime \to Y^\prime$ is surjective, then we are done 
 because we can repeat the same argument for any irreducible component $Y^\prime$ of $Y$. Furthermore, the hypothesis 
@@ -1934,3 +1945,262 @@ is constructible.\qed
     The base case in the previous definition is $\dim Y=0$, i.e., $Y$ is a point. In this case the result is 
     clearly true.
 \end{remark}
+
+\section{Lecture 19 and 20}
+From now on, we will assume most of the time that $X$ is quasicompact.
+\subsection{Cartier divisors}
+\begin{dang}
+    \begin{definition}
+        A rational function $f:X\dashrightarrow Y$ is an equivalence class 
+        of pairs $(U,f),\;f\in\callO_X(U)$ with $U\subset X$ open dense, where the equivalence relation is given by 
+        \begin{equation}
+            (U,f)\sim (U^\prime, f^\prime)\iff f|_{U\cap U^\prime}=f^\prime|_{U\cap U^\prime}.
+        \end{equation}
+    \end{definition}
+\end{dang}
+\begin{notation}
+    To be precise, we will write $\langle U,f\rangle$ to a rational function $f:X\dashrightarrow k$, so it's 
+    implicity here that $U\subset X$ is open dense and $f\in\callO_X(U)$.
+\end{notation}
+\begin{notation}
+    \textcolor{red}{By definition, a rational function $f:X\dashrightarrow k$ is an element of $K(X)$.}
+\end{notation}
+
+\begin{dang}
+    \begin{definition}
+        A cartier divisor on $X$ is a global section $D\in \Gamma(X,K_X^*/\callO_X^*)$.
+    \end{definition}
+\end{dang}
+Remember that if $\callF$ is a presheaf, then it's sheafification is a sheaf $\callF^+$ with sections defined by 
+\begin{equation}
+    \callF^+(U)=\left\{s:U\to \bigcup_{P\in U}\callF_P\;\Bigg|\; \begin{matrix}
+    \text{For each  }P\in U,\text{ there exists }\\
+    \text{a section }t\in\callF(V), P\in V\subset U\\
+    \text{such that }s(Q)=t_Q,\;\forall Q\in V
+    \end{matrix}\right\}
+\end{equation}
+It's a sheaf with natural map $\theta:\callF\to \callF^+$. Its satisfies the following universal property, if 
+$\callG$ is a sheaf and $\varphi:\callF\to\callG$ is a presheaf morphism, then there exists a unique 
+shef morphism $\tilde{\varphi}:\callF^+\to \callG$ such that $\tilde{\varphi}\theta=\varphi$. The map is the following, let 
+$s\in \callF^+(U)$ and $U=\bigcup_i U_i$ a covering with sections 
+$t_i\in \callF(U_i)$ such that $s_P = t_{i,P},\;\forall P\in U_i$. Then $\varphi(t_i)\in\callG(U_i)$ is such that 
+\begin{equation}
+    \varphi(t_i)_P = \varphi_P(t_{i,P})=\varphi_P(s(P))=\varphi_P(t_{j,P}) =\varphi(t_j)_P
+\end{equation}
+for all $P\in U_i\cap U_j$. Then, since $\callG$ is a sheaf, we have 
+$\varphi(t_i)|_{U_i\cap U_j}=\varphi(t_j)|_{U_i\cap U_j},\;\forall i,j$. We define $\tilde{\varphi}(s)$ 
+by glueing these sections.
+
+\begin{remark}
+    A section $s\in\callF^+(U)$ defines and it's defined by a covering $U=\bigcup_iU_i$ 
+    and a collection sections $s_i\in \callF(U_i)$ such that $s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}$. 
+    \textcolor{red}{Therefore, doing operations with section $s$ of the sheafification is the same 
+    thing as doing operations with the collection of sections $\{s_i\}$ determined $s$, 
+    on a common refinement of coverings.}
+\end{remark}
+
+So, a divisor $D\in\Gamma(X, K_X^*/\callO_X^*)$ is defined by a covering $X=\bigcup_iU_i$ 
+and a collection of sections $s_i = [\langle V_i,f_i\rangle]\in P(K_X^*/\callO_X^*)(U)=K_X^*(U)/\callO_X^*(U)$
+such that $s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}$, which means that 
+\begin{equation}
+    \begin{split}
+        \langle V_i, f_i\rangle \langle V_j, f_j\rangle^{-1}&=
+        \langle V_i ,f_i\rangle\langle \{f_j\neq0\},1/f_j\rangle\\
+        &=\langle V_i\cap\{f_j\neq0\}, f_i|_{V_i\cap \{f_j\neq0\}}/f_j|_{V_i\cap\{f_j\neq0\}}\rangle\in\callO_X^*(U_i\cap U_j).
+    \end{split}
+\end{equation}
+
+Since the inclusion $1\to \callO_X^*\hookrightarrow K_X^*$ is given by $\callO_X^*(U)\ni f\mapsto \langle U,f\rangle$, 
+this means that there exists $g_{ij}\in\callO_X^*(U_i\cap U_j)$ such that 
+\begin{equation}
+    \begin{split}
+        &f_i/f_j = g_{ij} \text{ on } V_i\cap\{f_j\neq0\}\cap U_i\cap U_j\iff\\
+        &f_i = g_{ij}f_j \text{ on }V_i\cap V_j.
+    \end{split}
+\end{equation}
+
+\begin{dang}
+\begin{proposition}
+    By definitin, a Cartier divisor is given by a covering $X=\bigcup_i U_i$ and a collection of rational maps 
+    $\langle V_i, f_i\rangle \in K(U_i)$ such that for each $i,j$, there exists 
+    $g_{ij}\in\callO^*(U_i\cap U_j)$ such that $f_i = g_{ij}f_j$ on $V_i\cap V_j$.
+\end{proposition}
+\end{dang}
+
+\begin{notation}
+We write $\CaDiv(X)=\Gamma(X,K_X^*/\callO_X^*)$ for the group of Cartier divisors of $X$.
+\end{notation}
+
+Now, we see that a Cartier divisor $D$ defines a covering $X=\bigcup_i U_i$ and a collection of regular maps 
+$g_{ij}\in\callO_X^*(U_{ij})$. We claim that $g_{ij}g_{jk}g_{ki}=1$ on $U_{ijk}$ and $g_{ii}=1$ on $U_i$. 
+In fact, on $\{f_jf_kf_i\neq0\}\overset{\text{open}}{\subset} V_{ijk}$ we have 
+\begin{equation}
+    g_{ij}g_{jk}g_{ki} = \frac{f_i}{f_j}\frac{f_j}{f_k}\frac{f_k}{f_i} = 1.
+\end{equation}
+But $\{f_jf_kf_i\neq0\}\subset U_{ijk}$ is an open dense subset, so $g_{ij}g_{jk}g_{ki}=1$. In the same way 
+we verify that $g_{ii}=1$ on $U_i$. So the collection $\{g_{ij}\},\; g_{ij}\in\callO_X^*(U_{ij})$ 
+defines a line bundle on $X$ that we call $L(D)$.
+
+\begin{dang}
+    \begin{proposition}
+        The assigment $D\mapsto L(D)$ is a surjective group homomorphism $\CaDiv(X)\to \text{Pic}(X)$. 
+    \end{proposition}
+\end{dang}
+Proof: Let $D=(U_i, f_i)_{i\in I}, E = (V_j, g_j)_{j\in J}$ be two Cartier divisors on $X$, then 
+\begin{equation}
+    D + E = (U_i\cap V_j, f_ig_j)_{(i,j)\in I\times J}.
+\end{equation}
+Therefore $L(D+E)$ is the line bundle defined by transition maps 
+\begin{equation}
+    A_{(i,j), (p,q)} = \frac{f_ig_j}{f_pg_q} = \frac{f_i}{f_p}\frac{g_j}{g_q}
+\end{equation}
+on $U_{ip}\cap V_{jq}$. But this is the product of the transition functions of $L(D)$ and $L(E)$.\par 
+
+To prove surjectivity, we assume first that $X$ is irreducible. Let $L\in \text{Pic}(X)$ be a line bundle 
+defined by a covering $U=\bigcup_{i\in I} U_i$ and transition maps $g_{ij}\in\callO_X^*(U_{ij})$. Now, fix $i\in I$ 
+and define $f_j = g_{ij}: U_j\dashrightarrow k$ (it's a rational function becasue $U_{ij}\subset U_j$ is open dense).
+Then the collection $(U_i, f_i)_{i \in I}$ defines a Cartier divisor such that $L(D)=L$. To generalize for 
+non irreducible varieties, we take a line bundle $L$ with local trivializations $\varphi_i: U_i\to k\times U_i$ 
+and add one more trivialization $\varphi: V\to k\times V$ in the following way. Let 
+$X=\bigcup_{j=1}^m X_j$ decomposition into irreducible components, then for each $j$ there exists 
+$\alpha(j)\in I$ such that $U_{\alpha(j)}\cap X_j\neq\varnothing$. Then we define $V=\bigsqcup_{j=1}^m V_j$, where 
+\begin{equation}
+    V_j = U_{\alpha(j)}\cap (X-\bigcup_{k\neq j}X_k)\overset{\text{open dense}}{\subset} X_j.
+\end{equation}  
+Then we glue $\varphi_{\alpha(j)}$ to define $\varphi$, a local trivialization. 
+Then the argument follows from the irreducible by choosing the dense open set $V$.\qed
+\begin{dang}
+    \begin{proposition}
+        The map $\CaDiv(X)\to\text{Pic}(X)$ has kernel given by the principal divisors 
+        $(X,f),\;f\in K(X)$.
+    \end{proposition}
+\end{dang}
+Proof: If $D=(U_i, f_i)_{i\in I}$ defines a trivial line bundle, then there exists 
+$h_i\in\callO_X^*(U_i)$ such that $h_i^{-1}g_{ij}h_j=1$. Therefore, on $V_i\cap V_j$ 
+(where $f_i\in\callO(V_i),\;V_i\supset U_i$ open dense) we have  
+\begin{equation}
+    \frac{f_i}{h_i} = \frac{f_j}{h_j}. 
+\end{equation} 
+Then $f_i/h_i \in K(U_i)$ and $f_i/h_i |_{U_i\cap U_j}= f_j/h_j |_{U_i\cap U_j}$. So these functions glue to 
+a rational function $f\in K(X)$. Since $f_i = fh_i,\;h_i\in\callO_X^*(U_i)$, it's clear that 
+$D$ and $(X,f)$ defines the same divisor.\qed
+
+\subsection{Weil divisors}
+\begin{notation}
+    Suppose that we have the following situation $Y\subset X$ a closed subset, where $X$ is affine. We will write 
+    \begin{equation}
+        I_{Y|X} = \{f\in\callO(X): f|_Y=0\}.
+    \end{equation}
+    Of course, we have $V(I_{Y|X})=Y$.
+\end{notation}
+
+Let $X$ be a irreducible variety.
+Remember that the natural map $\callO(X)\hookrightarrow \callO_{X,Y}:f\mapsto \langle X,f\rangle$ is injective. 
+In fact, if $\langle X,f\rangle = 0$, then there exists $U\subset X$ open, with $U\cap Y\neq\varnothing$, such that 
+$f|_U=0$. But $U\subset X$ is dense (because $X$ is irreducible), so $f=0$. Now, we claim that 
+\begin{equation}
+    \text{Frac }\callO_{X,Y} = K(X).
+\end{equation}
+In fact, let $U\subset X$ be an open affine such that $U\cap Y\neq\varnothing$. Then 
+\begin{equation}
+    \callO(U) \hookrightarrow \callO_{U,Y\cap U}\hookrightarrow K(U).
+\end{equation}
+But since, $U$ is affine we have an isomorphism $\text{Frac }\callO(U) \to K(U): f/g\mapsto \langle U_g, f/g\rangle$.
+Therefore, we have a commutative diagram
+\begin{center}
+    \begin{tikzcd}
+    \text{Frac }\callO(U)\arrow[rr, bend right = 30, "\cong"]\arrow[r,hook]&\text{Frac }\callO_{U,U\cap Y}\arrow[r,hook]&K(U)
+    \end{tikzcd}
+\end{center}
+In fact, on the first row of the above diagram we have the chain of maps 
+\begin{equation}
+    \frac{f}{g}\mapsto \frac{\langle X,f\rangle}{\langle X,g\rangle}\mapsto 
+    \langle X,f\rangle\langle X,g\rangle^{-1} = \langle X,f\rangle \langle U_g, 1/g\rangle = \langle U_g, f/g\rangle.
+\end{equation}
+This proves that the embedding $\callO_{U,U\cap Y}\hookrightarrow  K(U)$ is an isomorphism. Finally we have 
+\begin{equation}
+    \text{Frac }\callO_{X,Y} \cong \text{Frac }\callO_{U,U\cap Y} \cong K(U)\cong K(X).
+\end{equation}
+The first isomorphism is induced by 
+$\callO_{X,Y}\to \callO_{U,U\cap Y}:\langle V,f\rangle\mapsto \langle V\cap U, f|_{V\cap U}\rangle$. Observe that 
+since $Y$ is irreducible, we have $(U\cap Y)\cap (V\cap Y)\neq\varnothing\Rightarrow U\cap V\neq\varnothing$.
+\begin{dang}
+    \begin{definition}
+        The group of Weil divisors $\text{Div}(X)$ is the free abelian group generated by the set of 
+        irreducible subvarieties $Y\subset X$ of codimension one. We write 
+        \begin{equation}
+            D = \sum_Y n_Y[Y],\; n_Y\in\bbZ
+        \end{equation}
+        an element $D\in\text{Div}(X)$.
+    \end{definition}
+\end{dang}
+
+\begin{dang}
+    \begin{proposition}
+        There exists a homomorphism 
+        \begin{equation}
+            \CaDiv(X)\to \text{Div}(X):D\mapsto [D]=\sum_{\codim(Y,X)=1}\ord_Y(D)[Y]
+        \end{equation}
+        where the order $\ord_Y(D)$ is defined in the following way. Suppose that 
+        $D$ is represented by a covering $X=\bigcup_i U_i$ with rational maps $f_i\in K^*(U_i)$. 
+        Let $i\in I$ be such that $U_i\cap Y\neq\varnothing$ and write $f_i=a/b$, $a,b\in\callO_{X,Y}$
+        (we used $K(U_i)\cong K(X)$ here). Then we define 
+        \begin{equation}
+            \ord_Y(D)=\ell(\frac{\callO_{X,Y}}{(a)}) -\ell(\frac{\callO_{X,Y}}{(b)}).
+        \end{equation}
+    \end{proposition}
+\end{dang}
+The purpose of this section is to prove that the above definition is independent of the various choices made 
+to define $\ord_Y(D)$.
+
+\begin{dang}
+    \begin{lemma}
+        Lt $X$ be irreducible and $Y\subset X$ be an irreducible variety of codimension 1. Let 
+        $f\in\callO_{X,Y}\setminus0$, 
+        then there exists $n\geq0$ such that $\fr{m}_{X,Y}^n\subset f\callO_{X,Y}$.
+    \end{lemma}
+\end{dang}
+Proof: Let $U\subset X$ be an open affine such that $U\cap Y\neq\varnothing$ and let $f\in\callO_{U,U\cap Y}$. Then 
+$\callO_{X,Y}\cong \callO_{U,U\cap Y}$. So, if we show that 
+$\fr{m}_{U,U\cap Y}^n\subset f\callO_{U,U\cap Y}$, we get 
+$\fr{m}_{X,Y}^n \subset f\callO_{X,Y}$. So we can assume $X$ affine. Now, write 
+$I = I_{Y|X}\subset \callO(X)$ and let $f\in\callO(X)\setminus0$. If $f\notin I$, then 
+$\langle X,f\rangle\in \callO_{X,Y}^*$ and $\langle X,f\rangle\callO_{X,Y} = \callO_{X,Y}$ so $n=0$ works. If 
+$f\in I$, then $Y\subset V(f)$ and since $Y\subset X$ is irreducible of codimension 1, it's irreducible 
+maximal in $V(f)$, i.e., it's a irreducible component. Now, there exists an open affine $U\subset X$ 
+such that $U\cap Y= U\cap V(f)=V(f|_U)$ (see proof of theorem~(\ref{theorem: dim of irreducible component of V(f)})). 
+Then we do a further reduction, we assume $Y=V(f), f \in \callO(X)$. By Nullstelensatz 
+$I=\sqrt{(f)}$, which is finitely generated by Hilbert basis, so $I^d\subset (f)$ for some $d\geq0$. We have 
+\begin{equation}
+    \callO(X)\to \callO_{X,Y}:I\mapsto I\callO_{X,Y}=\fr{m}_{X,Y}
+\end{equation}
+and $\fr{m}_{X,Y}^d\subset \langle X,f\rangle\callO_{X,Y}$.\qed
+
+\begin{dang}
+    \begin{proposition}
+        Let $A$ be a local Noetherian ring and $P\subset A$ a maximal ideal, $M$ a
+        finitely generated $A-$modulo such that $P^nM=0$ for some $n\geq0$. Then the series 
+        \begin{equation}
+            0 = P^nM \subset P^{n-1}M\subset\cdots\subset PM \subset M 
+        \end{equation} 
+        can be refined to a composition series of length 
+        \begin{equation}
+            \ell_A(M) = \sum_{i=1}^n \dim_{A/P}(\frac{P^{i-1}M}{P^iM}).
+        \end{equation}
+    \end{proposition}
+\end{dang}
+As a consequence, we have that if $Y\subset X$ is irreducible of codimension one, and 
+$f\in\callO_{X,Y}\setminus0$, then $\ell(\tfrac{\callO_{X,Y}}{(f)})<\infty$. 
+\begin{dang}
+    \begin{proposition}
+        Let $Y\subset X$ be an irreducible variety of codimension one, then 
+        \begin{equation}
+            \ell(\frac{\callO_{X,Y}}{(fg)}) = \ell(\frac{\callO_{X,Y}}{(f)})
+            +\ell(\frac{\callO_{X,Y}}{(g)}).
+        \end{equation}
+    \end{proposition}
+\end{dang}
+Proof: This follows from the exact sequence 
+\begin{equation}
+    0 \to \frac{\callO_{X,Y}}{(g)}\overset{\times f}{\to}\frac{\callO_{X,Y}}{(fg)}\to \frac{\callO_{X,Y}}{(f)}\to  0.
+\end{equation}
