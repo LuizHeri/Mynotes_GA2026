@@ -132,4 +132,30 @@ $V\subset Y,U\subset X$ such that $f\circ g = \mathds{1}_V, g\circ f=\mathds{1}_
 
 
 
+\begin{dang}
+    \textbf{Exercise 4.}
+    Let $X$ be a variety and $z \in k(X)$.
 
+(a) Show that the set of poles of $z$ is a closed subset of $X$.
+
+(b) If $z \in \callO_{X,P}$, show that there exists an open neighborhood $U$ of $P$ such 
+that $z \in \callO(U)$, that is, $z$ is regular on $U$.
+
+(c) Conclude that $\callO_{X,P} = \bigcup_U \callO(U)$, where the union is taken over all open neighborhoods $U$ of $P$ in $X$.
+\end{dang}
+Solution: First, we have $z=\{(U_i, f_i):i\in I\}$ where $f_i\in\callO(U_i)$. The set of poles 
+is by definitions $P=X\setminus U, U=\bigcup_i U_i$, so it's closed. Now, by definition 
+if $(U,f)\in z$, then $f\in\callO(U),U\ni p$, so $z$ is in the image of the embedding 
+$\callO(U)\hookrightarrow \callO_{X,P}$. This also proves that $\callO_{X,P}=\bigcup_{U\ni P}\callO(U)$.\qed
+
+\begin{dang}
+    \textbf{Exercise 5.} Let $X$ be a projective variety and $P, Q \in X$. 
+    Show that there exists an affine open subset of $X$ containing $P$ and $Q$.
+\end{dang}
+Solution: We assume $X=\bbP^m$ and let $P,Q\in k^{m+1}$ be linearly independent. Then, there exists 
+$H\in (k^{m+1})^*$ such that $H(P)=H(Q)\neq0$ and $P, Q\in X\setminus V(H)$. We claim that $X\setminus V(H)\cong k^m$. To see this 
+choose a basis of $k^{m+1}$ and let $H=(a_1,\dots, a_m)$ be the associated matrix representation of $H$. Then 
+if $T\in GL_{m+1}(k)$, its descends to an isomorphism of $X$ and $T^{-1}(V(H))=V(H\circ T)$. This means that whenever we 
+do a change of coordinates on $k^{m+1}$, we do an elementary operation with the collumns of $H$. Since 
+$H\neq0$, there exists a change of coordinates $T$ such that $H\circ T = (0,\dots,0,1) = X_{m+1}$. Therefore 
+$T^{-1}V(H) = V(X_{m+1})$ and $T^{-1}(X\setminus V(H)) = X\setminus V(X_{m+1})\cong k^{m+1}$.\qed

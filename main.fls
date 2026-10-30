@@ -380,9 +380,6 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr10.
 INPUT .\main.aux
 INPUT .\main.aux
 INPUT main.aux
-INPUT .\chapters\test_chapter.aux
-INPUT .\chapters\test_chapter.aux
-INPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT chapters\2026-ClassNotes.aux
@@ -479,7 +476,6 @@ INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\herin\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\herin\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
 OUTPUT main.toc
-OUTPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.tex
 INPUT .\chapters\2026-ClassNotes.tex
 OUTPUT chapters\2026-ClassNotes.aux
@@ -529,9 +525,6 @@ INPUT .\chapters\Lista.tex
 INPUT chapters\Lista.tex
 OUTPUT bibliography.aux
 INPUT main.aux
-INPUT .\chapters\test_chapter.aux
-INPUT .\chapters\test_chapter.aux
-INPUT chapters\test_chapter.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT .\chapters\2026-ClassNotes.aux
 INPUT chapters\2026-ClassNotes.aux
