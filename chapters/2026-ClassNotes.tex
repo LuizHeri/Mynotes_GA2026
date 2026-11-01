@@ -2347,6 +2347,7 @@ which shows that $D\sim n_Y[Y]$.\qed
     $\langle X,U\rangle\in\callO_{X,Z}^*$, so $\ord_Z(X,U)=0$. Therefore $\text{div}(U)\in\bbZ[Y]$ \textcolor{red}{(actually, 
     since we already have proved that $\Cl(X) = \bbZ[Y]$, this passage looks unnecessary)}. Now, since 
     $\callO_{X,Y}\cong\callO_{D_X(V),Y\cap D_X(V)}$, then 
+    $\ell(\tfrac{\callO_{X,Y}}{\langle X,U\rangle)})=\ell(\tfrac{\callO_{D_X(V),Y\cap D_X(V)}}{\langle D_X(V),U\rangle})$. But 
     \begin{equation}
         (W) = I_{Y\cap D_X(V)|D_X(V)} \subset \callO_X(D_X(V)) \cong k[V,V^{-1},W].
     \end{equation}
@@ -2360,4 +2361,9 @@ which shows that $D\sim n_Y[Y]$.\qed
            \textcolor{red}{2}&\textcolor{red}{1}&\textcolor{red}{0}
         \end{tikzcd}
     \end{center}
+    Then we conclude that $\ell(\tfrac{\callO_{X,Y}}{\langle X,U\rangle)})=2$, so $\text{div}(U)=2[Y]$.
 \end{example}
+
+\begin{remark}
+    We have used several times the identity $\fr{m}_{X,Y}=I_{Y|X}\callO_{X,Y}$.
+\end{remark}
