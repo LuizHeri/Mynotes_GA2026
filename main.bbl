@@ -101,6 +101,35 @@
       \field{volume}{1358}
       \field{year}{1988}
     \endentry
+    \entry{springer1998linear}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=7d9b042b1f7c136713b8bff191a316c4}{%
+           family={Springer},
+           familyi={S\bibinitperiod},
+           given={Tonny\bibnamedelima Albert},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{fullhash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{fullhashraw}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{bibnamehash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{authorbibnamehash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{authornamehash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{authorfullhash}{7d9b042b1f7c136713b8bff191a316c4}
+      \strng{authorfullhashraw}{7d9b042b1f7c136713b8bff191a316c4}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Algebraic Geometry IV: Linear Algebraic Groups Invariant Theory}
+      \field{title}{Linear algebraic groups}
+      \field{year}{1998}
+      \field{pages}{1\bibrangedash 121}
+      \range{pages}{121}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

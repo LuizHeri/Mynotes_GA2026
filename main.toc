@@ -30,8 +30,10 @@
 \contentsline {section}{\numberline {1.12}Lecture 19 and 20}{40}{section.1.12}%
 \contentsline {subsection}{\numberline {1.12.1}Cartier divisors}{40}{subsection.1.12.1}%
 \contentsline {subsection}{\numberline {1.12.2}Weil divisors}{42}{subsection.1.12.2}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{47}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Polynomial rings}{47}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Basic definitions}{47}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Tangent Spaces}{53}{section.2.3}%
-\contentsline {chapter}{\numberline {3}List of exercises}{58}{chapter.3}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{48}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some notes from Geck}{48}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Polynomial rings}{48}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic definitions}{48}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tangent Spaces}{54}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Notes from Springer}{58}{section.2.5}%
+\contentsline {chapter}{\numberline {3}List of exercises}{59}{chapter.3}%

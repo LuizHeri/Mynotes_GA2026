@@ -507,13 +507,6 @@ The second item is clear.\qed
 \end{dang}
 
 \begin{dang}
-    \begin{lemma}
-        Let $(X,\mathcal{O}_X)$ be a function space and $Y\subset k^n$ be a quasi affine algebraic set
-    \end{lemma}
-\end{dang}
-
-
-\begin{dang}
     \begin{lemma}\label{lemma: coordinate criteria to a map be a morphism of function spaces}
         Let $(X,\mathcal{O}_X)$ be a function space and $Y\subset k^n$ be a quasi-affine algebraic set. 
         Then $f:X\to Y$ is a morphism if and only $f=(g_1,\dots,g_n)$ with $g_i\in\mathcal{O}_X(X)$. Here, 
@@ -2020,11 +2013,13 @@ this means that there exists $g_{ij}\in\callO_X^*(U_i\cap U_j)$ such that
 \end{equation}
 
 \begin{dang}
-\begin{proposition}
+\begin{corollary}
     By definitin, a Cartier divisor is given by a covering $X=\bigcup_i U_i$ and a collection of rational maps 
-    $\langle V_i, f_i\rangle \in K(U_i)$ such that for each $i,j$, there exists 
-    $g_{ij}\in\callO^*(U_i\cap U_j)$ such that $f_i = g_{ij}f_j$ on $V_i\cap V_j$.
-\end{proposition}
+    $\langle V_i, f_i\rangle \in K^*(U_i)$ such that for each $i,j$, there exists 
+    $g_{ij}\in\callO^*(U_i\cap U_j)$ such that $f_i = g_{ij}f_j$ on $V_i\cap V_j$. 
+    \textcolor{red}{Most of the time we will write a Cartier divisor as a covering 
+    $U=\bigcup_i U_i$ and pairs $(U_i,f_i)_{i\in I}$ where $f_i\in K^*(U_i)\cong K^*(X)$.}
+\end{corollary}
 \end{dang}
 
 \begin{notation}
@@ -2058,7 +2053,7 @@ on $U_{ip}\cap V_{jq}$. But this is the product of the transition functions of $
 
 To prove surjectivity, we assume first that $X$ is irreducible. Let $L\in \text{Pic}(X)$ be a line bundle 
 defined by a covering $U=\bigcup_{i\in I} U_i$ and transition maps $g_{ij}\in\callO_X^*(U_{ij})$. Now, fix $i\in I$ 
-and define $f_j = g_{ij}: U_j\dashrightarrow k$ (it's a rational function becasue $U_{ij}\subset U_j$ is open dense).
+and define $f_j = g_{ij}: U_j\dashrightarrow k$ (it's a rational function because $U_{ij}\subset U_j$ is open dense).
 Then the collection $(U_i, f_i)_{i \in I}$ defines a Cartier divisor such that $L(D)=L$. To generalize for 
 non irreducible varieties, we take a line bundle $L$ with local trivializations $\varphi_i: U_i\to k\times U_i$ 
 and add one more trivialization $\varphi: V\to k\times V$ in the following way. Let 
@@ -2232,7 +2227,7 @@ Then the equality
     Then $f_j = \tfrac{ag_{ji}}{b}, g_{ji}\in\callO_{X,Y}^*$, so $\ell(\tfrac{\callO_{X,Y}}{(g_{ji}a)})=
     \ell(\tfrac{\callO_{X,Y}}{(a)})$.
     \item[(3)] Does not deppend on the representative of the divisor: Let $D = (V_l, h_l)_{l\in L}$
-    and $V_l\cap Y\neq\varnothing$. Then $h_l = f_i g, g\callO_X^*(V_l\cap U_i)$ and the result follows 
+    and $V_l\cap Y\neq\varnothing$. Then $h_l = f_i g, g\in\callO_X^*(V_l\cap U_i)$ and the result follows 
     like in the previous item.
     \item[(4)] We have $\ord_Y(D+D^\prime) = \ord_Y(D)+\ord_Y(D^\prime)$, because of the previous proposition 
     and the definition of the sum of two divisors.
@@ -2263,21 +2258,24 @@ Then the equality
     Normally, we will write $\text{div}(f)=[(X,f)]\in \Div(X)$.
 \end{notation}
 
-\begin{example}
+\begin{example}\label{example: coordinate ring of X if UFD implies cl(X) zero}
      Let $X$ be an affine variety such that $\callO(X)$ is an UFD. Then $\Cl(X)=0$, in fact if 
      $Y\subset X$ is irreducible of codimention 1 and $f\in I= I_{Y|X}\setminus0$ is irreducible 
-     \textcolor{red}{(why does this $f$ exists?)}, then 
+     \textcolor{red}{(every prime ideal in a UFD contains an irreducible element)}, then 
      $Y\subset V(f)$, so $Y=V(f)$ because they both have the same dimension. Now, if $Z\subset X$ has codimension 1, then 
-     $Z\neq Y\Rightarrow f|_Z\not\equiv0$ and $f\in\callO_{X,Z}^*$. Therefore $\ord_Z(X,f) = 0$, so 
-     $[(X,f)] = [Y]$. 
+     $Z\neq Y\Rightarrow f|_Z\not\equiv0$ and $f\in\callO_{X,Z}^*$. This implies 
+     \begin{equation}
+       \ord_Z(X,f) = \ell(\frac{\callO_{X,Z}}{(f)}) = 0.
+     \end{equation}
+     So $\text{div}(f)=[(X,f)] = [Y]$. 
 \end{example}
 
 
 \begin{dang}
     \begin{lemma}
-        Let $X$ be an irreducible variety, $Y\subset X$ a proper irreducible closed subset. If 
+        Let $X$ be an irreducible variety, $Y\subset X$ a proper irreducible closed subset of codimension 1. If 
         $U = X- Y$, then we have a surjection $\Cl(X)\to\Cl(U)$ whose kernel is generated 
-        by classes $[Z]$ with $Z\subset Y$.
+        by $[Y]$.
     \end{lemma}
 \end{dang}
 Proof: We claim that the map defined by 
@@ -2289,7 +2287,7 @@ Proof: We claim that the map defined by
 \end{equation}
 is a surjection. In fact, if $Z\subset U$ is a closed irreducible subvariety 
 of codimension 1, then 
-$\overline{Z}\subset X$ is irreducible of codimension 1. This follows becasue 
+$\overline{Z}\subset X$ is irreducible of codimension 1. This follows because 
 $Z$ is irreducible in its subspace topology if and only if $\overline{Z}\subset X$ is irreducible. Furthermore 
 since $Z\subset U$ is closed, then $Z = U\cap F$ where $F\subset X$ is closed. Therefore 
 $\overline{Z}\cap U \subset \overline{U}\cap F\cap U = F\cap U \Rightarrow \overline{Z}\cap U = Z$. Therefore 
@@ -2304,14 +2302,62 @@ we show that
 \end{equation}
 whenever $U\cap Z\neq\varnothing$. However, we have 
 \begin{equation}
-   \ord_Z(X,f) = \ell(\frac{\callO_{X,Z}}{\langle X,f\rangle}) = \ell(\frac{\callO_{U,U\cap Z}}{\langle U,f|_U\rangle})
+   \ord_Z(X,f) = \ell(\frac{\callO_{X,Z}}{\langle V,f\rangle}) = \ell(\frac{\callO_{U,U\cap Z}}{\langle V\cap U,f|_{V\cap U}\rangle})
    = \ord_Z(U,f|_U)
 \end{equation}
 because of the isomorphism $\callO_{X,Z}\to \callO_{U,U\cap Z}: \langle V,g\rangle\mapsto \langle V\cap U,g|_{V\cap U}\rangle$. 
 Now suppose that $D = \sum_Z n_Z[Z]$ is mapped to zero. Then there exists 
-$f\in \callO(U)$ such that $D|_U = \sum_{Z\cap U\neq\varnothing}n_Z[Z\cap U]=\text{div}(f)$. 
+$f\in K(U) \cong K(X)$ such that $D|_U = \sum_{Z\cap U\neq\varnothing}n_Z[Z\cap U]=\text{div}(f|_U)$. 
 Therefore, we have 
 \begin{equation}
-     D - \sum_{Z\cap U\neq\varnothing} n_{Z}[Z] = \sum_{Z\subset Y}n_Z[Z]
+     D - \text{div}(f)= D - \sum_{Z\cap U\neq\varnothing}n_Z[Z] = n_Y[Y]
 \end{equation}
-and if we show that $\sum_{Z\cap U\neq\varnothing} n_{Z}[Z]$ is principal, we are done.\TODO\qed
+which shows that $D\sim n_Y[Y]$.\qed
+
+
+\begin{dang}
+    \begin{corollary}
+        With the conditions of the previous lemma, we have an exact sequence 
+        \begin{equation}
+            \bbZ\to \Cl(X) \to \Cl(U)\to 0. 
+        \end{equation}
+    \end{corollary}
+\end{dang}
+
+\begin{remark}
+    In the previous lemma, if $Y$ has codimension $\geq2$, we can show in the same lines that 
+    $\Cl(X)\cong \Cl(U)$.
+\end{remark}
+
+\begin{example}
+    Let $X=V(UV-W^2)\subset k^3$ and $Y=V(U,W)\subset X$. We claim that $\Cl(X)\cong\bbZ/2$. We 
+    have $D_X(U)\subset X\supset X-D_X(U)= Y$ and 
+    \begin{equation}
+        \callO_X(D_X(U)) = (\frac{k[U,V,W]}{(UV-W^2)})_U \cong \frac{k[U,V,W][1/U]}{(UV-W^2)}\cong k[U,U^{-1},W]
+    \end{equation}
+    which is a UFD, therefore $\Cl(D_X(U)) = 0$ by example~(\ref{example: coordinate ring of X if UFD implies cl(X) zero}). 
+    Now, by the previous lemma we have an exact sequence 
+    \begin{equation}
+        \bbZ\to \Cl(X)\to \Cl(D_X(U))\to 0
+    \end{equation}
+    and since $\Cl(D_X(U))=0$, the map $\bbZ\to \Cl(X)$ is surjective, i.e., $\Cl(X)=\bbZ[Y]$. 
+    Now we claim that $\text{div}(U) =2[Y]\sim 0$. Rememeber $\ord_Z(X,U)=\ell(\tfrac{\callO_{X,Z}}{\langle X,U\rangle})$. 
+    Also, $U|_{Z}=0\rightarrow U\in I_{Z|X}$ and $Z\subset V_X(U)= Y\Rightarrow Z=Y$ because both have 
+    codimension one in $X$. Therefore $Z\neq Y$ implies that $U|_Z\neq 0$ and 
+    $\langle X,U\rangle\in\callO_{X,Z}^*$, so $\ord_Z(X,U)=0$. Therefore $\text{div}(U)\in\bbZ[Y]$ \textcolor{red}{(actually, 
+    since we already have proved that $\Cl(X) = \bbZ[Y]$, this passage looks unnecessary)}. Now, since 
+    $\callO_{X,Y}\cong\callO_{D_X(V),Y\cap D_X(V)}$, then 
+    \begin{equation}
+        (W) = I_{Y\cap D_X(V)|D_X(V)} \subset \callO_X(D_X(V)) \cong k[V,V^{-1},W].
+    \end{equation}
+    The first equality is a consequence of $Y\cap D_X(V) = V(W)\cap D_X(V)$. Therefore 
+    we see that $\fr{m}_{D_X(V),Y\cap D_X(V)} = W\callO_{D_X(V),Y\cap D_X(V)}$.
+    Now, since $U = W^2/ V$ on $\callO_{X,Y}$ (because, $V|_{Z}\not\equiv0$), we have 
+    the following maximal chain of submodules:
+    \begin{center}
+        \begin{tikzcd}
+          (0) \arrow[r, phantom, "\subset"]&\frac{\fr{m}_{X,Y}}{(U)}\arrow[r,phantom, "\subset"]&\frac{\callO_{X,Y}}{(U)}\\ 
+           \textcolor{red}{2}&\textcolor{red}{1}&\textcolor{red}{0}
+        \end{tikzcd}
+    \end{center}
+\end{example}
