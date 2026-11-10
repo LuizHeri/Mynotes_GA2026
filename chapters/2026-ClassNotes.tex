@@ -1133,7 +1133,7 @@ $V=\{q\in U: f(q)\neq0\}$ is a nonempty open set of $U$. Therefore
 \qed 
 
 \begin{dang}
-    \begin{proposition}
+    \begin{proposition}\label{proposition: isomorphism from the localization O_X,Y}
         Let $X\subset k^m$ be an affine algebraic set and $Y\subset X$ be an irreducible subset. 
         Denote by $P=I(Y)/ I(X)\subset A = k[X]$, then $P$ is a prime ideal and we have an isomorphism
         \begin{equation}
@@ -2367,3 +2367,260 @@ which shows that $D\sim n_Y[Y]$.\qed
 \begin{remark}
     We have used several times the identity $\fr{m}_{X,Y}=I_{Y|X}\callO_{X,Y}$.
 \end{remark}
+
+
+\section{Lecture 21 and 22}
+Let $V=V(f_1,\dots, f_m)$ be an affine variety and $x\in V$. Define the line $L=\{x+tv:t\in k\}$ for $v\in k^n$. 
+Then we have the bijection 
+\begin{equation}
+    V\cap L \leftrightarrow \{t\in k:f_i(x+tv)=0,\;\forall i\}
+\end{equation}
+Since $f_i(x+tv) = t \sum D_i(f)|_x v_i + \callO(t^2)$, we see that $t=0$ is a ``multiple root of 
+$f$'' if and only if $\sum_i D_i(f)|_x v_i=0$. 
+\begin{center}
+\begin{tikzcd}
+\begin{tikzpicture}[scale=0.7]
+  % Parabola y = x^2
+  \draw[thick, domain=-2.1:2.1, samples=100] 
+    plot (\x, {\x*\x});
+
+  % Secant line through (0,0) and (1.5, 2.25)  (slope = 1.5)
+  \draw[thick, domain=-0.5:2.0] 
+    plot (\x, {1.5*\x});
+
+  % Points (only the intersection point, no coordinates)
+  \filldraw (0,0) circle (1.5pt);
+  \filldraw (1.5,2.25) circle (1.5pt);
+
+  % Labels V and L
+  \node at (1.7,3.9) {$V$};
+  \node at (2.1,2.6) {$L$};
+\end{tikzpicture}
+\end{tikzcd}\par
+
+Here we see a secant line to $V$. In this case, we have a solution $t\neq 0$ to the set of equations 
+$f_i(x+tv)=0$. Therefore, $t=0$ is not a multiple root.
+\end{center}
+
+This heuristic introduction motivates the definition for the tangent space at $x\in V$. 
+\begin{dang}
+\begin{definition}
+    (Tangent space definition 1).
+    We define
+    \begin{equation}
+        T_x V = \{v\in k^n : \sum_i D_i(f)|_x v_i=0,\;\forall f\in I(V)\}.
+    \end{equation}
+\end{definition}
+\end{dang}
+
+\begin{dang}
+    \begin{notation}
+        Let $M$ be a $A-$module, where $A$ is a $R-$algebra. Write $\Der_R(A,M)$ 
+        to the set of derivations $D: A\to M$. That is, $R-$module morphisms satisfying the Leibniz rule 
+        \begin{equation}
+            D(ab) = b\cdot Da + a\cdot Db.
+        \end{equation}
+    \end{notation}
+\end{dang}
+If $v\in T_x V$ and $D = \sum_i v_i D_i\in\Der_k(k[\underline{X}],k[\underline{X}])$. Then we see that 
+$D I \subset \fr{m}_x$, where $I=I(V)$. Then we get an induced map  
+\begin{equation}
+    D: k[V] \rightarrow k[V]/\fr{m}_x\cong k: f\mapsto D(f)|_x.
+\end{equation} 
+This map is an element of $\Der_k(k[V], k_x)$, where $k=k_x$ is the $k[V]-$module defined by $f\cdot a = f(x)a$
+for $f\in k[V]$ and $a\in k$. Also, we see that each element of $\Der_k(k[V], k_x)$ is obtained from 
+a $v\in T_xV$ in this way. In fact, if $D\in \Der_k(k[V],k_x)$, then 
+\begin{equation}
+    \begin{split}
+        D(\overline{X}^\alpha) &= \sum_i D(\overline{X}_i) \overline{X}^{\alpha-e_i}\big|_x\quad(\text{Leibniz rule})\\ 
+        &=\sum_i v_i D_i(\overline{X}^\alpha)\big|_x.
+    \end{split}
+\end{equation}
+So if $D = \sum_i v_i D_i$. To see that $v = (v_1,\dots, v_n)\in T_xV$ we calculate 
+\begin{equation}
+    \sum_i v_i D_i(f) |_x = D(\overline{f}),
+\end{equation}
+which is zero whenever $f\in I(V)\iff \overline{f}=0$. So we get a bijection 
+\begin{equation}
+    T_x V \rightarrow \Der_k(k[V],k_x): v\mapsto D_v = \sum_i v_iD_i 
+\end{equation}
+and inverse $D\mapsto (D(\overline{X}_i))_{i=1}^n$. This motivates another definition for the tangent space. 
+\begin{dang}
+    \begin{definition}
+        (Tangent space, definition 2). We define 
+        \begin{equation}
+            T_x V = \Der_k(k[V],k_x).
+        \end{equation}
+    \end{definition}
+\end{dang}
+
+If $D\in\Der_k(k[V],k_x)$, we observe that $D(\fr{m}_x^2)=0$. In fact, if $f,g\in\fr{m}_x$, then 
+$D(fg) = g(x) D(f) + f(x) D(g) = 0$. So $D$ induces a map $\lambda(D):\fr{m}_x/\fr{m}_x^2\to k: 
+f+\fr{m}_x^2\mapsto D(f)$. 
+\begin{dang}
+    \begin{lemma}
+        The map $\lambda: T_x V \to (\fr{m}_x/\fr{m}_x^2)^*$ is a bijection.
+    \end{lemma}
+\end{dang}
+Proof: We prove the lemma by defining a inverse 
+\begin{equation}
+    \mu:(\fr{m}_x/\fr{m}_x^2)^*\ni\ell\mapsto [\mu(\ell):f\mapsto \ell(f-f(x)+\fr{m}_x^2)].
+\end{equation}
+To see that $\mu(\ell)$ is a derivation, we compute.
+\begin{equation}
+    \begin{split}
+        \mu(\ell)(fg) &=\ell(fg -fg(x)+\fr{m}_x^2)\\
+        &=\ell(fg-fg(x)-(f-f(x))(g-g(x))+\fr{m}_x^2)\\
+        &=\ell((f-f(x))g(x)+(g-g(x))f(x)+\fr{m}_x^2)\\
+        &= g\cdot \mu(\ell)(g) + f\cdot \mu(\ell)(g).
+    \end{split}
+\end{equation}
+Furthermore, we have 
+\begin{equation}
+    \begin{split}
+        \mu\lambda(D)(f) &= \lambda(D)(f-f(x)+\fr{m}_x^2)\\
+        &=D(f-f(x))\\
+        &=D(f)
+    \end{split}
+\end{equation}
+and 
+\begin{equation}
+    \begin{split}
+        \lambda\mu(\ell)(f+\fr{m}_x^2) &= \mu(\ell)(f) \\ 
+        &=\ell(f-f(x)+\fr{m}_x^2)\\
+        &=\ell(f+\fr{m}_x^2)\quad(\text{because }f(x)=0).
+    \end{split}
+\end{equation}
+\qed
+
+This motivates the definition of a cotangent space $T_x^*V = \fr{m}_x/\fr{m}_x^2$.
+
+\begin{dang}
+    \begin{definition}
+        Let $f=(f_1,\dots, f_n):X\subset k^m\to Y\subset k^n$ be a morphism of affine algebraic varieties, we define 
+        \begin{equation}
+            df_x:T_xX\to T_{f(x)}Y: D\mapsto D\circ f^*
+        \end{equation}
+        where we use the second definition of tangent space. At the level of the first definition, the derivative 
+        has the form $df_x = J(f)_x$, where $J(f)_x = (D_j(f_i))_{1\leq i\leq n,1\leq j\leq m}$. This can be seen by 
+        \begin{equation}
+            v\mapsto D_v \mapsto D_v\circ f^* \mapsto (D_v\circ f^*(\overline{X}_i))_{i=1}^n
+        \end{equation}
+        and $f^*(\overline{X}_i)= f_i$, so $(D_v(f_i))_{i=1}^n = J(f)_x\cdot v$.
+    \end{definition}
+\end{dang}
+Recall that if $\phi: A\to B$ is a morphism of $R-$algebras and $N$ is a $A-$module, then 
+$B$ becomes a $N$-module through $\phi$. This is what happens in the previous definition: through 
+$f^*$, the $k[X]-$module $k_x$ becomes $k_{f(x)}$. In fact, if $g\in k[Y]$ and $a\in k_x$ we have 
+by definition $g\cdot a = f^*(g)\cdot a = f^*(g)|_x a = g(f(x))a$.
+
+\begin{remark}
+    A computational tool: Let $D=k[t]/(t^2)$ be the ring of dual numbers and $\epsilon = t + (t^2)$. Then, if $f\in k[\underline{X}]$, we have 
+    $f(x + \epsilon v)= f(x) +\epsilon df_x(v)$, where $df_x(v) = \sum_i D_i(f)|_x v_i$. So, in the context of the previous theorem 
+    we can calculate $df_x(v)$ by expanding the $\epsilon-$terms of $f(x+\epsilon v)$. The ring of dual numbers has 
+    a multiplicative system given by $S= \{a+\epsilon b: a\neq 0\}$, so we can define its localization 
+    $D_S=\{f/g: f\in D,\; g\in S\}$. Let $f,g\in k[X_1\,\dots, X_n]$, then if $x\in D(g)$ we have 
+    $g(x+\epsilon v)\in S$ for all $v\in k^n$. So it makes sense to write $\tfrac{f}{g}(x+\epsilon v)\in D_S$. 
+    Moreover, one has 
+    \begin{equation}
+        \begin{split}
+         \frac{f}{g}(x+\epsilon v) &= \frac{f(x+\epsilon v)}{g(x+\epsilon v)} \\
+         &=\frac{f(x) +\epsilon df_x(v) }{g(x)+\epsilon dg_x(v)}\\
+         &=\frac{f(x) +\epsilon df_x(v) }{g(x)+\epsilon dg_x(v)}\frac{g(x)-\epsilon dg_x(v)}{g(x)-\epsilon dg_x(v)}\\
+         &=\frac{f(x) +\epsilon df_x(v) }{g(x)}(1 - \frac{\epsilon dg_x(v)}{g(x)})\\
+         &=\frac{f}{g}(x) + \epsilon d(\frac{f}{g})_x(v).
+        \end{split}
+    \end{equation} 
+    Now, let $f = (\tfrac{f_1}{g},\dots,\tfrac{f_n}{g}):X=D(g)\subset k^m \rightarrow k^n$. We see that 
+    $X$ is a affine variety contained, but not closed in $k^m$, so it does not makes sense to talk 
+    about the coordinate ring of $X$. So it still makes sense to talk about the derivative 
+    of $f$ in this case ?
+\end{remark}
+
+\begin{dang}
+    \begin{definition}
+        (Tangent space, definition 3). Let $X\subset k^m$ be a locally closed subset, we define 
+        \begin{equation}
+            T_xX = \{v\in k^m: [\callO(X)\ni f\mapsto f(x+\epsilon v)\in D] \in\text{Hom}_{k-\text{alg}}(\callO(X), D) \}.
+        \end{equation}
+    \end{definition}
+\end{dang}
+This definition agrees with the previous ones when $X\subset k^m$ is closed and affine. Furthermore, if 
+$\varphi: X\subset k^m\to Y\subset k^n$ is a morphism of locally closed subsets, we can define the derivative as follows. 
+Let $v\in T_xX$, and define $d\varphi_x(v)$ by the equality $\varphi(x+\epsilon v)=\varphi(x)+\epsilon d\varphi_x(v)$. 
+Then $\callO(Y)\ni g\mapsto g(\varphi(x)+\epsilon d\varphi_x(v))$ is a $k$-algebra morphism. This follows because of the observation:
+$g(\varphi(x)+\epsilon d\varphi_x(v))=\varphi^*(g)(x+\epsilon v), \varphi^*(g)\in\callO(X)$. Therefore 
+we get a map $d\varphi_x: T_xX\to T_{\varphi(x)}Y: v\mapsto d\varphi_x(v)$.
+\begin{example}
+In the previous example we had $f = (\tfrac{f_1}{g},\dots,\tfrac{f_n}{g}):X=D(g)\subset k^m \rightarrow k^n$. 
+Then we calculate directly 
+\begin{equation}
+    \begin{split}
+        f(x+\epsilon v) &= (\frac{f_1}{g}(x+\epsilon v),\dots, \frac{f_n}{g}(x+\epsilon v))\\
+        &=f(x) +\epsilon (d(\frac{f_1}{g})_x(v),\dots, d(\frac{f_n}{g})_x(v)).
+    \end{split}
+\end{equation}     
+Therefore $df_x(v) = (d(\tfrac{f_1}{g})_x(v),\dots, d(\tfrac{f_n}{g})_x(v))$.
+\end{example}
+
+
+\begin{dang}
+    \begin{lemma}
+        We have an isomorphism 
+        \begin{equation}
+            \Der_k(\callO_{X,x},k_x)\rightarrow \Der_k(k[X],k_x): D\mapsto D|_{k[X]}.
+        \end{equation}
+        Where we regard $k[X]\subset \callO_{X,x}$ through the embedding 
+        $f\mapsto \langle X, f\rangle$. 
+    \end{lemma}
+\end{dang}
+Proof: It's sufficient to give an inverse, to do this we remember that 
+$\callO_{X,x}\cong k[X]_{\fr{m}_x}$ (see~(\ref{proposition: isomorphism from the localization O_X,Y})). 
+So any derivation $D\in\Der_k(k[X],k_x)$ can be extended to $\callO_{X,x}$ using the 
+usual rule $D(f/g)=g(x)^{-2}(g\cdot D(f)-f\cdot D(g))$. Explictly, it has the form 
+\begin{equation}
+    D(\langle U, \frac{f}{g}\rangle) = g(x)^{-2}(g\cdot D(f)-f\cdot D(g)).
+\end{equation}
+\qed 
+
+\begin{dang}
+    \begin{lemma}
+        Let $\phi:X\overset{\cong}{\to} U\subset Y$, where $U$ is open affine. Then 
+        $d\phi_x: T_xX\to T_{f(x)}Y$ is an isomorphism.
+    \end{lemma}
+\end{dang}
+Proof: The isomorphism $\phi^*:k[U]\to k[X]$ induces an isomorphism 
+\begin{equation}
+    \callO_{U,\phi(x)}\cong k[U]_{\fr{m}_{f(x)}}\to k[X]_{\fr{m}_x}\cong\callO_{X,x},
+\end{equation}
+because
+$f\in\fr{m}_{\phi(x)}\iff \phi^{*}(f)\in\fr{m}_x$. Finally, the isomorphism $\callO_{Y,\phi(x)}\cong\callO_{U,\phi(x)}$
+induces an isomorphism $\Der_k(\callO_{X,x},k_x)\to \Der_k(\callO_{Y,\phi_x},k_{\phi(x)})$.\qed
+
+\begin{dang}
+    \begin{definition}
+        Let $X$ be an abstract variety, we define a directed system $(T_xU, \rho_{UV}),\;U\ni x$ where 
+        $\rho_{UV}$ is the isomorphism $T_xU\to T_xV$ induced by the inclusion $U\subset V$ of open affine 
+        subsets. Then we define 
+        \begin{equation}
+            T_xX = \varinjlim_{U\ni x} T_xU.
+        \end{equation}
+        The derivative $d\phi_x$ is defined as follows, let $V\ni \phi(x)$ be an open affine. Then 
+        there exists an open affine $U\ni x, U\subset \phi^{-1}(V)$. Then we send 
+        \begin{equation}
+            d\phi_x: \langle T_xU, D\rangle \mapsto \langle V, d(\phi|_U)_x(D)\rangle.
+        \end{equation}
+    \end{definition}
+\end{dang}
+The definition of $d\phi_x$ makes sense because 
+\begin{center}
+    \begin{tikzcd}
+        U\arrow[d,"\phi|_U"]\arrow[r,phantom, "\subset"]& U^\prime \arrow[d,"\phi|_{U^\prime}"]\\
+        V\arrow[r,phantom, "\subset"]&V^\prime 
+    \end{tikzcd}
+    $\rightsquigarrow$
+    \begin{tikzcd}
+        T_xU\arrow[d,"d(\phi|_U)_x"]\arrow[r,phantom,"\subset"]& T_xU^\prime\arrow[d,"d(\phi|_{U^\prime})"] \\ 
+        T_xV\arrow[r,phantom,"\subset"]& T_xV^\prime
+    \end{tikzcd}
+\end{center}
