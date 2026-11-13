@@ -30,10 +30,12 @@
 \contentsline {section}{\numberline {1.12}Lecture 19 and 20}{40}{section.1.12}%
 \contentsline {subsection}{\numberline {1.12.1}Cartier divisors}{40}{subsection.1.12.1}%
 \contentsline {subsection}{\numberline {1.12.2}Weil divisors}{42}{subsection.1.12.2}%
-\contentsline {section}{\numberline {1.13}Lecture 21 and 22}{47}{section.1.13}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{53}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Some notes from Geck}{53}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Polynomial rings}{53}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Basic definitions}{53}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Tangent Spaces}{59}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Notes from Springer}{63}{section.2.5}%
+\contentsline {section}{\numberline {1.13}Lecture 21 and 22}{48}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Lecture 23 and 24}{53}{section.1.14}%
+\contentsline {section}{\numberline {1.15}Lectures 25 and 26}{56}{section.1.15}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{57}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some notes from Geck}{57}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Polynomial rings}{57}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic definitions}{57}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tangent Spaces}{63}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Notes from Springer}{67}{section.2.5}%

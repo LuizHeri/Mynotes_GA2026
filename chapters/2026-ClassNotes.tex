@@ -2365,7 +2365,33 @@ which shows that $D\sim n_Y[Y]$.\qed
 \end{example}
 
 \begin{remark}
-    We have used several times the identity $\fr{m}_{X,Y}=I_{Y|X}\callO_{X,Y}$.
+    We have used several times the identity $\fr{m}_{X,Y}=I_{Y|X}\callO_{X,Y}$ for $X$ affine. 
+    Remember that we have a bijection ($S\subset A$ is a multiplicative system such that $0\notin S$):
+    \begin{center}
+        \begin{tikzcd}
+            \left\{\begin{matrix}
+        \text{prime ideals }P\subset A\\
+        \text{satisfying }P\cap S\neq\varnothing
+        \end{matrix}\right\}\arrow[r,leftrightarrow] &  \left\{\begin{matrix}
+        \text{prime ideals }\\
+        \text{of }A_S
+        \end{matrix}\right\}\\ 
+        P\arrow[r,mapsto,"\varphi"] & P\cdot A_S = \{\frac{a}{b}\in A_S:a\in P\}\\
+        q\cap A=\{a\in A:a/1\in q\} & q\arrow[l,mapsto,swap,"\psi"] 
+        \end{tikzcd}
+    \end{center}
+    We note that the condition $a\in P$ is independent of the representative $a/b\in A_S$. In fact if 
+    $a/b=c/d$, then $s(ad - bc)=0$ for some $s\in S$. Therefore $sbc=sad \in P$ and since $s,b\in S$, we have 
+    $s,b\notin P$ and $c\in P$ becasue $P$ is prime. We see that both maps are inverses 
+    \begin{equation}
+        \begin{split}
+            &\psi\varphi(P) = A\cap P\cdot A_S = \{a\in A:a\in P\}=P\\
+            &\varphi\psi(q)=(q\cap A)\cdot A_S = \{\tfrac{a}{b}\in A_S: \tfrac{a}{1}\in q\}=q
+        \end{split}
+    \end{equation}
+   Now, if $Y\subset X$ is irreducible closed, then $\callO(X)\to\callO_{X,Y}$ is the localization map 
+   $k[X]\to k[X]_{I_{Y|X}}$. Now since $\fr{m}_{X,Y}\cap k[X] = I_{Y|X}$, we get that 
+   $\fr{m}_{X,Y} = I_{Y|X}\callO_{X,Y}$.
 \end{remark}
 
 
@@ -2624,3 +2650,162 @@ The definition of $d\phi_x$ makes sense because
         T_xV\arrow[r,phantom,"\subset"]& T_xV^\prime
     \end{tikzcd}
 \end{center}
+
+
+\section{Lecture 23 and 24}
+
+\begin{dang}
+    \begin{proposition}
+        We $X$ is irreducible affine, then $\dim T_xX \geq \dim X$ and the equality happens on a dense open subset 
+        in $X$. If $x\in X$ is such that $\dim T_xX > \dim X$, we say that $x$ is singular. 
+    \end{proposition}
+\end{dang}
+Proof: Let $X = V(F_1,\dots, F_m)\subset k^n$, then we have 
+\begin{equation}
+    T_xX =\{v\in k^n: \sum D_i(F_j)|_x v_i=0,\;\forall j=1,\dots,m\} = 
+    \Ker(\frac{\partial F_i}{\partial X_j})_{1\leq i\leq m, 1\leq j\leq n}.
+\end{equation}
+Now, write $d=\min\{\dim T_xX: x\in X\}$, then 
+\begin{equation}
+    \begin{split}
+       U &= \{x\in X: \dim T_xX = d\}\Rightarrow\\
+       X- U &=\{x\in X: \dim T_xX > d\}\\
+       &=\{x\in X: \text{Rank}(\frac{\partial F_i}{\partial X_j})(x) > n - d\}\\
+       &=\bigcup_{i=n-d+1}^n\{x\in X:\text{Rank}(\frac{\partial F_i}{\partial X_j})(x)=i\}
+    \end{split}
+\end{equation}
+is closed. Now, we prove that the minimum is achieved at $d=\dim X$. Write $m=\dim X$, then is a fact that 
+$X$ is birational to a hypersurface $Y=V(G)\subset k^{m+1}$. We claim that 
+\begin{equation}
+  \{x\in X: \dim T_xX = m\}  \{x\in X:\Ker(v\mapsto \sum D_iG|_xv_i)\neq 0\}\neq\varnothing 
+\end{equation}
+so it's a open dense subset. Suppose the contrary, so we have $V(G)\subset V(D_i G:i)$ and by Nullstelensatz 
+we deduce that $\sqrt{(D_iG:i)}\subset (G)$ and $D_iG\in (G),\;\forall i$. This imples that $D_iG=0,\;\forall i$ 
+and $G\in k$, which is a contradiction. Now, let $U\subset X$ and $V\subset Y$ be such that 
+$\exists\;f:U\overset{\cong}{\to}V$ isomorphism. Then 
+\begin{equation}
+   \dim T_xX = \dim T_xU = \dim T_{f(x)}V = \dim T_{f(x)}(V\cap \{\dim T_yY = m\}) = m
+\end{equation} 
+whenever $x\in f^{-1}(V\cap\{\dim T_yY = m\})$. This proves that $m=d$.\qed
+
+\begin{center}
+    \textcolor{red}{After this proposition, a considerable effort is made to prove that 
+    $\callO_{X,x}$ whenever $x\in X$ is simplie, i.e., $\dim X=\dim T_xX$. We will skip this here.}
+\end{center}
+
+\begin{dang}
+    \begin{lemma}
+        If $\callO$ is a UFD, then every prime ideal $P\subset\callO$ of height 1 is principal.
+    \end{lemma}
+\end{dang}
+Proof: Let $f\in P$, since $\callO$ is a UFD we can assume $f$ irreducible. Since 
+$(f)$ is prime and $(0)\subset (f)\subset P$, we have $P=(f)$ because $P$ has height 1.\qed 
+
+
+\begin{dang}
+    \begin{definition}
+        A Noetherian local domain $R$ is a discrete valuation ring if it has dimension 1 (dimension 
+        of a local ring is the height of the maximal ideal) and the maximal ideal $\fr{m}_R=tR$ is principal.
+    \end{definition}
+\end{dang}
+
+\begin{dang}
+    \begin{proposition}
+        If $R$ is a discrete valuation ring, then every ideal is of the form 
+        $\fr{m}_R^n,\;n\geq0$ and $\bigcap_{n\geq0}\fr{m}^n = (0)$.
+    \end{proposition}
+\end{dang}
+
+\begin{dang}
+    \begin{corollary}
+        For all $f\in R\setminus0$, there exists $v(f)\geq0$ such that 
+        $f\in \fr{m}_R^{v(f)}-\fr{m}_R^{v(f)+1}$.
+    \end{corollary}
+\end{dang}
+Let $J\subset R$ an nonzero ideal. Then we define 
+\begin{equation}
+    v(J) = \min\{n\geq0:\exists\;f\in J, v(f)=n\}.
+\end{equation}
+There exists $f\in J\setminus0$ such that $v(f)=v(J)$. So, for all $g\in J$, we have 
+\begin{equation}
+    v(g)\geq v(f)\Rightarrow g = t^{v(g)}x = t^{v(f)}y = af.
+\end{equation}
+Then we see that $(a) = \fr{m}^{v(a)}$ and $\ell(\tfrac{R}{\fr{m}^\ell})=\ell$.
+
+
+\begin{dang}
+    \begin{theorem}
+        If $X$ is smooth and irreducible, then 
+        \begin{equation}
+            [\;]:\CaDiv(X)\to \Div(X):D\mapsto \sum_{\codim(Y,X)=1} \ord_Y(D)[Y]
+        \end{equation}
+        is an isomorphism.
+    \end{theorem}
+\end{dang}
+Proof (Sketch): Let $Y\subset X$ be closed irreducible of codimension 1. Let $x\in Y$ and 
+\begin{equation}
+    P = \{\langle U,f\rangle \in\callO_{X,x}: f(U\cap Y)=0\}.
+\end{equation}
+We have that $P$ is prime. If $\langle U,fg\rangle\in\callO_{X,Y}$, then 
+$fg(U\cap Y)=0$. Suppose that there exists $y\in U\cap Y$ such that $g(y)\neq0$, then 
+$V=\{y\in Y\cap U: g(y)\neq0\}\neq\varnothing$ and $V\subset U\cap Y$ is open dense, so $V\subset Y$ 
+is open dense. However $f(V) = 0 \Rightarrow f(Y\cap U)=0$, so $\langle U,f\rangle \in P$. 
+Now, we claim that $P$ has height 1. To see this, let $U\ni x$ an open affine. Then 
+\begin{equation}
+    \callO_{U,x}\cong\callO_{X,x}.
+\end{equation}
+But $\callO_{U,x}\cong k[U]_{\fr{m}_x}$ and $P = I_{U\cap Y|U}k[U]_{\fr{m}_x}$. This proves that 
+\begin{equation}
+    \text{ht}(P) = \text{ht}(I_{U\cap Y| U}) =\codim(U\cap Y, U) = \codim(Y,X)=1.
+\end{equation}
+Then we conclude that $P=\langle U,f\rangle\callO_{X,x}$ by the previous lemma. Now, observe that 
+\begin{equation}
+    I_{U\cap Y|U} =  P\cap k[U] = f\callO_{U,x} \cap k[U] = f\callO_X(U).
+\end{equation}
+Now, by taking images under the localization map $\callO_X(U)\to \callO_{X,Y}$, we obtain 
+$\fr{m}_{X,Y} = \langle U,f\rangle\callO_{X,Y}$. So we have a maximal chain 
+\begin{center}
+    \begin{tikzcd}
+      (0) \arrow[r,phantom, "\subset"] & \frac{\callO_{X,Y}}{\langle U, f\rangle}\\ \textcolor{red}{1}&\textcolor{red}{0}
+    \end{tikzcd}
+\end{center}
+This proves that $\ord_Y((X,f))=1$. This proves that we can construct a covering $Y\subset \bigcup_i U_i$
+with maps $f_i\in \callO_X(U_i)\subset K(U_i)$ such that $f_i\callO_X(U_i) = I_{Y\cap U_i|U_i}\subset\callO_X(U_i)$. In particular 
+\begin{equation}
+    f_i\callO_X(U_i\cap U_j )=I_{Y\cap U_i\cap U_j|U_i\cap U_j} = f_j\callO_X(U_i\cap U_j)
+\end{equation}
+and $f_i/f_j\in\callO_X^*(U_i\cap U_j)$. Now, if $Z\subset X$ is a codimension 1, closed and irreducible subvariety. 
+Suppose that $U_i\cap Z\neq\varnothing$, we want to show that
+$\ell(\tfrac{\callO_{X,Z}}{\langle U_i,f_i\rangle})=0$ unless $Z=Y$. In fact, suppose that $\langle U_i, f_i\rangle\in\fr{m}_{X,Z}$, then 
+$f_i\in I_{Z\cap U_i|U_i}\Rightarrow I_{Y\cap U_i|U_i}\subset I_{Z\cap U_i|U_i}$, so 
+$Z\cap U_i \subset Y\cap U_i$ and $Z\cap U_i = Y\cap U_i$ becasue both subvarieties have codimension 1 in $U_i$. Therefore 
+\begin{equation}
+    Z = \overline{Z\cap U_i} = \overline{Y\cap U_i} = Y.
+\end{equation}
+This proves that 
+\begin{equation}
+    D = ((U_i,f_i)_{i\in I},(X-Y,1))
+\end{equation}
+is a Cartier divisor such that $[D]=[Y]$, which proves surjectivity.\par 
+
+Now, to prove injectivity, let $D\in\CaDiv(X)$ and suppose that $\sum_Y\ord_Y(D)[Y]= 0$, i.e., 
+$\ord_Y(D) = 0$ for all $Y\subset X$ closed irreducible, codimension 1 subvarieties. Now, 
+fix $Y$, then $\ord_Y(D) = \ord_Y(U_i, f_i)$ where $U_i\cap Y\neq\varnothing$. Therefore, we are reduced to the case 
+$X$ affine and $D=(X,f),\;f\in K(X)=\text{Frac }\callO(X)$. Let $f=a/b,\;a,b\in \callO(X)$, then 
+\begin{equation}
+    \ord_Y(X,f) = \ell(\frac{\callO_{X,Y}}{(a)}) -\ell(\frac{\callO_{X,Y}}{(b)}) = 0
+\end{equation} 
+if and only if $\ord_Y(X,a) = \ord_Y(X,b)$. As in the beginning of this proof, we can take $U\subset X$ an open affine 
+such that $I_{Y\cap U|U} = g\callO(U)$ and $U\cap Y\neq\varnothing$. Since $\ord_Y(X,a) = \ord_{Y\cap U}(U,a|_U)$, we 
+can assume $I_{Y|X} = g\callO(X)$. This implies that $\fr{m}_{X,Y} = \langle X,g\rangle\callO_{X,Y}$ is principal. 
+Therefore $\callO_{X,Y}$ is a discrete valuation ring. Therefore we see that 
+\begin{equation}
+    v(a) = \ell(\frac{\callO_{X,Y}}{(a)}) =\ell(\frac{\callO_{X,Y}}{(b)}) = v(b)
+\end{equation}
+and $f=a/b\in \callO_{X,Y}^*$ for all $Y\subset X$ codimension 1 subvarieties. Moreover 
+\begin{equation}
+    f\in \callO(X) = \bigcap_{\codim(Y,X)=1}\callO_{X,Y}.
+\end{equation}
+Therefore $f\in\callO^*(X)$, so $D=0$.\qed
+
+\section{Lectures 25 and 26}
