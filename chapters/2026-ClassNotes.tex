@@ -1901,7 +1901,7 @@ Proof:\TODO
 \end{definition}
 \end{dang}
 \begin{remark}
-    From definion above, open and closed sets are constructible.
+    From definition above, open and closed sets are constructible.
 \end{remark}
 
 \begin{dang}
@@ -2014,7 +2014,7 @@ this means that there exists $g_{ij}\in\callO_X^*(U_i\cap U_j)$ such that
 
 \begin{dang}
 \begin{corollary}
-    By definitin, a Cartier divisor is given by a covering $X=\bigcup_i U_i$ and a collection of rational maps 
+    By definition, a Cartier divisor is given by a covering $X=\bigcup_i U_i$ and a collection of rational maps 
     $\langle V_i, f_i\rangle \in K^*(U_i)$ such that for each $i,j$, there exists 
     $g_{ij}\in\callO^*(U_i\cap U_j)$ such that $f_i = g_{ij}f_j$ on $V_i\cap V_j$. 
     \textcolor{red}{Most of the time we will write a Cartier divisor as a covering 
@@ -2233,7 +2233,7 @@ Then the equality
     and the definition of the sum of two divisors.
     \item[(5)] The sum $\sum_Y\ord_Y(D)[Y]$ is finite. Since $X$ is quasicompact, we can take 
     $D=(U_i, f_i)_{i\in I},\; |I|<\infty$ and $U_i$ affine. So $f_i = a_i/b_i,\;a_i,b_i\in\callO_X(U_i)$. 
-    Let $Y\subset X$ be of codimension one and $U_i\cap Y\neq\varnothing$. We knwo that both 
+    Let $Y\subset X$ be of codimension one and $U_i\cap Y\neq\varnothing$. We know that both 
     $V(a_i)$ and $V(b_i)$ has a finite number of irreducible components of codimenion one in $U_i$. 
     Then, if $U_i\cap Y\subset V(a_i)\cup V(b_i)$, it must be in this (finite) set of irreducible components, because 
     $\codim(U_i\cap Y, U_i)=\codim (Y,X)=1$. So we claim that if 
@@ -2245,6 +2245,29 @@ Then the equality
     \end{equation}
 \end{itemize}
 
+\begin{remark}
+    \textcolor{red}{The item (5) above, give an explicty description of the support of the Weil divisor associated to a 
+    Cartier Divisor $D$: We have 
+    \begin{equation}
+        [D] \in \text{Span}\{\text{irr. components of }V(a_i)\cup V(b_i):i\in I\}.
+    \end{equation}
+    }
+\end{remark} 
+
+
+\begin{example}
+    Let $f = X/Y\in K^*(\bbP^1)$, then $[\text{div}(f)]=[0:1]-[1:0]$. We have 
+    $\text{div}(f) = (\bbP^1,f)$ by definition. Remember that if $Y\subset X$ is a codimension 1 variety, then 
+    $\ord_Z(f)\neq 0$ only if $Z= \bbP^1\cap Z\subset V(X)\cup V(Y)$, which implies 
+    $Z = V(X)=[0:1]$ or $Z=V(Y)=[1:0]$. If $Z=[0:1]$, then 
+    $f\in\fr{m}_{\bbP^1,Z}$ is a generator. Then $\ord_{Z}(f)=\ell(\tfrac{\callO_{\bbP^1,Z}}{(f)})=1$. 
+    Now if $Z=[1:0]$, then $f=1/(Y/X)$, with $Y/X\in\fr{m}_{\bbP^1,Z}$ being a generator. Then 
+    \begin{equation}
+        \ord_Z(f) = \ell(\frac{\callO_{\bbP^1,Z}}{1}) - \ell(\frac{\callO_{\bbP^1,Z}}{(Y/X)})=-1.  
+    \end{equation}
+    Therefore $[\text{div}(f)]=[0:1]-[1:0]$.
+\end{example}
+
 \begin{dang}
     \begin{definition}
         We define a linear equivalence relation on $\CaDiv(X)$ 
@@ -2255,7 +2278,8 @@ Then the equality
 \end{dang}
 
 \begin{notation}
-    Normally, we will write $\text{div}(f)=[(X,f)]\in \Div(X)$.
+    Let $f\in K^*(X)$, then we will write $\text{div}(f) = (X,f)\in\CaDiv(X)$ and 
+    $[\text{div}(f)]$ to the associated element of $\Div(X)$.
 \end{notation}
 
 \begin{example}\label{example: coordinate ring of X if UFD implies cl(X) zero}
@@ -2371,7 +2395,7 @@ which shows that $D\sim n_Y[Y]$.\qed
         \begin{tikzcd}
             \left\{\begin{matrix}
         \text{prime ideals }P\subset A\\
-        \text{satisfying }P\cap S\neq\varnothing
+        \text{satisfying }P\cap S=\varnothing
         \end{matrix}\right\}\arrow[r,leftrightarrow] &  \left\{\begin{matrix}
         \text{prime ideals }\\
         \text{of }A_S
@@ -2382,10 +2406,10 @@ which shows that $D\sim n_Y[Y]$.\qed
     \end{center}
     We note that the condition $a\in P$ is independent of the representative $a/b\in A_S$. In fact if 
     $a/b=c/d$, then $s(ad - bc)=0$ for some $s\in S$. Therefore $sbc=sad \in P$ and since $s,b\in S$, we have 
-    $s,b\notin P$ and $c\in P$ becasue $P$ is prime. We see that both maps are inverses 
+    $s,b\notin P$ and $c\in P$ because $P$ is prime. We see that both maps are inverses 
     \begin{equation}
         \begin{split}
-            &\psi\varphi(P) = A\cap P\cdot A_S = \{a\in A:a\in P\}=P\\
+            &\psi\varphi(P) = A\cap (P\cdot A_S) = \{a\in A:a\in P\}=P\\
             &\varphi\psi(q)=(q\cap A)\cdot A_S = \{\tfrac{a}{b}\in A_S: \tfrac{a}{1}\in q\}=q
         \end{split}
     \end{equation}
@@ -2395,7 +2419,7 @@ which shows that $D\sim n_Y[Y]$.\qed
 \end{remark}
 
 
-\section{Lecture 21 and 22}
+\section{Lecture 21}
 Let $V=V(f_1,\dots, f_m)$ be an affine variety and $x\in V$. Define the line $L=\{x+tv:t\in k\}$ for $v\in k^n$. 
 Then we have the bijection 
 \begin{equation}
@@ -2652,7 +2676,7 @@ The definition of $d\phi_x$ makes sense because
 \end{center}
 
 
-\section{Lecture 23 and 24}
+\section{Lectures 22 and 23}
 
 \begin{dang}
     \begin{proposition}
@@ -2677,7 +2701,7 @@ Now, write $d=\min\{\dim T_xX: x\in X\}$, then
 is closed. Now, we prove that the minimum is achieved at $d=\dim X$. Write $m=\dim X$, then is a fact that 
 $X$ is birational to a hypersurface $Y=V(G)\subset k^{m+1}$. We claim that 
 \begin{equation}
-  \{x\in X: \dim T_xX = m\}  \{x\in X:\Ker(v\mapsto \sum D_iG|_xv_i)\neq 0\}\neq\varnothing 
+  \{x\in X: \dim T_xX = m\} = \{x\in X:\Ker(v\mapsto \sum D_iG|_xv_i)\neq 0\}\neq\varnothing 
 \end{equation}
 so it's a open dense subset. Suppose the contrary, so we have $V(G)\subset V(D_i G:i)$ and by Nullstelensatz 
 we deduce that $\sqrt{(D_iG:i)}\subset (G)$ and $D_iG\in (G),\;\forall i$. This imples that $D_iG=0,\;\forall i$ 
@@ -2746,7 +2770,7 @@ Proof (Sketch): Let $Y\subset X$ be closed irreducible of codimension 1. Let $x\
 \begin{equation}
     P = \{\langle U,f\rangle \in\callO_{X,x}: f(U\cap Y)=0\}.
 \end{equation}
-We have that $P$ is prime. If $\langle U,fg\rangle\in\callO_{X,Y}$, then 
+We have that $P$ is prime. If $\langle U,fg\rangle\in\callO_{X,x}$, then 
 $fg(U\cap Y)=0$. Suppose that there exists $y\in U\cap Y$ such that $g(y)\neq0$, then 
 $V=\{y\in Y\cap U: g(y)\neq0\}\neq\varnothing$ and $V\subset U\cap Y$ is open dense, so $V\subset Y$ 
 is open dense. However $f(V) = 0 \Rightarrow f(Y\cap U)=0$, so $\langle U,f\rangle \in P$. 
@@ -2778,7 +2802,7 @@ and $f_i/f_j\in\callO_X^*(U_i\cap U_j)$. Now, if $Z\subset X$ is a codimension 1
 Suppose that $U_i\cap Z\neq\varnothing$, we want to show that
 $\ell(\tfrac{\callO_{X,Z}}{\langle U_i,f_i\rangle})=0$ unless $Z=Y$. In fact, suppose that $\langle U_i, f_i\rangle\in\fr{m}_{X,Z}$, then 
 $f_i\in I_{Z\cap U_i|U_i}\Rightarrow I_{Y\cap U_i|U_i}\subset I_{Z\cap U_i|U_i}$, so 
-$Z\cap U_i \subset Y\cap U_i$ and $Z\cap U_i = Y\cap U_i$ becasue both subvarieties have codimension 1 in $U_i$. Therefore 
+$Z\cap U_i \subset Y\cap U_i$ and $Z\cap U_i = Y\cap U_i$ because both subvarieties have codimension 1 in $U_i$. Therefore 
 \begin{equation}
     Z = \overline{Z\cap U_i} = \overline{Y\cap U_i} = Y.
 \end{equation}
@@ -2786,7 +2810,9 @@ This proves that
 \begin{equation}
     D = ((U_i,f_i)_{i\in I},(X-Y,1))
 \end{equation}
-is a Cartier divisor such that $[D]=[Y]$, which proves surjectivity.\par 
+is a Cartier divisor such that $[D]=[Y]$, which proves surjectivity. We remark that we have $f_i\in K^*(U_i)$, otherwise 
+we would have $f_i=0\in\callO(U_i)$ and $I_{Y\cap U_i|U_i}=0\Rightarrow Y\cap U_i = U_i$, which contradicts 
+$\codim(Y\cap U_i, U_i)=1$.\par 
 
 Now, to prove injectivity, let $D\in\CaDiv(X)$ and suppose that $\sum_Y\ord_Y(D)[Y]= 0$, i.e., 
 $\ord_Y(D) = 0$ for all $Y\subset X$ closed irreducible, codimension 1 subvarieties. Now, 
@@ -2808,4 +2834,128 @@ and $f=a/b\in \callO_{X,Y}^*$ for all $Y\subset X$ codimension 1 subvarieties. M
 \end{equation}
 Therefore $f\in\callO^*(X)$, so $D=0$.\qed
 
-\section{Lectures 25 and 26}
+
+\begin{remark}
+   \textcolor{red}{In the course of the previous proof, we showed that if $X$ is smooth and $Y\subset X$ is closed, irreducible of 
+    codimension 1, then $\callO_{X,Y}$ is a discrete valuation ring. So its maximal ideal $\fr{m}_{X,Y}$ 
+    is principal.}
+\end{remark}
+
+\section{Lecture 24}
+
+\subsection{Pushforward of vector bundles}
+An algebraic variety is said to be separable if $\Delta:Y\to Y\times Y$ has closed image.  
+Let $Y$ be a separable algebraic variety and $p:F\to Y$ a vector bundle. We define 
+\begin{equation}
+    E = \{(x,v)\in X\times F: f(x)=p(v)\} \overset{q}{\to} X. 
+\end{equation}
+If $Y = \bigcup_i V_i$ with local trivializations $(p,h_i): F|_{V_i}\to V_i\times k^r$, then we have 
+local trivializations 
+\begin{equation}
+    E|_{f^{-1}(V_i)}=q^{-1}(f^{-1}(V_i))\overset{\cong}{\to}f^{-1}(V_i)\times k^r: (x,v)\mapsto (x,h_i(v))
+\end{equation}
+with inverse given by $(x,w)\mapsto (x,(p,h_i)^{-1}(f(x),w))$. We check that these maps are really inverses of 
+ano another:
+\begin{equation}
+    (x,v)\mapsto (x,h(v))\mapsto (x,(p,h)^{-1}(f(x),h(v)))=(x,w)
+\end{equation}
+But $w = (p,h)^{-1}(f(x),h(v))$ implies $(f(x),h(v))=(p(w),h(w))$ and since $(x,v)\in F$ we have 
+$p(v)=f(x)=p(w)$. Therefore $v,w\in E|_{f(x)}$ and since $E|_{f(x)}\overset{\cong}{\to}\{f(x)\}\times k^r$ is 
+isomorphism of vector spaces, we have $h(v)=h(w)\Rightarrow v = w$. To check that the other composition is 
+the identity is easy. Now we check how transition functions are defined:
+\begin{equation}
+    f^{-1}(V_i\cap V_j)\times k^r \to E|_{f^{-1}(V_i\cap V_j)}\to f^{-1}(V_i\cap V_j)\times k^r:
+    (x,v)\mapsto (x, h_j\circ (p, h_i)^{-1}(f(x),v)).
+\end{equation}
+But $h_j\circ (p, h_i)^{-1}(f(x),v)=g_{ij}\circ f(x)\cdot v$ by definition.
+\subsection{Chow ring}
+Let $X$ be an irreducible variety, we define 
+\begin{equation}
+    Z_r(X) = \bigoplus_{\dim(Y) = r}\bbZ[Y],\; Z(X) =\bigoplus_{r\geq0}Z_r(X).
+\end{equation}
+Furthermore, if $Y\subset X$ is closed irreducible of dimension $r$ and $f\in K^*(Y)$, we have 
+\begin{equation}
+    [\text{div}(f)]=\sum_{\codim(W,Y)=1}\ord_W(f)[W]\in Z_{r-1}(X).
+\end{equation}
+Finally, we define $D\sim D^\prime$ if $D-D^\prime = [\text{div}(f)]$ for some $f$. Then we define the quotient 
+ring $A(X) = Z(X)/\sim$.
+
+\subsection{Review on vector bundles of projective spaces}
+\begin{dang}
+    \begin{definition}
+        The tautological bundle of $\bbP^r$ is defined by 
+        \begin{equation}
+            \callO_{\bbP^r}(-1) = \{(x,v)\in \bbP^r\times k^{r+1}: v\in x\}.
+        \end{equation}
+        Local trivializations are given by 
+        \begin{equation}
+            \varphi_i:\callO_{\bbP^r}(-1)\big|_{D_+(X_i)}\to D_+(X_i)\times k:(x,v)\mapsto (x,v_i).
+        \end{equation}
+        Since $v\in x$, we have $x_iv_j = x_jv_i$, so $v_j=\tfrac{x_j}{x_i}v_i$ on $D_+(X_i)$. 
+        Moreover 
+        \begin{equation}
+            \varphi_i\varphi_j^{-1}(x,v_j)=\varphi_i(x,v)=(x,v_i)
+        \end{equation}
+        so the transition map is given by $g_{ij}=\tfrac{X_i}{X_j}:D_+(X_iX_j)\to k^*$.
+    \end{definition}
+\end{dang}
+
+\begin{dang}
+    \begin{definition}
+        Let $p>0$, we define bundles:
+        \begin{itemize}
+            \item[(1)] $\callO_{\bbP^r}(-p)=\callO_{\bbP^r}(-1)^{\otimes p}$, which is defines by covering 
+            \begin{equation}
+                \bbP^r= \bigcup_{i_0+\cdots+i_r=p}D_+(X_0^{i_0}\cdots X_r^{i_r})
+            \end{equation}
+            and transition maps 
+            \begin{equation}
+                g_{\underline{i},\underline{\ell}}:D_+(X^{\underline{i}+\underline{\ell}})\to k^*:
+                x\mapsto \frac{x_0^{i_0}\cdots x_r^{i_r}}{x_0^{\ell_0}\cdots x_r^{\ell_r}}.
+            \end{equation}
+            \item[(2)]$\callO_{\bbP^r}(p) = \callO_{\bbP^r}(-p)^*$, which is defined by the same covering, with inverse 
+            transitions functions:
+            \begin{equation}
+                g_{\underline{i},\underline{\ell}}:D_+(X^{\underline{i}+\underline{\ell}})\to k^*:
+                x\mapsto \frac{x_0^{\ell_0}\cdots x_r^{\ell_r}}{x_0^{i_0}\cdots x_r^{i_r}}.
+            \end{equation}
+        \end{itemize}
+    \end{definition}
+\end{dang}
+
+We define sections as a collection of regular functions $\{f_i\}_{i\in I}, f_i\in\callO_X(U_i)$
+such that $f_i = g_{ij}f_j$. With this collection, we define a section locally
+\begin{equation}
+    s|_{U_i} = \varphi_i^{-1}(\pi|_{U_i},f_i).
+\end{equation}
+This expression does not deppend on the choice of trivialization. In fact 
+\begin{equation}
+    \varphi_i\varphi_j^{-1}(x,f_j(x)\cdot v) = (x, g_{ij}(x)f_j(x)\cdot v) = (x,f_i(x)\cdot v).
+\end{equation}
+
+\begin{dang}
+    \begin{proposition}
+        Let $m\geq0$, we have an isomorphism 
+        \begin{equation}
+            k[X_0,\dots, X_r]_m^{h}\to \Gamma(\bbP^r,\callO_{\bbP^r}(m)):F\mapsto 
+            \{\frac{F}{X_0^{i_0}\cdots X_r^{i_r}}\}_{i_0+\cdots + i_r = m}.
+        \end{equation}
+    \end{proposition}
+\end{dang}
+Proof: If $f_{\underline{i}} =\tfrac{F}{X_0^{i_0}\cdots X_r^{i_r}} $, we clearly have 
+$f_{\underline{i}}=g_{\underline{i},\underline{j}}f_{\underline{j}}$. The map is injective because 
+if $F/X_0^m=0$ on $D_+(X_0)$, then $X_0F=0$ and $F=0$. 
+It's surjective because if $\{v_{\underline{i}}\}_{i\in I}$ is a section, then 
+$v_{\underline{i}}=g_{\underline{i},\underline{j}}f_{\underline{j}}$. Let 
+$v_i = v_{me_i}$, then $v_i = \tfrac{X_j^m}{X_i^m}v_j$. Furthermore 
+\begin{equation}
+    v_i\in D_+(X_i)=\{\frac{G}{X_i^a}:G\in k[X_0,\dots, X_r]_a^h\}
+\end{equation}
+so we can assume $v_i = G_i/X_i^a$, and we can take $a\geq m$ not depending on $i$, by multiplying 
+by $X_i$ on numerator and denominator. So $G_i/X_i^{a-m}= G_j/X_j^{a-m}$ on $D_+(X_iX_j)$ and 
+\begin{equation}
+    X_iX_j(X_j^{a-m}G_i = X_i^{a-m}G_j) = 0.
+\end{equation}
+This proves that $X_i^{a-m}|G_i$ and $F= G_i/X_i^{a-m}\in k [X_0,\dots, X_r],\;\forall i$.\qed
+
+\subsection{Intersection theory}
