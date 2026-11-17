@@ -1714,7 +1714,7 @@ $f(Z^\prime)\subset W\Rightarrow Z^\prime \subset f^{-1}(W)$ and since $Z$ is a 
 $Z=Z^\prime$. Finally, since $Z\subset V(g_1,\dots, g_s)$ is an irreducible component, we must 
 have $\codim(Z,X)\leq s$.\qed
 
-\begin{remark}
+\begin{remark}\label{remark: krull dimension generalized}
     Let $X$ be an irreducible affine algebraic variety and $f_1,\dots, f_s\in\callO(X)$. Then if $Z\subset V(f_1,\dots, f_s)$
     is an irreducible component, we claim that $\codim(Z,X)\leq s$. We apply induction on $s$, the base case being 
     just theorem~(\ref{theorem: dim of irreducible component of V(f)}). Let 
@@ -2189,7 +2189,7 @@ and $\fr{m}_{X,Y}^d\subset \langle X,f\rangle\callO_{X,Y}$.\qed
             0 = P^nM \subset P^{n-1}M\subset\cdots\subset PM \subset M 
         \end{equation} 
         can be refined to a composition series of length 
-        \begin{equation}
+        \begin{equation}\label{equation: length of a module}
             \ell_A(M) = \sum_{i=1}^n \dim_{A/P}(\frac{P^{i-1}M}{P^iM}).
         \end{equation}
     \end{proposition}
@@ -2243,30 +2243,17 @@ Then the equality
     \begin{equation}
     \ell(\frac{\callO_{X,Y}}{a_i}) = \ell(\frac{\callO_{X,Y}}{b_i}) = 0.
     \end{equation}
+    We note that the intersection $Y\cap U_i\neq\varnothing$ uniquely defines $Y$, because $Y=\overline{Y\cap U_i}$.
 \end{itemize}
 
 \begin{remark}
-    \textcolor{red}{The item (5) above, give an explicty description of the support of the Weil divisor associated to a 
-    Cartier Divisor $D$: We have 
+    \textcolor{red}{The item (5) above, give an explicty description of the support of the Weil divisor associated 
+    to a Cartier Divisor $D$. Let $D=(U_i,f_i)_{i\in I},\;f_i=\tfrac{a_i}{b_i},\;a_i,b_i\in\callO(U_i)$ as above. Then 
     \begin{equation}
-        [D] \in \text{Span}\{\text{irr. components of }V(a_i)\cup V(b_i):i\in I\}.
+        [D]\in\text{Span}\{\overline{Z}: Z\text{ irr. component of }V(a_i)\cup V(b_i),\;i\in I\}.
     \end{equation}
     }
 \end{remark} 
-
-
-\begin{example}
-    Let $f = X/Y\in K^*(\bbP^1)$, then $[\text{div}(f)]=[0:1]-[1:0]$. We have 
-    $\text{div}(f) = (\bbP^1,f)$ by definition. Remember that if $Y\subset X$ is a codimension 1 variety, then 
-    $\ord_Z(f)\neq 0$ only if $Z= \bbP^1\cap Z\subset V(X)\cup V(Y)$, which implies 
-    $Z = V(X)=[0:1]$ or $Z=V(Y)=[1:0]$. If $Z=[0:1]$, then 
-    $f\in\fr{m}_{\bbP^1,Z}$ is a generator. Then $\ord_{Z}(f)=\ell(\tfrac{\callO_{\bbP^1,Z}}{(f)})=1$. 
-    Now if $Z=[1:0]$, then $f=1/(Y/X)$, with $Y/X\in\fr{m}_{\bbP^1,Z}$ being a generator. Then 
-    \begin{equation}
-        \ord_Z(f) = \ell(\frac{\callO_{\bbP^1,Z}}{1}) - \ell(\frac{\callO_{\bbP^1,Z}}{(Y/X)})=-1.  
-    \end{equation}
-    Therefore $[\text{div}(f)]=[0:1]-[1:0]$.
-\end{example}
 
 \begin{dang}
     \begin{definition}
@@ -2867,7 +2854,16 @@ the identity is easy. Now we check how transition functions are defined:
     f^{-1}(V_i\cap V_j)\times k^r \to E|_{f^{-1}(V_i\cap V_j)}\to f^{-1}(V_i\cap V_j)\times k^r:
     (x,v)\mapsto (x, h_j\circ (p, h_i)^{-1}(f(x),v)).
 \end{equation}
-But $h_j\circ (p, h_i)^{-1}(f(x),v)=g_{ij}\circ f(x)\cdot v$ by definition.
+But $h_j\circ (p, h_i)^{-1}(f(x),v)=g_{ij}\circ f(x)\cdot v$ by definition.\par 
+
+\begin{notation}
+    In the context of the previous discussion, we denote the vector bundle $E$ by $f^*(F)$, which is 
+    called the pushforward of $F$ by $f$.
+\end{notation}
+If $i: Y\to X$ is an inclusion, and $L\to X$ is a vector bundle, we can define the restriction 
+$L|_Y = i^*(L)$, its transition functions are obtained by restricting transitions functions of $L$ to 
+$Y$.
+
 \subsection{Chow ring}
 Let $X$ be an irreducible variety, we define 
 \begin{equation}
@@ -2878,7 +2874,8 @@ Furthermore, if $Y\subset X$ is closed irreducible of dimension $r$ and $f\in K^
     [\text{div}(f)]=\sum_{\codim(W,Y)=1}\ord_W(f)[W]\in Z_{r-1}(X).
 \end{equation}
 Finally, we define $D\sim D^\prime$ if $D-D^\prime = [\text{div}(f)]$ for some $f$. Then we define the quotient 
-ring $A(X) = Z(X)/\sim$.
+ring $A(X) = Z(X)/\sim$. We write $A_n(X)$ for the class of divisors spanned by 
+$n$-dimensional subvarieties.
 
 \subsection{Review on vector bundles of projective spaces}
 \begin{dang}
@@ -2959,3 +2956,160 @@ by $X_i$ on numerator and denominator. So $G_i/X_i^{a-m}= G_j/X_j^{a-m}$ on $D_+
 This proves that $X_i^{a-m}|G_i$ and $F= G_i/X_i^{a-m}\in k [X_0,\dots, X_r],\;\forall i$.\qed
 
 \subsection{Intersection theory}
+
+Let $[Y]\in Z_n(X)$, then we define the group morphism $\cap Y: \CaDiv(X) \to A_{n-1}(X) $ by compositions
+\begin{equation}
+    \CaDiv(X)\to \Pic(X)\to\Pic(Y)\to \frac{\CaDiv(Y)}{\text{PDiv(Y)}}\to A_{n-1}(Y)\to A_{n-1}(X)
+\end{equation}
+which sends 
+\begin{equation}
+    D\mapsto L(D)\mapsto L(D)|_Y\mapsto D_Y\mapsto [D_Y] \mapsto [D_Y]
+\end{equation}
+
+If $D$ is a Cartier divisor and $[Y]\in Z_n(X)$, we write $D\cdot [Y] = \cap Y(D)= [D_Y]$. We note that 
+\begin{equation}
+    \cap Y: (X,f)\mapsto X\times k\mapsto Y\times k\mapsto (Y,1)\sim 0
+\end{equation}
+and $(X,f)\cdot [Y]=0$. Therefore, $\cap Y$ descends to the quotient $\tfrac{\CaDiv(X)}{\text{PDiv}(X)}$. We will 
+write $\cap Y$ to this map now. Furthermore, if $W\supset Y$, then 
+$D\cdot[Y]=D_W\cdot [Y]$, because $L(D)|_W|_Y=L(D)|_Y$ and 
+$L(D_W) = L(D)|_W$ because both maps to $D_W$.
+So, if $f\in K^*(W)$, we have 
+$D\cdot [\text{div}(f)]= D_W\cdot[\text{div}(f)]$.
+
+\begin{dang}
+    \begin{proposition}
+        If $D,D^\prime\in\CaDiv(X)$, then $D\cdot [D^\prime] = D^\prime\cdot [D]$.
+    \end{proposition}
+\end{dang}
+Proof: The proposition is true in full generality, but we prove it here for $X$ smooth. In this case, we have 
+\begin{equation}
+    \frac{\CaDiv(X)}{\text{PDiv}(X)}\to \Div(X).
+\end{equation}
+with inverse given by $[Y]\mapsto ((U_i, f_i)_{i\in I}, (X-Y,1))$, where 
+$Y\subset\bigcup_i U_i$ is a covering of open affines and $f_i\in\callO(U_i)$ are such that 
+$f_i\callO(U_i) = I_{Y\cap U_i|U_i}$. So it's sufficient to prove the proposition for 
+$D,D^\prime$ associated to $[Y], [Y^\prime]$, with $Y\neq Y^\prime$. Now we calculate $D\cdot [Y^\prime]$. 
+We have 
+\begin{equation}
+    L(D) = \{f_i|_{U_i\cap (X-Y)}, f_i/f_j|_{U_{ij}}\}_{i,j\in I}.
+\end{equation}
+We remember that $f_i|_{U_i\cap (X-Y)}$ is never zero because $(f_i)=I_{Y\cap U_i| U_i}$. So 
+\begin{equation}
+    L(D)|_{Y^\prime} =\{f_i|_{U_i\cap (Y^\prime - Y)}, f_i/f_j|_{U_{ij}\cap Y^\prime}\}_{i,j\in I} 
+\end{equation}
+has associated Cartier divisor 
+\begin{equation}
+    D_{Y^\prime}=\{(U_i\cap Y^\prime, f_i|_{U_i\cap Y^\prime})_{i \in I},(Y^\prime - Y,1)\}
+\end{equation}
+which has support in $\bigcup_i V(f_i|_{U_i\cap Y^\prime}) = \bigcup_i Y^\prime\cap Y\cap U_i = Y^\prime \cap Y$. We also 
+see that codimension 1 subvarieties $W\subset Y^\prime\cap Y$ are the irreducible components of $Y^\prime\cap Y$. Now we have 
+\begin{equation}
+    \ord_W(D_{Y^\prime})=\ell(\frac{\callO_{Y^\prime, W}}{f_i\callO_{Y^\prime, W}}),\; U_i\cap W\neq\varnothing
+\end{equation}
+and $f_i\in I_{Y\cap U_i|U_i}\Rightarrow f_i|_{W\cap U_i}=f_i|_{Y^\prime\cap Y\cap U_i}|_{W\cap U_i}=0$, so 
+$f_i\in \fr{m}_{Y^\prime, W}$. In a similar way, we have 
+\begin{equation}
+    D^\prime = ((U_j^\prime, f_j^\prime)_{j\in J}, (X-Y^\prime,1))
+\end{equation}
+with 
+\begin{equation}
+    \ord_W(D^\prime_Y) =\ell(\frac{\callO_{Y,W}}{f_j^\prime\callO_{Y,W}}),\; U_j^\prime\cap W\neq\varnothing.
+\end{equation}
+Note 
+\begin{center}
+    \begin{tikzcd}
+        \callO_{X,W}\arrow[r]\arrow[d,hook]&\callO_{Y,W}:\langle U,f\rangle\mapsto \langle U\cap Y,f|_{U\cap Y}\rangle
+        \\ \callO_{X,Y}&
+    \end{tikzcd}
+\end{center}
+and $\langle U\cap Y, f|_{U\cap Y}\rangle = 0$ if $f(U\cap Y)=0$, which implies 
+$f\in\fr{m}_{X,Y}\cap \callO_{X,W} = f_i\callO_{X,Y}\cap\callO_{X,W} = f_i\callO_{X,W}$. Therefore 
+$\callO_{Y,W} \cong \callO_{X,W}/(f_i)$. In a similar way, we have 
+$\callO_{Y^\prime, W} \cong \callO_{X,W}/(f_j^\prime)$, so 
+\begin{equation}
+    \frac{\callO_{Y^\prime, W}}{(f_i)} \cong \frac{\callO_{Y,W}}{(f_j^\prime)}
+\end{equation}
+as $\callO_{X,W}$ modules. 
+We finnish the proof by noting that equation~(\ref{equation: length of a module}) only depends on the residue 
+field $A/P$ and the sets $P^{i-1}M/P^iM$. In the previous isomorphism, the residue field of both modules 
+structures are $K(W)$, with maximal ideals $\fr{m}_{Y^\prime, W}$ and $\fr{m}_{Y,W}$ being identified.\qed
+
+\begin{dang}
+    \begin{corollary}
+        We have an induced map 
+        \begin{equation}
+            \frac{\CaDiv(X)}{\text{PDiv}(X)}\times A_n(X)\to A_{n-1}(X): (D, [Y])\mapsto [D_Y].
+        \end{equation}
+    \end{corollary}
+\end{dang}
+Proof: We need to show that $D\cdot [\text{div}(f)] = 0$. Suppose that $f\in K^*(W)$, then by the previous proposition 
+we have 
+\begin{equation}
+    D\cdot[\text{div}(f)] = D_W\cdot[\text{div}(f)] = (W,f)\cdot [D_W] = 0 \in A_*(W),
+\end{equation} 
+so it's zero in $A_*(X)$.\qed
+
+
+
+\begin{example}
+    A calculation: Let $X=\bbP^n$, $F\in k[X_0,\dots, X_n]_d^h$ be irreducible and $L\in (k^{n+1})^*$. Then 
+    $[\text{div}(F/L^d)]=V(F) - d V(L)\in\Div(X)$. We have $F/L^d\in K^*(X)$, but we can write 
+    \begin{equation}
+        (X, F/L^d)\sim ((D_+(L), F/L^d), (D_+(F), 1/ (L^d/F)))
+    \end{equation}
+    where $F/L^d\in\callO(D_+(L)), L^d/F\in\callO(D_+(F))$. So, the support of 
+    $[\text{div}(F/L^d)]$ is in the set $\{\overline{V(F/L^d)\cap D_+(L)},\overline{V(L^d/F)\cap D_+(F)}\}=\{V(F),V(L)\}$.
+    Furthermore, if $Z=V(F)$, then $(F/L^d)\callO_{X,Z}=\fr{m}_{X,Z}$, so $v(F/L^d)=1$. Also, if 
+    $Z=V(L)$, then $L^d/F \in\fr{m}_{X,Z}^d-\fr{m}_{X,Z}^{d+1}$ and $v(L^d/F) = d$. Therefore 
+    \begin{equation}
+        [\text{div}(F/L^d)]=V(F) - d V(L).
+    \end{equation}
+\end{example}
+
+\begin{dang}
+    \begin{theorem}
+    (Bèzout theorem). Let $F_1,\dots, F_n\in k[X_0,\dots, X_n]$ homogeneous polynomials 
+    of degrees $d_1,\dots, d_n$. If $V(F_1,\dots, F_n)\subset\bbP^n$ is finite, then 
+    $\#V(F_1,\dots, F_n)=d_1\cdots d_n$ by taking into acount the multiplicities.
+    \end{theorem}
+\end{dang}
+Proof: By remark~(\ref{remark: krull dimension generalized}), if $Z\subset V(F_1,\dots, V_k)$, then 
+\begin{equation}
+    \codim(Z,\bbP^n)\leq k\Rightarrow \dim Z\geq n-k.
+\end{equation} 
+Furthermore, we have 
+\begin{equation}
+    Z\cap V(F_{k+1},\dots, F_n) = V(F_{k+1}|_Z,\dots, F_n|_{Z}) \subset V(F_1,\dots, F_n),\; \#V(F_1,\dots, F_n)<\infty.
+\end{equation}
+But any irreducible component of $V(F_{k+1}|_Z,\dots, F_n|_{Z})$ has dimension $\geq \dim Z - (n-k)$. Since it's a finite 
+subset, we must have $\dim Z = n-k,\;\forall 1\leq k\leq n$. Furthermore, if $Z\subset V(F_1,\dots, F_k)$ is an irreducible components and  
+$F_{k+1}|_Z=0$, then $V(F_{k+1})\cap Z=V(F_{k+1}|_Z)=Z$. Therefore
+$Z\subset V(F_1,\dots, F_{k+1})$ is an irreducible component, which contradicts $\dim Z = n - k$. 
+So we see that $F_{k+1}|_Z\neq 0$. 
+The Cartier divisor $D_k$ associated to the prime divisor $V(F_k)$ is given by 
+\begin{equation}
+    (D_+(X_i),\frac{F_k}{X_i^{d_k}})_{i=0}^r.
+\end{equation}
+Then by the proof of the previous proposition, we have 
+\begin{equation}
+    D_2\cdot [ D_1] = \biggl[ \sum_W m_W[W] \biggr]
+\end{equation}
+where $W$ runs through the irreducible components of $V(F_1)\cap V(F_2)=V(F_1,F_2)$. As we note 
+before $D_3\cdot [W] = \sum_{W^\prime}m_{W^\prime}[W^\prime]$, where $W^\prime\subset W\cap V(F_3)$ is an irreducible component 
+and $\dim W^\prime = n - 3$. Then we see that 
+\begin{equation}
+    D_n\cdot(D_{n-1}(\cdots D_2\cdot[D_1])\cdots) \in A_0(\bbP^r)
+\end{equation}
+is the sum of points of $V(F_1,\dots, F_n)$ with positive multiplicites. Now, by the previous example we have 
+$F_k\sim d_k H$, where $H$ is a hyperplane. Therefore 
+\begin{equation}
+    D_n\cdot(D_{n-1}(\cdots D_2\cdot[D_1])\cdots) = d_1\cdots d_n H\cdot(H(\cdots H\cdot[H])\cdots)\quad(*)
+\end{equation}
+Finally, we have 
+\begin{equation}
+    H\cdot(H(\cdots H\cdot[H])\cdots) = H_n\cdot(H_{n-1}(\cdots H_2\cdot[H_1])\cdots) = [1:0:\cdots:0]
+\end{equation}
+where $H_i = V(x_i)$. Then, by taking degree of both sides of equation $(*)$, we are done.\qed
+
+

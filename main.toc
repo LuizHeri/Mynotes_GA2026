@@ -37,9 +37,9 @@
 \contentsline {subsection}{\numberline {1.15.2}Chow ring}{57}{subsection.1.15.2}%
 \contentsline {subsection}{\numberline {1.15.3}Review on vector bundles of projective spaces}{57}{subsection.1.15.3}%
 \contentsline {subsection}{\numberline {1.15.4}Intersection theory}{59}{subsection.1.15.4}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{60}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Some notes from Geck}{60}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Polynomial rings}{60}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Basic definitions}{60}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Tangent Spaces}{66}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Notes from Springer}{70}{section.2.5}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{62}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some notes from Geck}{62}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Polynomial rings}{62}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic definitions}{62}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tangent Spaces}{68}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Notes from Springer}{72}{section.2.5}%
