@@ -2250,7 +2250,7 @@ Then the equality
     \textcolor{red}{The item (5) above, give an explicty description of the support of the Weil divisor associated 
     to a Cartier Divisor $D$. Let $D=(U_i,f_i)_{i\in I},\;f_i=\tfrac{a_i}{b_i},\;a_i,b_i\in\callO(U_i)$ as above. Then 
     \begin{equation}
-        [D]\in\text{Span}\{\overline{Z}: Z\text{ irr. component of }V(a_i)\cup V(b_i),\;i\in I\}.
+        [D]\in\text{Span}\{[\overline{Z}]: Z\text{ irr. component of }V(a_i)\cup V(b_i),\;i\in I\}.
     \end{equation}
     }
 \end{remark} 
@@ -2330,7 +2330,7 @@ which shows that $D\sim n_Y[Y]$.\qed
     \begin{corollary}
         With the conditions of the previous lemma, we have an exact sequence 
         \begin{equation}
-            \bbZ\to \Cl(X) \to \Cl(U)\to 0. 
+            \bbZ[Y]\to \Cl(X) \to \Cl(U)\to 0. 
         \end{equation}
     \end{corollary}
 \end{dang}
@@ -2339,6 +2339,47 @@ which shows that $D\sim n_Y[Y]$.\qed
     In the previous lemma, if $Y$ has codimension $\geq2$, we can show in the same lines that 
     $\Cl(X)\cong \Cl(U)$.
 \end{remark}
+
+\begin{example}
+    We have $\Cl(k^n)=0$ and $\Cl(\bbP^n)=\bbZ[H]$, where $H\subset \bbP^n$ is a hyperplane. For the first one, we 
+    observe that if $\{f_i\}_{i=1}^m$ is a set of different irreducible polynomials, then 
+    \begin{equation}
+        [\text{div}(f_1^{d_1}\cdots f_m^{d_m})] = \sum_{i=1}^m d_i\cdot[V(f_i)].
+    \end{equation} 
+    In fact
+    \begin{equation}
+        \begin{split}
+            \ord_{V(f_i)}(f_1^{d_1}\cdots f_m^{d_m}) &= \ell(\frac{\callO_{k^n, V(f_i)}}{(f_1^{d_1}\cdots f_m^{d_m})})\\
+         &=\ell(\frac{\callO_{k^n, V(f_i)}}{(f_i^{d_i})})\\
+         &=d_i.
+        \end{split}
+    \end{equation}
+    This follows because $f_j|_{V(f_i)}\not\equiv 0,\;i\neq j$, otherwise we would have $V(f_j)\subset V(f_i)$, and 
+    $\sqrt{(f_i)}\subset \sqrt{(f_j)}\Rightarrow f_j|f_i$, which contradicts $i\neq j$. Therefore 
+    $f_j\in \callO_{k^n, V(f_i)}^*,\;\forall j\neq i$. Now, we have 
+    $f_i\callO(k^n) = (f_i) = I(V(f_i)) = I_{V(f_i)|k^n}$ by the fact that $f_i$ is irreducible. 
+    Therefore $f_i\callO_{k^n, V(f_i)}=\fr{m}_{k^n, V(f_i)}$ and the result follows.\par 
+    Now, if $H\subset \bbP^n$ is a hyperplane, we have $\bbP^n\setminus H \cong k^n$. So we have an exact sequence 
+    \begin{equation}
+        \bbZ[H] \to \Cl(\bbP^n)\to \Cl(k^n) \to 0.
+    \end{equation}
+    Then we get $\Cl(\bbP^n) = \bbZ[H]$, because $\Cl(k^n)=0$.
+\end{example}
+
+\begin{example}
+    Let $Y=V_p(F)\subset \bbP^n$ be a hypersurface, where $F\subset k[X_0,\dots, X_n]_d^h$ is irreducible. 
+    Then, if $U = \bbP^n\setminus Y$, we have $\Cl(U) \cong \bbZ/d\bbZ$. In fact, we have an exact sequence 
+    \begin{equation}
+        \bbZ[Y]\to \Cl(\bbP^n) \to \Cl(U)\to 0.
+    \end{equation}
+    But $\Cl(\bbP^n) = \bbZ[H]$, where $H$ is a hyperplane. Now, since 
+    $\text{div}(F/H^d) = [Y] - d[H]$, we see that $[Y]\sim d[H]$. Then we get an exact sequence 
+    \begin{equation}
+        \bbZ d \to \bbZ \to \Cl(U) \to 0
+    \end{equation}
+    and we conclude that $\Cl(U)\cong \bbZ/d\bbZ$.
+\end{example}
+
 
 \begin{example}
     Let $X=V(UV-W^2)\subset k^3$ and $Y=V(U,W)\subset X$. We claim that $\Cl(X)\cong\bbZ/2$. We 
@@ -2737,12 +2778,11 @@ Let $J\subset R$ an nonzero ideal. Then we define
 \begin{equation}
     v(J) = \min\{n\geq0:\exists\;f\in J, v(f)=n\}.
 \end{equation}
-There exists $f\in J\setminus0$ such that $v(f)=v(J)$. So, for all $g\in J$, we have 
+There exists $f\in J\setminus0$ such that $v(f)=v(J)$, then we have $J = \fr{m}^{v(J)}$. In particular, we see that 
+$(a) = \fr{m}^{v(a)}$. Therefore 
 \begin{equation}
-    v(g)\geq v(f)\Rightarrow g = t^{v(g)}x = t^{v(f)}y = af.
+    \ell(\frac{R}{(a)}) = \ell(\frac{R}{\fr{m}^{v(a)}})=v(a).
 \end{equation}
-Then we see that $(a) = \fr{m}^{v(a)}$ and $\ell(\tfrac{R}{\fr{m}^\ell})=\ell$.
-
 
 \begin{dang}
     \begin{theorem}

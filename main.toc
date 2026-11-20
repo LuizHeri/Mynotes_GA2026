@@ -30,16 +30,16 @@
 \contentsline {section}{\numberline {1.12}Lecture 19 and 20}{40}{section.1.12}%
 \contentsline {subsection}{\numberline {1.12.1}Cartier divisors}{40}{subsection.1.12.1}%
 \contentsline {subsection}{\numberline {1.12.2}Weil divisors}{42}{subsection.1.12.2}%
-\contentsline {section}{\numberline {1.13}Lecture 21}{48}{section.1.13}%
-\contentsline {section}{\numberline {1.14}Lectures 22 and 23}{53}{section.1.14}%
-\contentsline {section}{\numberline {1.15}Lecture 24}{56}{section.1.15}%
-\contentsline {subsection}{\numberline {1.15.1}Pushforward of vector bundles}{56}{subsection.1.15.1}%
-\contentsline {subsection}{\numberline {1.15.2}Chow ring}{57}{subsection.1.15.2}%
-\contentsline {subsection}{\numberline {1.15.3}Review on vector bundles of projective spaces}{57}{subsection.1.15.3}%
-\contentsline {subsection}{\numberline {1.15.4}Intersection theory}{59}{subsection.1.15.4}%
-\contentsline {chapter}{\numberline {2}Algebraic Groups}{62}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Some notes from Geck}{62}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Polynomial rings}{62}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Basic definitions}{62}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Tangent Spaces}{68}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Notes from Springer}{72}{section.2.5}%
+\contentsline {section}{\numberline {1.13}Lecture 21}{49}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Lectures 22 and 23}{54}{section.1.14}%
+\contentsline {section}{\numberline {1.15}Lecture 24}{57}{section.1.15}%
+\contentsline {subsection}{\numberline {1.15.1}Pushforward of vector bundles}{57}{subsection.1.15.1}%
+\contentsline {subsection}{\numberline {1.15.2}Chow ring}{58}{subsection.1.15.2}%
+\contentsline {subsection}{\numberline {1.15.3}Review on vector bundles of projective spaces}{58}{subsection.1.15.3}%
+\contentsline {subsection}{\numberline {1.15.4}Intersection theory}{60}{subsection.1.15.4}%
+\contentsline {chapter}{\numberline {2}Algebraic Groups}{63}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Some notes from Geck}{63}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Polynomial rings}{63}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic definitions}{63}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tangent Spaces}{69}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Notes from Springer}{73}{section.2.5}%
